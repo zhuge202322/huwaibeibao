@@ -151,17 +151,19 @@ export default function AboutPage() {
           {/* Bento layout */}
           <div className="grid grid-cols-12 gap-gutter h-auto lg:h-[720px]">
             
-            {/* Left large box */}
-            <div className="col-span-12 lg:col-span-8 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto">
-              <Image 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200" 
-                alt="Main assembly line"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+            {/* Left large box - Interactive Video Tour */}
+            <div className="col-span-12 lg:col-span-8 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto bg-black flex items-center justify-center">
+              <video 
+                src="/images/video.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="w-full h-full object-cover opacity-85 transition-all duration-500 group-hover:opacity-100" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-              <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
-                <span className="font-label-sm text-xs text-[#FF6B35] uppercase font-mono">Assembly Operations</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 z-20 w-full pointer-events-none">
+                <span className="font-label-sm text-xs text-high-vis-orange uppercase font-mono">Factory In-Action Video</span>
                 <h4 className="font-headline-md text-white font-bold mt-1">24 Modular Smart Assembly & Sewing Lines</h4>
               </div>
             </div>
@@ -171,14 +173,14 @@ export default function AboutPage() {
               
               <div className="h-[250px] lg:h-1/2 group relative overflow-hidden border border-outline-variant">
                 <Image 
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" 
-                  alt="Quality check"
+                  src="/images/about.png" 
+                  alt="Ideas Cool Factory Facility"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
                 <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-                  <h4 className="font-headline-md text-base text-white font-bold">Precision Quality Control & Inspection</h4>
+                  <h4 className="font-headline-md text-base text-white font-bold">Ideas Cool CNC Intelligent Warehouse</h4>
                 </div>
               </div>
 
