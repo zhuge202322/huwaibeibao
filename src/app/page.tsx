@@ -572,14 +572,16 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative h-[480px] md:h-[600px] w-full">
+          <div className="relative h-[480px] md:h-[600px] w-full bg-black">
             <div className="absolute top-0 right-0 w-[95%] h-[95%] border-4 border-high-vis-orange -z-10 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8" />
             <div className="w-full h-full relative overflow-hidden">
-              <Image 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200"
-                alt="Factory production line"
-                fill
-                className="object-cover"
+              <video 
+                src="/images/video.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300" 
               />
             </div>
           </div>
@@ -697,20 +699,74 @@ export default function Home() {
       {/* 9. Exhibition Showcase */}
       <section className="py-section-gap bg-surface-container-low border-t border-outline-variant w-full">
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-          <div className="max-w-5xl mx-auto">
-            <div className="relative w-full aspect-[4/3] md:aspect-[1.5/1] overflow-hidden border border-outline-variant bg-white shadow-md group">
-              <Image 
-                src="https://sc02.alicdn.com/kf/Hf67b266788414bda909f7ccbe6987a337.jpg" 
-                alt="Our Exhibition Showcase" 
-                fill
-                className="object-contain p-2 md:p-4 transition-transform duration-700 group-hover:scale-[1.02]"
-                priority
-              />
+          
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <div>
+              <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">GLOBAL ENGAGEMENT</span>
+              <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Our Global Exhibitions</h2>
+              <div className="h-1 w-20 bg-high-vis-orange mt-4" />
             </div>
-            <p className="font-body-md text-secondary text-sm text-center mt-6 max-w-2xl mx-auto">
-              Inspect our high-performance samples and meet our engineering team face-to-face at global trade shows. We welcome outdoor brands, retailers, and OEM/ODM distributors to build joint partnerships.
-            </p>
+            {/* Carousel navigation buttons */}
+            <div className="flex gap-2">
+              <button 
+                onClick={() => {
+                  const track = document.getElementById("exhibition-track");
+                  if (track) {
+                    track.scrollBy({ left: -track.clientWidth * 0.75, behavior: "smooth" });
+                  }
+                }}
+                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer font-bold font-mono"
+                aria-label="Previous Slide"
+              >
+                &lt;
+              </button>
+              <button 
+                onClick={() => {
+                  const track = document.getElementById("exhibition-track");
+                  if (track) {
+                    track.scrollBy({ left: track.clientWidth * 0.75, behavior: "smooth" });
+                  }
+                }}
+                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer font-bold font-mono"
+                aria-label="Next Slide"
+              >
+                &gt;
+              </button>
+            </div>
           </div>
+
+          {/* Horizontal scroll track with 4 avif images */}
+          <div 
+            id="exhibition-track"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar py-4 scroll-smooth"
+          >
+            {[
+              "/images/1.avif",
+              "/images/2.avif",
+              "/images/3.avif",
+              "/images/4.avif"
+            ].map((src, index) => (
+              <div 
+                key={index} 
+                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start relative aspect-[4/3] border border-outline-variant bg-white shadow-sm group overflow-hidden"
+              >
+                <Image 
+                  src={src} 
+                  alt={`Exhibition Booth Showcase ${index + 1}`} 
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
+                  <span className="text-white font-mono text-xs uppercase tracking-wider">Ideas Cool Exhibition Booth #{index + 1}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-body-md text-secondary text-sm text-center mt-10 max-w-2xl mx-auto">
+            Inspect our high-performance samples and meet our engineering team face-to-face at global trade shows. We welcome outdoor brands, retailers, and OEM/ODM distributors to build joint partnerships.
+          </p>
         </div>
       </section>
 
