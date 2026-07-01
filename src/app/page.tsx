@@ -359,7 +359,11 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {HOMEPAGE_CATEGORIES.map((cat) => {
-              const count = (productsData as any[]).filter((p) => p.category === cat.slug).length;
+              const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
+              const count = catProducts.length;
+              const firstProduct = catProducts[0];
+              const categoryImage = firstProduct && firstProduct.image ? firstProduct.image : cat.image;
+
               return (
                 <Link 
                   key={cat.slug}
@@ -369,7 +373,7 @@ export default function Home() {
                   {/* Image Area */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
                     <Image 
-                      src={cat.image} 
+                      src={categoryImage} 
                       alt={cat.name} 
                       fill 
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
