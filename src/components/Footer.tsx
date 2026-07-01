@@ -28,9 +28,9 @@ export default function Footer() {
             <Image 
               src="/logo.png" 
               alt="Ideas Cool Logo" 
-              width={44} 
-              height={44} 
-              className="object-contain w-11 h-11"
+              width={56} 
+              height={56} 
+              className="object-contain w-14 h-14"
             />
             <span className="font-headline-md text-headline-md font-bold text-primary uppercase">
               Ideas Cool Co., Limited
