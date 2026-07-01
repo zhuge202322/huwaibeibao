@@ -168,35 +168,18 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right stack */}
-            <div className="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
-              
-              <div className="h-[250px] lg:h-1/2 group relative overflow-hidden border border-outline-variant">
-                <Image 
-                  src="/images/about.png" 
-                  alt="Ideas Cool Factory Facility"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-                  <h4 className="font-headline-md text-base text-white font-bold">Ideas Cool CNC Intelligent Warehouse</h4>
-                </div>
+            {/* Right column - Single Full-Height Facility Showcase */}
+            <div className="col-span-12 lg:col-span-4 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto">
+              <Image 
+                src="/images/about.png" 
+                alt="Ideas Cool Factory Showcase"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+              <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
+                <h4 className="font-headline-md text-base text-white font-bold">Ideas Cool Showroom & Intelligent Facility</h4>
               </div>
-
-              <div className="h-[250px] lg:h-1/2 group relative overflow-hidden border border-outline-variant">
-                <Image 
-                  src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=600" 
-                  alt="Fabric testing lab"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-                  <h4 className="font-headline-md text-base text-white font-bold">Air Tightness & Hydrostatic Testing Station</h4>
-                </div>
-              </div>
-
             </div>
 
           </div>
