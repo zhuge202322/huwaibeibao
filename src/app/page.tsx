@@ -665,7 +665,7 @@ export default function Home() {
                 <Star size={16} fill="currentColor" />
               </div>
               <p className="font-body-lg italic text-sm text-on-surface">
-                &ldquo;Extreme Gear's precision on seam stitching tension and robust frame support redefined our flagship technical pack line. They hit our exact specifications.&rdquo;
+                &ldquo;Ideas Cool's precision on seam stitching tension and robust frame support redefined our flagship technical pack line. They hit our exact specifications.&rdquo;
               </p>
               <div>
                 <p className="font-bold text-primary text-sm">Marcus Thorne</p>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Globe, ShieldCheck, PhoneCall, Award } from "lucide-react";
 
@@ -11,8 +12,17 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 z-[100] w-full bg-white/95 backdrop-blur-md border-b border-outline-variant h-20 flex items-center shadow-sm">
         <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-          <Link href="/" className="font-headline-md text-xl md:text-2xl font-extrabold text-primary tracking-tight font-display-xl uppercase">
-            EXTREME GEAR MFG
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <Image 
+              src="/logo.png" 
+              alt="Ideas Cool Logo" 
+              width={32} 
+              height={32} 
+              className="object-contain w-8 h-8"
+            />
+            <span className="font-headline-md text-base md:text-[17px] lg:text-lg font-extrabold text-primary tracking-tight font-display uppercase group-hover:text-high-vis-orange transition-colors">
+              Ideas Cool Co., Limited
+            </span>
           </Link>
           
           {/* Desktop Nav */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Globe, Award, ShieldCheck, HelpCircle, Send } from "lucide-react";
 
@@ -23,7 +24,18 @@ export default function Footer() {
         
         {/* Company Info */}
         <div className="col-span-12 md:col-span-4 space-y-6">
-          <div className="font-headline-md text-headline-md font-bold text-primary">EXTREME GEAR MFG</div>
+          <div className="flex items-center gap-2.5">
+            <Image 
+              src="/logo.png" 
+              alt="Ideas Cool Logo" 
+              width={32} 
+              height={32} 
+              className="object-contain w-8 h-8"
+            />
+            <span className="font-headline-md text-headline-md font-bold text-primary uppercase">
+              Ideas Cool Co., Limited
+            </span>
+          </div>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
             Professional B2B outdoor gear manufacturing solutions. Since 1998, providing high-durability outdoor packs and manufacturing services to global partners.
           </p>
@@ -107,7 +119,7 @@ export default function Footer() {
       {/* Certifications and Copyright */}
       <div className="max-w-container-max mx-auto mt-20 pt-10 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="font-label-sm text-label-sm text-on-surface-variant opacity-70">
-          © 2026 Extreme Gear Manufacturing. All rights reserved. Professional B2B outdoor gear provider.
+          © 2026 Ideas Cool Co., Limited. All rights reserved. Professional B2B outdoor gear provider.
         </p>
         <div className="flex gap-8">
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">

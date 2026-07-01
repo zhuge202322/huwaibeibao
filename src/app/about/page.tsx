@@ -72,7 +72,7 @@ export default function AboutPage() {
               ENGINEERED FOR EXTREME PERFORMANCE & RELIABILITY
             </h1>
             <p className="font-body-lg text-sm text-surface-variant/90 max-w-lg">
-              From high-precision sample development to large-scale intelligent manufacturing, EXTREME GEAR builds the safety barriers that handle harsh outdoor environments.
+              From high-precision sample development to large-scale intelligent manufacturing, Ideas Cool builds the safety barriers that handle harsh outdoor environments.
             </p>
           </div>
         </div>

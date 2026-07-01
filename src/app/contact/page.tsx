@@ -72,7 +72,7 @@ export default function ContactPage() {
                   <p className="leading-relaxed">
                     No. 102 Pingshan Industrial Avenue, Pingshan District,<br />
                     Shenzhen, Guangdong Province, China<br />
-                    Extreme Gear Industrial Park, Bldg East, R&D Center<br />
+                    Ideas Cool Industrial Park, Bldg East, R&D Center<br />
                     ZIP Code: 518118
                   </p>
                 </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-4 text-sm text-secondary">
                     <Mail size={18} className="text-primary" />
-                    <p className="font-bold font-mono text-xs">service@extremegearmfg.com</p>
+                    <p className="font-bold font-mono text-xs">operation@ideascool.net</p>
                   </div>
                 </div>
               </div>
