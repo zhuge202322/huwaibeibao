@@ -261,42 +261,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team portrait CTA */}
+      {/* Company Profile Section */}
       <section className="bg-primary text-white py-section-gap relative overflow-hidden w-full">
         <div className="absolute inset-0 topographic-bg opacity-10 pointer-events-none" />
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 space-y-12">
-          {/* Top text content & stats */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
-            <div className="max-w-2xl space-y-4">
-              <h2 className="font-headline-lg text-headline-lg uppercase font-bold">Professional OEM/ODM R&D Team</h2>
-              <p className="font-body-lg text-sm text-surface-variant/85 leading-relaxed">
-                Our crew includes master tailors, polymer materials specialists, and international B2B logistics coordinators. We go deep into workshop rows to ensure every seam meets extreme tension and global compliance standards.
+          {/* Header */}
+          <div>
+            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">COMPANY PROFILE</span>
+            <h2 className="font-headline-lg text-headline-lg uppercase font-bold text-white">Blink Dreams (Xiamen) Trading Co., Limited</h2>
+            <div className="h-1 w-20 bg-high-vis-orange mt-4" />
+          </div>
+
+          {/* Detailed Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 font-body-lg text-sm leading-relaxed text-surface-variant/90">
+            {/* Column 1: History & Core Products */}
+            <div className="space-y-6">
+              <p>
+                <strong>Blink Dreams</strong> is a professional bags manufacturer located in Quanzhou City, Fujian Province, China. We specially deal with all kinds of bags, including school bags, sports bags, cosmetic bags, bicycle bags, ice bags, backpacks, trolley bags, wallets, cooler bags, travel bags, gift bags, and more.
+              </p>
+              <p>
+                At the same time, most of our high-quality carrying products are exported to American, European countries, and other international markets, earning high trust from B2B partners worldwide.
               </p>
             </div>
-            {/* Stats */}
-            <div className="flex gap-12 font-mono flex-shrink-0">
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">45+</div>
-                <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-1">Dedicated R&D Engineers</div>
-              </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">24h</div>
-                <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-1">Global Response Support</div>
-              </div>
+
+            {/* Column 2: Facility Scale & Production Capacity */}
+            <div className="space-y-6">
+              <p>
+                Our manufacturing plant occupies a modern area of <strong>8,000 square meters</strong> and features a highly convenient logistics and transport network. Equipped with advanced professional technicians and superior quality control processes, we currently employ a dedicated team of more than <strong>200 skilled staff</strong>.
+              </p>
+              <p>
+                We have a total annual production capacity of <strong>1,200,000 pieces</strong>, exporting successfully to Europe, North America, South America, India, Pakistan, the Middle East, and other global destinations.
+              </p>
             </div>
           </div>
 
-          {/* Bottom wide image - aspect ratio tailored for panoramic 3.avif */}
-          <div className="relative w-full overflow-hidden border border-surface-variant/30 group">
-            <div className="absolute -inset-4 border border-surface-variant/10 pointer-events-none" />
-            <div className="relative w-full aspect-[21/9] min-h-[250px] md:min-h-[400px]">
-              <Image 
-                src="/images/3.avif" 
-                alt="Ideas Cool R&D Team Group Portrait" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
-                priority
-              />
+          {/* Stats Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-surface-variant/20 font-mono">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">8k+ m²</div>
+              <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-2">Facility Area</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">200+</div>
+              <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-2">Skilled Staff</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">1.2M</div>
+              <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-2">Annual Capacity (Pcs)</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">100%</div>
+              <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-2">Export Oriented</div>
             </div>
           </div>
         </div>

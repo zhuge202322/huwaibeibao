@@ -72,7 +72,7 @@ export default function ContactPage() {
                   <p className="leading-relaxed">
                     No. 102 Pingshan Industrial Avenue, Pingshan District,<br />
                     Shenzhen, Guangdong Province, China<br />
-                    Ideas Cool Industrial Park, Bldg East, R&D Center<br />
+                    Blink Dreams Industrial Park, Bldg East, R&D Center<br />
                     ZIP Code: 518118
                   </p>
                 </div>

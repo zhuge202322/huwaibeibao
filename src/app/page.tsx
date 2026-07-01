@@ -667,7 +667,7 @@ export default function Home() {
                 <Star size={16} fill="currentColor" />
               </div>
               <p className="font-body-lg italic text-sm text-on-surface">
-                &ldquo;Ideas Cool's precision on seam stitching tension and robust frame support redefined our flagship technical pack line. They hit our exact specifications.&rdquo;
+                &ldquo;Blink Dreams' precision on seam stitching tension and robust frame support redefined our flagship technical pack line. They hit our exact specifications.&rdquo;
               </p>
               <div>
                 <p className="font-bold text-primary text-sm">Marcus Thorne</p>
@@ -758,7 +758,7 @@ export default function Home() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
-                  <span className="text-white font-mono text-xs uppercase tracking-wider">Ideas Cool Exhibition Booth #{index + 1}</span>
+                  <span className="text-white font-mono text-xs uppercase tracking-wider">Blink Dreams Exhibition Booth #{index + 1}</span>
                 </div>
               </div>
             ))}

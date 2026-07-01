@@ -33,7 +33,7 @@ export default function Footer() {
               className="object-contain h-10 w-auto"
             />
             <span className="font-headline-md text-base font-bold text-primary uppercase">
-              Ideas Cool Co., Limited
+              Blink Dreams Co., Limited
             </span>
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
@@ -119,7 +119,7 @@ export default function Footer() {
       {/* Certifications and Copyright */}
       <div className="max-w-container-max mx-auto mt-20 pt-10 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="font-label-sm text-label-sm text-on-surface-variant opacity-70">
-          © 2026 Ideas Cool Co., Limited. All rights reserved. Professional B2B outdoor gear provider.
+          © 2026 Blink Dreams (Xiamen) Trading Co., Limited. All rights reserved. Professional B2B bags provider.
         </p>
         <div className="flex gap-8">
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
