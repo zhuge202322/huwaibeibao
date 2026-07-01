@@ -263,31 +263,39 @@ export default function AboutPage() {
 
       {/* Team portrait CTA */}
       <section className="bg-primary text-white py-section-gap relative overflow-hidden w-full">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2 space-y-6">
-            <h2 className="font-headline-lg text-headline-lg uppercase font-bold">Professional OEM/ODM R&D Team</h2>
-            <p className="font-body-lg text-sm text-surface-variant/80 leading-relaxed">
-              Our crew includes master tailors, polymer materials specialists, and international B2B logistics coordinators. We go deep into workshop rows to ensure every seam meets extreme tension and global compliance standards.
-            </p>
-            <div className="grid grid-cols-2 gap-8 font-mono">
+        <div className="absolute inset-0 topographic-bg opacity-10 pointer-events-none" />
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 space-y-12">
+          {/* Top text content & stats */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+            <div className="max-w-2xl space-y-4">
+              <h2 className="font-headline-lg text-headline-lg uppercase font-bold">Professional OEM/ODM R&D Team</h2>
+              <p className="font-body-lg text-sm text-surface-variant/85 leading-relaxed">
+                Our crew includes master tailors, polymer materials specialists, and international B2B logistics coordinators. We go deep into workshop rows to ensure every seam meets extreme tension and global compliance standards.
+              </p>
+            </div>
+            {/* Stats */}
+            <div className="flex gap-12 font-mono flex-shrink-0">
               <div>
-                <div className="text-4xl font-bold text-high-vis-orange">45+</div>
-                <div className="font-label-sm text-xs uppercase tracking-widest text-surface-variant mt-1">Dedicated R&D Engineers</div>
+                <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">45+</div>
+                <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-1">Dedicated R&D Engineers</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-high-vis-orange">24h</div>
-                <div className="font-label-sm text-xs uppercase tracking-widest text-surface-variant mt-1">Fast English & Spanish Response</div>
+                <div className="text-4xl md:text-5xl font-bold text-high-vis-orange">24h</div>
+                <div className="font-label-sm text-[10px] uppercase tracking-widest text-surface-variant mt-1">Global Response Support</div>
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 relative">
-            <div className="absolute -inset-4 border border-surface-variant/20" />
-            <div className="relative h-[320px] md:h-[400px] w-full border border-outline-variant">
+
+          {/* Bottom wide image - aspect ratio tailored for panoramic 3.avif */}
+          <div className="relative w-full overflow-hidden border border-surface-variant/30 group">
+            <div className="absolute -inset-4 border border-surface-variant/10 pointer-events-none" />
+            <div className="relative w-full aspect-[21/9] min-h-[250px] md:min-h-[400px]">
               <Image 
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=800" 
-                alt="Executive team portrait" 
+                src="/images/3.avif" 
+                alt="Ideas Cool R&D Team Group Portrait" 
                 fill 
-                className="object-cover" 
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
+                priority
               />
             </div>
           </div>
