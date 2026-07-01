@@ -464,7 +464,7 @@ function ProductsCatalogContent() {
                 <p className="text-secondary">No products match your filters. Please reset filter criteria.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-gutter">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
                 {sortedProducts.map((prod) => (
                   <div 
                     key={prod.id}
@@ -492,7 +492,7 @@ function ProductsCatalogContent() {
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex justify-between items-start mb-4">
                         <div>
-                          <h3 className="font-headline-md text-base text-primary mb-1 font-bold group-hover:text-high-vis-orange transition-colors">
+                          <h3 className="font-headline-md text-xs sm:text-sm text-primary mb-1.5 font-bold group-hover:text-high-vis-orange transition-colors line-clamp-3 min-h-[45px] sm:min-h-[60px]" title={prod.name}>
                             <Link href={`/products/${prod.id}`}>
                               {prod.name}
                             </Link>

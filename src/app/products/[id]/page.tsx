@@ -516,7 +516,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               SKU: {product.sku}
             </span>
             
-            <h1 className="font-display-xl text-3xl font-bold text-on-surface mt-3 leading-tight uppercase font-display-xl">
+            <h1 className="font-bold text-on-surface mt-3 leading-tight uppercase text-lg sm:text-xl md:text-2xl font-display">
               {product.name}
             </h1>
 
