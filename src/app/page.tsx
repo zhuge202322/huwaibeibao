@@ -38,200 +38,81 @@ const HOMEPAGE_CATEGORIES = [
     name: "Running Vest",
     slug: "running_vest",
     image: "https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=600",
-    items: 18,
   },
   {
     name: "Bicycle Bag",
     slug: "bicycle_bag",
     image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600",
-    items: 24,
   },
   {
     name: "Backpack",
     slug: "backpack",
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600",
-    items: 152,
   },
   {
     name: "Motorcycle Bag",
     slug: "motorcycle_bag",
     image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-    items: 32,
   },
   {
     name: "Hiking Outdoor Bag",
     slug: "hiking_outdoor_bag",
     image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-    items: 86,
   },
   {
     name: "Waterproof Bag",
     slug: "waterproof_bag",
     image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
-    items: 45,
   },
   {
     name: "Baby Diaper Bag",
     slug: "baby_diaper_bag",
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600",
-    items: 28,
   },
   {
     name: "Travel Bag",
     slug: "travel_bag",
     image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-    items: 64,
   },
   {
     name: "Pet Carrier Bag",
     slug: "pet_carrier_bag",
     image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=600",
-    items: 15,
   },
   {
     name: "Other Accessories",
     slug: "other",
     image: "https://images.unsplash.com/photo-1608541737042-87a12275d313?q=80&w=600",
-    items: 42,
   },
   {
     name: "Ungrouped Samples",
     slug: "ungrouped",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600",
-    items: 12,
   }
 ];
 
-const FEATURED_PRODUCTS = [
-  {
-    id: "apex-50l",
-    name: "Apex Expedition 50L Technical Hiking Pack",
-    sku: "EX-BK-50A-SLT",
-    moq: 300,
-    leadTime: 45,
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-  },
-  {
-    id: "summit-45x",
-    name: "Summit 45X Waterproof Rider Tail Bag",
-    sku: "EX-BK-45X-GRN",
-    moq: 500,
-    leadTime: 30,
-    image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-  },
-  {
-    id: "urban-scout",
-    name: "Urban Scout SL Business Laptop Bag",
-    sku: "EX-BK-20S-CHR",
-    moq: 1000,
-    leadTime: 25,
-    image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-  },
-  {
-    id: "stormseal-30l",
-    name: "StormSeal 30L Waterproof Dry Bag",
-    sku: "EX-DRY-30B",
-    moq: 1000,
-    leadTime: 60,
-    image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
-  },
-  {
-    id: "guardian-city",
-    name: "Guardian City 15L Waterproof Commuter Bag",
-    sku: "EX-BK-15G-BLK",
-    moq: 500,
-    leadTime: 25,
-    image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-  },
-  {
-    id: "rescue-one",
-    name: "Rescue One Motorcycle Pannier Side Bag",
-    sku: "EX-BK-RS1-ORG",
-    moq: 200,
-    leadTime: 35,
-    image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-  },
-  {
-    id: "nomad-airflow",
-    name: "Nomad Air-Flow 50L Hiking Backpack",
-    sku: "EX-BK-50N-TAN",
-    moq: 500,
-    leadTime: 40,
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-  },
-  {
-    id: "range-pack",
-    name: "Range Pack Pro Premium Commuter Backpack",
-    sku: "EX-BK-VAR-MUL",
-    moq: 1000,
-    leadTime: 30,
-    image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-  },
-  {
-    id: "peak-trail",
-    name: "Peak Trail 28L Classic Daypack",
-    sku: "EX-BK-28P-BLU",
-    moq: 500,
-    leadTime: 35,
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-  },
-  {
-    id: "alpine-ascent",
-    name: "Alpine Ascent 60L Heavy Expedition Pack",
-    sku: "EX-BK-60A-RED",
-    moq: 300,
-    leadTime: 45,
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-  },
-  {
-    id: "hydrosheath",
-    name: "HydroSheath 25L Airtight Dry Backpack",
-    sku: "EX-DRY-25Y",
-    moq: 500,
-    leadTime: 30,
-    image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
-  },
-  {
-    id: "command-tactical",
-    name: "Command 55L Modular Moto Tail Rack Bag",
-    sku: "EX-BK-55C-CAM",
-    moq: 400,
-    leadTime: 40,
-    image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-  },
-  {
-    id: "urban-commuter-slim",
-    name: "Urban Commuter 18L Slim Pack",
-    sku: "EX-BK-18S-SLM",
-    moq: 500,
-    leadTime: 25,
-    image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-  },
-  {
-    id: "rider-aero",
-    name: "Rider Aero-Shell Hardshell Pack",
-    sku: "EX-BK-40H-AER",
-    moq: 300,
-    leadTime: 35,
-    image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-  },
-  {
-    id: "oceanic-duffel",
-    name: "Oceanic Dry Bag 40L Duffel",
-    sku: "EX-DRY-40D",
-    moq: 500,
-    leadTime: 30,
-    image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
-  },
-  {
-    id: "apex-scout",
-    name: "Apex Scout 35L Alpine Pack",
-    sku: "EX-BK-35S-ALP",
-    moq: 500,
-    leadTime: 35,
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-  }
-];
+import productsData from "./products/productsData.json";
+
+interface FeaturedProduct {
+  id: string;
+  name: string;
+  sku: string;
+  moq: number;
+  leadTime: number;
+  image: string;
+}
+
+const FEATURED_PRODUCTS: FeaturedProduct[] = (productsData as any[])
+  .filter((p) => p.isBest || p.isNew)
+  .slice(0, 16)
+  .map((p) => ({
+    id: p.id,
+    name: p.name,
+    sku: p.sku,
+    moq: p.moq,
+    leadTime: p.leadTime,
+    image: p.image
+  }));
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -476,37 +357,40 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {HOMEPAGE_CATEGORIES.map((cat) => (
-              <Link 
-                key={cat.slug}
-                href={`/products?category=${cat.slug}`}
-                className="bg-white border border-outline-variant hover:border-primary hover:shadow-lg transition-all group flex flex-col scenario-card opacity-0 overflow-hidden"
-              >
-                {/* Image Area */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
-                  <Image 
-                    src={cat.image} 
-                    alt={cat.name} 
-                    fill 
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105" 
-                  />
-                  {/* Item Count Overlay Badge */}
-                  <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm text-on-surface text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 shadow-sm rounded-none border border-outline-variant">
-                    {cat.items} Items
+            {HOMEPAGE_CATEGORIES.map((cat) => {
+              const count = (productsData as any[]).filter((p) => p.category === cat.slug).length;
+              return (
+                <Link 
+                  key={cat.slug}
+                  href={`/products?category=${cat.slug}`}
+                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-lg transition-all group flex flex-col scenario-card opacity-0 overflow-hidden"
+                >
+                  {/* Image Area */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
+                    <Image 
+                      src={cat.image} 
+                      alt={cat.name} 
+                      fill 
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                    />
+                    {/* Item Count Overlay Badge */}
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm text-on-surface text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 shadow-sm rounded-none border border-outline-variant">
+                      {count} Items
+                    </div>
                   </div>
-                </div>
-                {/* Text Area */}
-                <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center">
-                  <h3 className="font-headline-md text-xs sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
-                    {cat.name}
-                  </h3>
-                  <span className="text-[9px] sm:text-[10px] text-outline group-hover:text-high-vis-orange transition-colors font-mono tracking-wider uppercase">
-                    Explore Collection
-                  </span>
-                </div>
-              </Link>
-            ))}
+                  {/* Text Area */}
+                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center">
+                    <h3 className="font-headline-md text-xs sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
+                      {cat.name}
+                    </h3>
+                    <span className="text-[9px] sm:text-[10px] text-outline group-hover:text-high-vis-orange transition-colors font-mono tracking-wider uppercase">
+                      Explore Collection
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
