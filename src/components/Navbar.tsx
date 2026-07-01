@@ -16,11 +16,11 @@ export default function Navbar() {
             <Image 
               src="/logo.png" 
               alt="Ideas Cool Logo" 
-              width={68} 
-              height={68} 
-              className="object-contain h-[68px] w-auto"
+              width={120} 
+              height={40} 
+              className="object-contain h-10 w-auto"
             />
-            <span className="font-headline-md text-base md:text-[17px] lg:text-lg font-extrabold text-primary tracking-tight font-display uppercase group-hover:text-high-vis-orange transition-colors">
+            <span className="font-headline-md text-sm md:text-base font-extrabold text-primary tracking-tight font-display uppercase group-hover:text-high-vis-orange transition-colors">
               Ideas Cool Co., Limited
             </span>
           </Link>
