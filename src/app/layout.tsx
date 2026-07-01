@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ideas Cool Co., Limited | 专业级 B2B 户外装备制造",
+  title: "Ideas Cool Co., Limited",
   description: "全球领先的户外技术背包 OEM/ODM 制造商。提供端到端的产品开发、高耐用性材料规格与大规模量产服务，年产能达50万件以上。",
 };
 
