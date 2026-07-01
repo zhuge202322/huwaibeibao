@@ -11,14 +11,14 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 z-[100] w-full bg-white/95 backdrop-blur-md border-b border-outline-variant h-20 flex items-center shadow-sm">
-        <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="flex justify-between items-center w-full px-6 md:px-12 max-w-full">
           <Link href="/" className="flex items-center gap-2.5 group">
             <Image 
               src="/logo.png" 
               alt="Ideas Cool Logo" 
-              width={80} 
-              height={80} 
-              className="object-contain h-20 w-auto"
+              width={68} 
+              height={68} 
+              className="object-contain h-[68px] w-auto"
             />
             <span className="font-headline-md text-base md:text-[17px] lg:text-lg font-extrabold text-primary tracking-tight font-display uppercase group-hover:text-high-vis-orange transition-colors">
               Ideas Cool Co., Limited
