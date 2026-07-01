@@ -57,12 +57,17 @@ function ProductsCatalogContent() {
   const [features, setFeatures] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("default");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     if (categoryParam) {
       setSelectedCategories([categoryParam]);
     }
   }, [categoryParam]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategories, capacityRange, features, sortBy]);
 
   // Toggle Category
   const toggleCategory = (cat: string) => {
@@ -114,9 +119,14 @@ function ProductsCatalogContent() {
     return 0; // Default or Best Match
   });
 
+  // Pagination parameters
+  const ITEMS_PER_PAGE = 30;
+  const totalPages = Math.max(1, Math.ceil(sortedProducts.length / ITEMS_PER_PAGE));
+  const paginatedProducts = sortedProducts.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
   return (
     <div className="topographic-bg min-h-screen pb-section-gap">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-12">
+      <div className="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pt-12">
         
         {/* Breadcrumbs */}
         <nav className="mb-12 flex items-center gap-2 font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-mono">
@@ -464,8 +474,8 @@ function ProductsCatalogContent() {
                 <p className="text-secondary">No products match your filters. Please reset filter criteria.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
-                {sortedProducts.map((prod) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                {paginatedProducts.map((prod) => (
                   <div 
                     key={prod.id}
                     className="bg-white border border-outline-variant group hover:border-primary transition-all duration-300 flex flex-col"
@@ -535,22 +545,70 @@ function ProductsCatalogContent() {
             )}
 
             {/* Pagination */}
-            <div className="mt-20 border-t border-outline-variant pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">
-                Page 1 of 1 (Total {sortedProducts.length} items)
+            {totalPages > 1 && (
+              <div className="mt-20 border-t border-outline-variant pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="font-label-sm text-xs text-on-surface-variant uppercase font-mono">
+                  Page {currentPage} of {totalPages} (Total {sortedProducts.length} items)
+                </div>
+                <div className="flex items-center gap-2">
+                  <button 
+                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                    className={`w-10 h-10 flex items-center justify-center border border-outline-variant font-mono ${
+                      currentPage === 1 
+                        ? "text-outline/40 bg-slate-50 cursor-not-allowed" 
+                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer"
+                    }`}
+                  >
+                    &lt;
+                  </button>
+
+                  {/* Dynamic page buttons */}
+                  {Array.from({ length: totalPages }, (_, idx) => {
+                    const pageNum = idx + 1;
+                    if (
+                      pageNum === 1 || 
+                      pageNum === totalPages || 
+                      (pageNum >= currentPage - 2 && pageNum <= currentPage + 2)
+                    ) {
+                      return (
+                        <button
+                          key={pageNum}
+                          onClick={() => setCurrentPage(pageNum)}
+                          className={`w-10 h-10 flex items-center justify-center font-bold font-mono border transition-all cursor-pointer ${
+                            currentPage === pageNum
+                              ? "bg-primary text-white border-primary"
+                              : "border-outline-variant text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary"
+                          }`}
+                        >
+                          {pageNum}
+                        </button>
+                      );
+                    }
+                    if (pageNum === currentPage - 3 || pageNum === currentPage + 3) {
+                      return (
+                        <span key={pageNum} className="px-1 text-secondary font-mono">
+                          ...
+                        </span>
+                      );
+                    }
+                    return null;
+                  })}
+
+                  <button 
+                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                    disabled={currentPage === totalPages}
+                    className={`w-10 h-10 flex items-center justify-center border border-outline-variant font-mono ${
+                      currentPage === totalPages 
+                        ? "text-outline/40 bg-slate-50 cursor-not-allowed" 
+                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer"
+                    }`}
+                  >
+                    &gt;
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <button className="w-10 h-10 flex items-center justify-center border border-outline-variant text-secondary bg-white hover:bg-primary hover:text-white transition-colors cursor-not-allowed" disabled>
-                  &lt;
-                </button>
-                <button className="w-10 h-10 flex items-center justify-center bg-primary text-white font-bold font-mono">
-                  1
-                </button>
-                <button className="w-10 h-10 flex items-center justify-center border border-outline-variant text-secondary bg-white hover:bg-primary hover:text-white transition-colors cursor-not-allowed" disabled>
-                  &gt;
-                </button>
-              </div>
-            </div>
+            )}
 
           </section>
 
