@@ -743,7 +743,7 @@ export default function Home() {
             {[
               "/images/1.avif",
               "/images/2.avif",
-              "/images/3.avif",
+              "/images/5.avif",
               "/images/4.avif"
             ].map((src, index) => (
               <div 
