@@ -4,7 +4,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, Box, Truck, Layers, Compass, ArrowLeft, ThermometerSun, Zap, Activity, Info, Barcode, ClipboardCheck, X } from "lucide-react";
+import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, Box, Truck, Layers, Compass, ArrowLeft, ThermometerSun, Zap, Activity, Info, Barcode, ClipboardCheck, X, Maximize2 } from "lucide-react";
 import { ALL_PRODUCTS, Product } from "../page";
 
 // Category specs mapper
@@ -365,6 +365,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [activeTab, setActiveTab] = useState<"tech" | "factory" | "custom">("tech");
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
 
   // Gallery images list (using product primary image plus fallbacks)
   const images = [
@@ -428,12 +429,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 src={images[selectedImage]} 
                 alt={product.name}
                 fill
-                className="object-contain p-4 transition-all duration-300"
+                className="object-contain p-4 transition-all duration-300 cursor-zoom-in"
                 priority
+                onClick={() => setActiveLightboxImage(images[selectedImage])}
               />
               <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-[9px] px-2.5 py-1 tracking-widest font-mono uppercase shadow-sm">
                 QC Passed
               </div>
+              <button 
+                onClick={() => setActiveLightboxImage(images[selectedImage])}
+                className="absolute top-4 right-4 bg-white hover:bg-primary hover:text-white transition-colors text-primary p-2 border border-outline-variant shadow-sm z-10 cursor-pointer rounded-sm"
+                title="Zoom Image"
+              >
+                <Maximize2 size={16} />
+              </button>
 
               {/* Interactive Hotspots Layer (Only visible on primary image) */}
               {selectedImage === 0 && hotspots.map((spot, idx) => (
@@ -835,6 +844,29 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             ))}
           </div>
         </section>
+      )}
+
+      {/* Lightbox Modal */}
+      {activeLightboxImage && (
+        <div 
+          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out animate-fade-in"
+          onClick={() => setActiveLightboxImage(null)}
+        >
+          <button 
+            onClick={(e) => { e.stopPropagation(); setActiveLightboxImage(null); }}
+            className="absolute top-6 right-6 text-white hover:text-high-vis-orange transition-colors p-2 z-[310] cursor-pointer"
+            aria-label="Close Lightbox"
+          >
+            <X size={36} />
+          </button>
+          <div className="relative max-w-full max-h-[85vh] aspect-auto flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={activeLightboxImage} 
+              alt="Zoomed Product View" 
+              className="max-w-full max-h-[85vh] object-contain shadow-2xl border border-white/10"
+            />
+          </div>
+        </div>
       )}
 
     </div>

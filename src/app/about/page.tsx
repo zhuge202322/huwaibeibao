@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { CheckCircle2, ShieldCheck, Compass, Award, Eye } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Compass, Award, Eye, X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,6 +11,7 @@ if (typeof window !== "undefined") {
 }
 
 export default function AboutPage() {
+  const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 
@@ -169,16 +170,19 @@ export default function AboutPage() {
             </div>
 
             {/* Right column - Single Full-Height Facility Showcase */}
-            <div className="col-span-12 lg:col-span-4 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto">
+            <div 
+              onClick={() => setActiveLightboxImage("/images/about.png")}
+              className="col-span-12 lg:col-span-4 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto cursor-zoom-in"
+            >
               <Image 
                 src="/images/about.png" 
-                alt="Ideas Cool Factory Showcase"
+                alt="Blink Dreams Factory Showcase"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-              <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-                <h4 className="font-headline-md text-base text-white font-bold">Ideas Cool Showroom & Intelligent Facility</h4>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-6 z-20 w-full pointer-events-none">
+                <h4 className="font-headline-md text-base text-white font-bold">Blink Dreams Showroom & Intelligent Facility</h4>
               </div>
             </div>
 
@@ -316,6 +320,29 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {activeLightboxImage && (
+        <div 
+          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out animate-fade-in"
+          onClick={() => setActiveLightboxImage(null)}
+        >
+          <button 
+            onClick={(e) => { e.stopPropagation(); setActiveLightboxImage(null); }}
+            className="absolute top-6 right-6 text-white hover:text-high-vis-orange transition-colors p-2 z-[310] cursor-pointer"
+            aria-label="Close Lightbox"
+          >
+            <X size={36} />
+          </button>
+          <div className="relative max-w-full max-h-[85vh] aspect-auto flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={activeLightboxImage} 
+              alt="Zoomed Facility View" 
+              className="max-w-full max-h-[85vh] object-contain shadow-2xl border border-white/10"
+            />
+          </div>
+        </div>
+      )}
 
     </div>
   );

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Factory, Award, Globe, Leaf, ArrowRight, Star, Users, Cpu, Barcode, Layers, ShieldAlert, Zap, ThermometerSun, Activity, Bike, Backpack, Heart, Compass } from "lucide-react";
+import { Factory, Award, Globe, Leaf, ArrowRight, Star, Users, Cpu, Barcode, Layers, ShieldAlert, Zap, ThermometerSun, Activity, Bike, Backpack, Heart, Compass, X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -116,6 +116,7 @@ const FEATURED_PRODUCTS: FeaturedProduct[] = (productsData as any[])
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
   
   const heroRef = useRef<HTMLDivElement>(null);
   const valPropRef = useRef<HTMLDivElement>(null);
@@ -748,7 +749,8 @@ export default function Home() {
             ].map((src, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start relative aspect-[4/3] border border-outline-variant bg-white shadow-sm group overflow-hidden"
+                onClick={() => setActiveLightboxImage(src)}
+                className="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start relative aspect-[4/3] border border-outline-variant bg-white shadow-sm group overflow-hidden cursor-zoom-in"
               >
                 <Image 
                   src={src} 
@@ -769,6 +771,29 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {activeLightboxImage && (
+        <div 
+          className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out animate-fade-in"
+          onClick={() => setActiveLightboxImage(null)}
+        >
+          <button 
+            onClick={(e) => { e.stopPropagation(); setActiveLightboxImage(null); }}
+            className="absolute top-6 right-6 text-white hover:text-high-vis-orange transition-colors p-2 z-[310] cursor-pointer"
+            aria-label="Close Lightbox"
+          >
+            <X size={36} />
+          </button>
+          <div className="relative max-w-full max-h-[85vh] aspect-auto flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={activeLightboxImage} 
+              alt="Zoomed Exhibition View" 
+              className="max-w-full max-h-[85vh] object-contain shadow-2xl border border-white/10"
+            />
+          </div>
+        </div>
+      )}
 
     </div>
   );
