@@ -362,7 +362,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const specs = getCategorySpecs(product.category);
   const hotspots = getCategoryHotspots(product.category);
 
-  const [activeTab, setActiveTab] = useState<"tech" | "factory" | "custom">("tech");
+  const [activeTab, setActiveTab] = useState<"tech" | "custom">("tech");
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
   const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
@@ -581,12 +581,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <ShoppingBag size={16} /> GET FOB WHOLESALE QUOTE
               </button>
             </Link>
-            <button 
-              onClick={() => alert("Downloading Technical Specs Sheet PDF...")}
-              className="w-full py-4 border border-outline text-secondary hover:border-primary hover:text-primary font-headline-md text-sm font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer uppercase tracking-wider rounded-none bg-white"
-            >
-              <Download size={15} /> DOWNLOAD SPEC SHEET (PDF)
-            </button>
           </div>
 
         </div>
@@ -605,14 +599,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               onClick={() => setActiveTab("tech")}
             >
               Technical Parameters
-            </button>
-            <button 
-              className={`px-8 py-5 font-headline-md text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeTab === "factory" ? "border-b-4 border-primary text-primary bg-surface-container-lowest" : "text-secondary hover:text-primary"
-              }`}
-              onClick={() => setActiveTab("factory")}
-            >
-              Destructive Testing Lab
             </button>
             <button 
               className={`px-8 py-5 font-headline-md text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
@@ -700,98 +686,33 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
             )}
 
-            {/* Quality testing Tab */}
-            {activeTab === "factory" && (
-              <div className="space-y-6">
-                <div className="max-w-2xl mb-8 border-l-2 border-primary pl-3">
-                  <h4 className="font-headline-md text-base text-primary font-bold mb-2">Destructive Lab Quality Checks</h4>
-                  <p className="text-secondary text-xs leading-relaxed">
-                    Our ISO 9001 certified manufacturing plant subjects all bag batches to extreme wear, tension, and moisture challenges to meet world-class carrying standards.
-                  </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-white p-5 border border-outline-variant group hover:shadow-md transition-all flex flex-col justify-between">
-                    <div className="aspect-[4/3] relative overflow-hidden bg-surface-container mb-4">
-                      <Image 
-                        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400" 
-                        alt="Tension stress test" 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105" 
-                      />
-                    </div>
-                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase font-mono tracking-tight text-center">
-                      Tensile & Shoulder Strap Tear Test
-                    </h5>
-                  </div>
-                  <div className="bg-white p-5 border border-outline-variant group hover:shadow-md transition-all flex flex-col justify-between">
-                    <div className="aspect-[4/3] relative overflow-hidden bg-surface-container mb-4">
-                      <Image 
-                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=400" 
-                        alt="Weather aging chamber" 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105" 
-                      />
-                    </div>
-                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase font-mono tracking-tight text-center">
-                      Weather Aging Chamber (-20°C to 65°C)
-                    </h5>
-                  </div>
-                  <div className="bg-white p-5 border border-outline-variant group hover:shadow-md transition-all flex flex-col justify-between">
-                    <div className="aspect-[4/3] relative overflow-hidden bg-surface-container mb-4">
-                      <Image 
-                        src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=400" 
-                        alt="Waterproof spray" 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105" 
-                      />
-                    </div>
-                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase font-mono tracking-tight text-center">
-                      Waterproofing Spray & Seams Leakage Check
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {/* Customization Tab */}
             {activeTab === "custom" && (
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-7 space-y-6">
-                  <div className="border-l-2 border-primary pl-3">
-                    <h4 className="font-headline-md text-base text-primary font-bold">ODM & Custom Branding Solutions</h4>
-                    <p className="text-secondary text-xs leading-relaxed mt-1">
-                      We support full private labeling. Provide us your brand handbook or vectors, and our sample team will generate custom mockups in 3 days.
-                    </p>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="border-l-2 border-primary pl-4">
-                      <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Logo Branding Options</h5>
-                      <p className="text-secondary text-[11px] mt-1 leading-snug">Woven labels, embossed rubber patches, screen printing, high-frequency embossing, or leather accents.</p>
-                    </div>
-                    <div className="border-l-2 border-primary pl-4">
-                      <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Custom Packaging</h5>
-                      <p className="text-secondary text-[11px] mt-1 leading-snug">Recycled GRS certified polybags, custom hangtags, inner corrugated box branded designs.</p>
-                    </div>
-                    <div className="border-l-2 border-primary pl-4">
-                      <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Hardware Upgrades</h5>
-                      <p className="text-secondary text-[11px] mt-1 leading-snug">Upgrade zippers to YKK® AquaGuard® waterproof lines or buckles to Duraflex® heavy-duty composites.</p>
-                    </div>
-                    <div className="border-l-2 border-primary pl-4">
-                      <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Fabric Swaps</h5>
-                      <p className="text-secondary text-[11px] mt-1 leading-snug">Available in Cordura® Nylon, GRS Recycled Polyester, 1680D Ballistic weave, or TPU composite grids.</p>
-                    </div>
-                  </div>
+              <div className="space-y-8">
+                <div className="border-l-2 border-primary pl-3">
+                  <h4 className="font-headline-md text-base text-primary font-bold">ODM & Custom Branding Solutions</h4>
+                  <p className="text-secondary text-xs leading-relaxed mt-1">
+                    We support full private labeling. Provide us your brand handbook or vectors, and our sample team will generate custom mockups in 3 days.
+                  </p>
                 </div>
-
-                <div className="lg:col-span-5 relative h-64 lg:h-80 border border-outline-variant bg-surface-container overflow-hidden">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1580234797602-22c37b2a0420?q=80&w=800" 
-                    alt="Custom ODM manufacturing specs" 
-                    fill 
-                    className="object-cover" 
-                  />
-                  <div className="absolute inset-0 bg-[#0f172a]/20" />
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="border-l-2 border-primary pl-4">
+                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Logo Branding Options</h5>
+                    <p className="text-secondary text-[11px] mt-1 leading-snug">Woven labels, embossed rubber patches, screen printing, high-frequency embossing, or leather accents.</p>
+                  </div>
+                  <div className="border-l-2 border-primary pl-4">
+                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Custom Packaging</h5>
+                    <p className="text-secondary text-[11px] mt-1 leading-snug">Recycled GRS certified polybags, custom hangtags, inner corrugated box branded designs.</p>
+                  </div>
+                  <div className="border-l-2 border-primary pl-4">
+                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Hardware Upgrades</h5>
+                    <p className="text-secondary text-[11px] mt-1 leading-snug">Upgrade zippers to YKK® AquaGuard® waterproof lines or buckles to Duraflex® heavy-duty composites.</p>
+                  </div>
+                  <div className="border-l-2 border-primary pl-4">
+                    <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Fabric Swaps</h5>
+                    <p className="text-secondary text-[11px] mt-1 leading-snug">Available in Cordura® Nylon, GRS Recycled Polyester, 1680D Ballistic weave, or TPU composite grids.</p>
+                  </div>
                 </div>
               </div>
             )}
