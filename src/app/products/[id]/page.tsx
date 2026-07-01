@@ -4,7 +4,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, Box, Truck, Layers, Compass, ArrowLeft, ThermometerSun, Zap, Activity, Info, Barcode, ClipboardCheck, X, Maximize2 } from "lucide-react";
+import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, Box, Truck, Layers, Compass, ArrowLeft, ThermometerSun, Zap, Activity, Info, Barcode, ClipboardCheck, X, Maximize2, MessageCircle } from "lucide-react";
 import { ALL_PRODUCTS, Product } from "../page";
 
 // Category specs mapper
@@ -581,6 +581,16 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <ShoppingBag size={16} /> GET FOB WHOLESALE QUOTE
               </button>
             </Link>
+            <a 
+              href="https://wa.me/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block w-full"
+            >
+              <button className="w-full py-4.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-headline-md text-sm font-bold flex items-center justify-center gap-2 transition-transform active:scale-[0.98] cursor-pointer uppercase tracking-wider rounded-none">
+                <MessageCircle size={16} /> INQUIRE VIA WHATSAPP
+              </button>
+            </a>
           </div>
 
         </div>
