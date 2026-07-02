@@ -336,6 +336,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Divider 01 */}
+      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+          <span>IDEAS_COOL // CAPABILITY_MODULE</span>
+          <span className="text-[10px] font-bold text-primary">+</span>
+        </div>
+      </div>
+
       {/* 3. Product Categories Grid */}
       <section ref={scenarioRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
         {/* Tech decorative patterns */}
@@ -391,6 +400,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Tech Divider 02 */}
+      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+          <span>IDEAS_COOL // PRODUCT_CATALOG</span>
+          <span className="text-[10px] font-bold text-primary">+</span>
+        </div>
+      </div>
 
       {/* 4. Material & Technology Bento Grid */}
       <section ref={bentoRef} className="py-section-gap w-full relative overflow-hidden bg-white">
@@ -467,6 +485,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Divider 03 */}
+      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+          <span>IDEAS_COOL // MATERIAL_SCIENCE</span>
+          <span className="text-[10px] font-bold text-primary">+</span>
+        </div>
+      </div>
+
       {/* 5. Product Showcase */}
       <section ref={showcaseRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
         <div className="absolute inset-0 engineering-grid opacity-[0.05] pointer-events-none" />
@@ -526,6 +553,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Tech Divider 04 */}
+      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+          <span>IDEAS_COOL // BEST_SELLERS</span>
+          <span className="text-[10px] font-bold text-primary">+</span>
+        </div>
+      </div>
 
       {/* 6. Manufacturing Strength */}
       <section ref={strengthRef} className="py-20 bg-primary text-white relative overflow-hidden w-full">
@@ -601,6 +637,15 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* Tech Divider 05 */}
+      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+          <span>IDEAS_COOL // FACTORY_OVERVIEW</span>
+          <span className="text-[10px] font-bold text-primary">+</span>
+        </div>
+      </div>
 
       {/* 7. OEM/ODM B2B custom process interactive timeline */}
       <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden">
