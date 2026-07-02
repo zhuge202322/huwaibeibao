@@ -46,7 +46,7 @@ export default function ContactPage() {
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-12">
         
         {/* Hero Header */}
-        <div className="mb-16 border-l-8 border-primary pl-8">
+        <div className="mb-16 border-l-8 border-high-vis-orange pl-8">
           <h1 className="font-display-xl text-display-xl text-primary mb-4 font-bold uppercase">
             Bulk Inquiry & Partnerships
           </h1>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                     required 
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
                     placeholder="e.g. Robert Jensen" 
                   />
                 </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     required 
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
                     placeholder="Company LLC" 
                   />
                 </div>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                     required 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
                     placeholder="professional@company.com" 
                   />
                 </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
                   <select 
                     value={formData.region}
                     onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm appearance-none focus:outline-none"
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm appearance-none focus:outline-none"
                   >
                     <option value="Select Region">Select Country / Region</option>
                     <option value="North America">North America</option>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                   required 
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
+                  className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
                   placeholder="e.g. Q4 Bulk Order Inquiry for Outdoor Backpacks" 
                 />
               </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                   <select 
                     value={formData.interest}
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm appearance-none focus:outline-none"
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm appearance-none focus:outline-none"
                   >
                     <option value="Outdoor Backpacks">Outdoor Backpacks Series</option>
                     <option value="Bicycle Bags">Bicycle & Motorcycle Bags</option>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                     required
                     value={formData.quantity}
                     onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) || 500 })}
-                    className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
+                    className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm" 
                     placeholder="Min 500 pcs" 
                   />
                 </div>
@@ -264,7 +264,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="w-full border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none resize-none text-sm" 
+                  className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none resize-none text-sm" 
                   placeholder="Describe fabric specs, zip requirements (e.g. YKK), buckle choices (e.g. Duraflex), and preferred shipping terms..."
                 />
               </div>

@@ -134,7 +134,7 @@ function ProductsCatalogContent() {
               
               {/* Categories */}
               <div>
-                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-primary pb-2 font-bold uppercase">
+                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-high-vis-orange pb-2 font-bold uppercase">
                   Categories
                 </h3>
                 <div className="space-y-3">
@@ -156,7 +156,7 @@ function ProductsCatalogContent() {
 
               {/* Capacity */}
               <div>
-                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-primary pb-2 font-bold uppercase">
+                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-high-vis-orange pb-2 font-bold uppercase">
                   Capacity (Liters)
                 </h3>
                 <div className="space-y-3">
@@ -213,7 +213,7 @@ function ProductsCatalogContent() {
 
               {/* Technical Features */}
               <div>
-                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-primary pb-2 font-bold uppercase">
+                <h3 className="font-headline-md text-base text-primary mb-6 border-b-2 border-high-vis-orange pb-2 font-bold uppercase">
                   Technical Specs
                 </h3>
                 <div className="space-y-3">
@@ -246,7 +246,7 @@ function ProductsCatalogContent() {
               <div className="pt-6">
                 <button 
                   onClick={handleClearFilters}
-                  className="w-full border-2 border-primary py-3 font-bold text-primary hover:bg-primary hover:text-white transition-all cursor-pointer text-sm"
+                  className="w-full border-2 border-high-vis-orange py-3 font-bold text-primary hover:bg-primary hover:text-white transition-all cursor-pointer text-sm"
                 >
                   Clear All Filters
                 </button>
@@ -387,7 +387,7 @@ function ProductsCatalogContent() {
                 <div className="pt-4 border-t border-outline-variant space-y-2">
                   <button 
                     onClick={handleClearFilters}
-                    className="w-full border border-primary py-2 text-xs font-bold text-primary hover:bg-slate-50 cursor-pointer"
+                    className="w-full border border-high-vis-orange py-2 text-xs font-bold text-primary hover:bg-slate-50 cursor-pointer"
                   >
                     Clear All
                   </button>
@@ -467,7 +467,7 @@ function ProductsCatalogContent() {
                 {paginatedProducts.map((prod) => (
                   <div 
                     key={prod.id}
-                    className="bg-white border border-outline-variant group hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
+                    className="bg-white border border-outline-variant group hover:border-high-vis-orange hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                   >
                     <div className="aspect-[4/5] relative overflow-hidden bg-surface-container-low">
                       <Image 
@@ -546,7 +546,7 @@ function ProductsCatalogContent() {
                     className={`w-10 h-10 flex items-center justify-center border border-outline-variant font-mono ${
                       currentPage === 1 
                         ? "text-outline/40 bg-slate-50 cursor-not-allowed" 
-                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer"
+                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-high-vis-orange transition-colors cursor-pointer"
                     }`}
                   >
                     &lt;
@@ -566,8 +566,8 @@ function ProductsCatalogContent() {
                           onClick={() => setCurrentPage(pageNum)}
                           className={`w-10 h-10 flex items-center justify-center font-bold font-mono border transition-all cursor-pointer ${
                             currentPage === pageNum
-                              ? "bg-primary text-white border-primary"
-                              : "border-outline-variant text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary"
+                              ? "bg-primary text-white border-high-vis-orange"
+                              : "border-outline-variant text-secondary bg-white hover:bg-primary hover:text-white hover:border-high-vis-orange"
                           }`}
                         >
                           {pageNum}
@@ -590,7 +590,7 @@ function ProductsCatalogContent() {
                     className={`w-10 h-10 flex items-center justify-center border border-outline-variant font-mono ${
                       currentPage === totalPages 
                         ? "text-outline/40 bg-slate-50 cursor-not-allowed" 
-                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer"
+                        : "text-secondary bg-white hover:bg-primary hover:text-white hover:border-high-vis-orange transition-colors cursor-pointer"
                     }`}
                   >
                     &gt;

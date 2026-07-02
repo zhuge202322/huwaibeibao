@@ -97,7 +97,7 @@ export default function AboutPage() {
           
           {/* 1998 */}
           <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
-            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+            <div className="w-5 h-5 bg-white border-2 border-high-vis-orange rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
               <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
             </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">1998</div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
 
           {/* 2008 */}
           <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
-            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+            <div className="w-5 h-5 bg-white border-2 border-high-vis-orange rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
               <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
             </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2008</div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
 
           {/* 2018 */}
           <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
-            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+            <div className="w-5 h-5 bg-white border-2 border-high-vis-orange rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
               <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
             </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2018</div>
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
           {/* 2026 */}
           <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
-            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+            <div className="w-5 h-5 bg-white border-2 border-high-vis-orange rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
               <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
             </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2026</div>
@@ -254,7 +254,7 @@ export default function AboutPage() {
       <section ref={valuesRef} className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           
-          <div className="border-l-4 border-primary pl-8 py-4 value-card opacity-0">
+          <div className="border-l-4 border-high-vis-orange pl-8 py-4 value-card opacity-0">
             <h3 className="font-headline-lg text-lg text-primary uppercase font-bold mb-4">Quality First</h3>
             <p className="font-body-md text-sm text-secondary leading-relaxed">
               Quality is the lifeline of B2B partnership. We strictly use premium buckles and thread, executing 4 full inspection cycles to guarantee zero-defect bulk delivery.
@@ -268,7 +268,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="border-l-4 border-on-primary-container pl-8 py-4 value-card opacity-0">
+          <div className="border-l-4 border-high-vis-orange pl-8 py-4 value-card opacity-0">
             <h3 className="font-headline-lg text-lg text-primary uppercase font-bold mb-4">Ecological Responsibility</h3>
             <p className="font-body-md text-sm text-secondary leading-relaxed">
               Committed to clean production. Factory runs on solar power, water is recycled in finishing processes, and we support GRS-certified marine plastics and plastic-free packaging.

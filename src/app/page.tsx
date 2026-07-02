@@ -309,25 +309,25 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-high-vis-orange hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <Factory className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">Direct Factory Price</h3>
             <p className="text-secondary text-sm">Direct connection to factory quotes. No middleman markups, ensuring healthy margins and price transparency.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-high-vis-orange hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <Award className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">15+ Years Expertise</h3>
             <p className="text-secondary text-sm">Decades of research in technical fabrics and structural weight distribution, engineered to withstand extreme climates.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-high-vis-orange hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <Globe className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">Global Logistics</h3>
             <p className="text-secondary text-sm">Experienced in international freight, supporting multi-port LCL container consolidations and smooth customs clearance.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-high-vis-orange hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <Leaf className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">GRS Recycled Tech</h3>
             <p className="text-secondary text-sm">Supplying certified recycled nylon fabrics and PFC-free water-resistant coating to meet international ecological compliance.</p>
@@ -369,7 +369,7 @@ export default function Home() {
                 <Link 
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
+                  className="bg-white border border-outline-variant hover:border-high-vis-orange hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                 >
                   {/* Image Area (with overflow-hidden so corner icons don't clip) */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
@@ -426,10 +426,10 @@ export default function Home() {
           <div className="grid grid-cols-12 gap-gutter">
             
             {/* Big Box 1: Cordura */}
-            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-high-vis-orange transition-all duration-300">
               <div className="flex justify-between items-start">
                 <Layers className="text-primary group-hover:rotate-6 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Tensile Core</span>
+                <span className="font-label-sm text-[10px] text-primary border border-high-vis-orange px-3 py-1 font-mono uppercase">Tensile Core</span>
               </div>
               <div className="mt-8">
                 <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">High-Density Ripstop Fabric</h3>
@@ -440,7 +440,7 @@ export default function Home() {
             </div>
 
             {/* Box 2: High frequency welding */}
-            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-high-vis-orange transition-all duration-300">
               <div className="flex justify-between items-start">
                 <Zap className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
                 <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
@@ -454,7 +454,7 @@ export default function Home() {
             </div>
 
             {/* Box 3: Ergo Mesh */}
-            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-high-vis-orange transition-all duration-300">
               <div className="flex justify-between items-start">
                 <ThermometerSun className="text-primary group-hover:-translate-y-1 transition-transform duration-300" size={40} />
                 <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">Air Flow</span>
@@ -468,10 +468,10 @@ export default function Home() {
             </div>
 
             {/* Big Box 4: Impact Hardshell */}
-            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-high-vis-orange transition-all duration-300">
               <div className="flex justify-between items-start">
                 <ShieldAlert className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Rider Protect</span>
+                <span className="font-label-sm text-[10px] text-primary border border-high-vis-orange px-3 py-1 font-mono uppercase">Rider Protect</span>
               </div>
               <div className="mt-8">
                 <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">Impact Hardshell & Polycarbonate Armor</h3>
@@ -511,7 +511,7 @@ export default function Home() {
             {FEATURED_PRODUCTS.map((prod) => (
               <div 
                 key={prod.id}
-                className="border border-outline-variant bg-white flex flex-col group prod-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300"
+                className="border border-outline-variant bg-white flex flex-col group prod-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-high-vis-orange transition-all duration-300"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-surface-container-low">
                   <Image 
@@ -662,7 +662,7 @@ export default function Home() {
           <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-outline-variant -z-10" />
 
           {/* Step 1 */}
-          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-high-vis-orange transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               01
             </div>
@@ -671,7 +671,7 @@ export default function Home() {
           </div>
 
           {/* Step 2 */}
-          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-high-vis-orange transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               02
             </div>
@@ -680,7 +680,7 @@ export default function Home() {
           </div>
 
           {/* Step 3 */}
-          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-high-vis-orange transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               03
             </div>
@@ -689,7 +689,7 @@ export default function Home() {
           </div>
 
           {/* Step 4 */}
-          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
+          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-high-vis-orange transition-all text-center group timeline-step opacity-0">
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
               04
             </div>
@@ -698,7 +698,7 @@ export default function Home() {
           </div>
 
           {/* Step 5 */}
-          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
+          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-high-vis-orange transition-all text-center group timeline-step opacity-0">
             <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
               05
             </div>
@@ -775,7 +775,7 @@ export default function Home() {
                     track.scrollBy({ left: -track.clientWidth * 0.75, behavior: "smooth" });
                   }
                 }}
-                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer font-bold font-mono"
+                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-high-vis-orange transition-colors cursor-pointer font-bold font-mono"
                 aria-label="Previous Slide"
               >
                 &lt;
@@ -787,7 +787,7 @@ export default function Home() {
                     track.scrollBy({ left: track.clientWidth * 0.75, behavior: "smooth" });
                   }
                 }}
-                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer font-bold font-mono"
+                className="w-10 h-10 flex items-center justify-center border border-outline-variant text-primary bg-white hover:bg-primary hover:text-white hover:border-high-vis-orange transition-colors cursor-pointer font-bold font-mono"
                 aria-label="Next Slide"
               >
                 &gt;

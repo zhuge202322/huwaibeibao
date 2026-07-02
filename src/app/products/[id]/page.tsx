@@ -364,7 +364,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
               {/* Hotspot Highlight Info Card */}
               {selectedImage === 0 && activeHotspot !== null && (
-                <div className="absolute bottom-4 right-4 bg-white/95 border border-primary p-4 shadow-xl max-w-[280px] z-20 animate-fade-in">
+                <div className="absolute bottom-4 right-4 bg-white/95 border border-high-vis-orange p-4 shadow-xl max-w-[280px] z-20 animate-fade-in">
                   {/* Close btn */}
                   <button
                     onClick={() => setActiveHotspot(null)}
@@ -400,7 +400,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   setActiveHotspot(null); // Close active hotspot card on thumbnail change
                 }}
                 className={`aspect-square border-2 transition-all relative overflow-hidden bg-white ${
-                  selectedImage === idx ? "border-primary" : "border-outline-variant hover:border-outline"
+                  selectedImage === idx ? "border-high-vis-orange" : "border-outline-variant hover:border-outline"
                 }`}
               >
                 <div className="w-full h-full relative">
@@ -503,7 +503,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           <div className="flex border-b border-outline-variant text-sm overflow-x-auto">
             <button 
               className={`px-8 py-5 font-headline-md text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeTab === "tech" ? "border-b-4 border-primary text-primary bg-surface-container-lowest" : "text-secondary hover:text-primary"
+                activeTab === "tech" ? "border-b-4 border-high-vis-orange text-primary bg-surface-container-lowest" : "text-secondary hover:text-primary"
               }`}
               onClick={() => setActiveTab("tech")}
             >
@@ -511,7 +511,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </button>
             <button 
               className={`px-8 py-5 font-headline-md text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                activeTab === "custom" ? "border-b-4 border-primary text-primary bg-surface-container-lowest" : "text-secondary hover:text-primary"
+                activeTab === "custom" ? "border-b-4 border-high-vis-orange text-primary bg-surface-container-lowest" : "text-secondary hover:text-primary"
               }`}
               onClick={() => setActiveTab("custom")}
             >
@@ -528,7 +528,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 
                 {/* Left Table: Materials */}
                 <div className="space-y-4">
-                  <h4 className="font-headline-md text-base text-primary font-bold border-l-2 border-primary pl-3">
+                  <h4 className="font-headline-md text-base text-primary font-bold border-l-2 border-high-vis-orange pl-3">
                     Fabric & Structural Specifications
                   </h4>
                   <div className="border border-outline-variant bg-white shadow-sm overflow-hidden">
@@ -561,7 +561,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
                 {/* Right Table: Logistics */}
                 <div className="space-y-4">
-                  <h4 className="font-headline-md text-base text-primary font-bold border-l-2 border-primary pl-3">
+                  <h4 className="font-headline-md text-base text-primary font-bold border-l-2 border-high-vis-orange pl-3">
                     Logistics & Packaging Parameters
                   </h4>
                   <div className="border border-outline-variant bg-white shadow-sm overflow-hidden">
@@ -598,7 +598,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {/* Customization Tab */}
             {activeTab === "custom" && (
               <div className="space-y-8">
-                <div className="border-l-2 border-primary pl-3">
+                <div className="border-l-2 border-high-vis-orange pl-3">
                   <h4 className="font-headline-md text-base text-primary font-bold">ODM & Custom Branding Solutions</h4>
                   <p className="text-secondary text-xs leading-relaxed mt-1">
                     We support full private labeling. Provide us your brand handbook or vectors, and our sample team will generate custom mockups in 3 days.
@@ -606,19 +606,19 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border-l-2 border-primary pl-4">
+                  <div className="border-l-2 border-high-vis-orange pl-4">
                     <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Logo Branding Options</h5>
                     <p className="text-secondary text-[11px] mt-1 leading-snug">Woven labels, embossed rubber patches, screen printing, high-frequency embossing, or leather accents.</p>
                   </div>
-                  <div className="border-l-2 border-primary pl-4">
+                  <div className="border-l-2 border-high-vis-orange pl-4">
                     <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Custom Packaging</h5>
                     <p className="text-secondary text-[11px] mt-1 leading-snug">Recycled GRS certified polybags, custom hangtags, inner corrugated box branded designs.</p>
                   </div>
-                  <div className="border-l-2 border-primary pl-4">
+                  <div className="border-l-2 border-high-vis-orange pl-4">
                     <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Hardware Upgrades</h5>
                     <p className="text-secondary text-[11px] mt-1 leading-snug">Upgrade zippers to YKK® AquaGuard® waterproof lines or buckles to Duraflex® heavy-duty composites.</p>
                   </div>
-                  <div className="border-l-2 border-primary pl-4">
+                  <div className="border-l-2 border-high-vis-orange pl-4">
                     <h5 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider">Fabric Swaps</h5>
                     <p className="text-secondary text-[11px] mt-1 leading-snug">Available in Cordura® Nylon, GRS Recycled Polyester, 1680D Ballistic weave, or TPU composite grids.</p>
                   </div>
@@ -643,7 +643,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {recommended.map((item) => (
               <div 
                 key={item.id} 
-                className="group border border-outline-variant hover:border-primary hover:shadow-md transition-all bg-white flex flex-col justify-between"
+                className="group border border-outline-variant hover:border-high-vis-orange hover:shadow-md transition-all bg-white flex flex-col justify-between"
               >
                 <div>
                   <div className="aspect-[4/5] bg-surface-container-low overflow-hidden relative border-b border-outline-variant">

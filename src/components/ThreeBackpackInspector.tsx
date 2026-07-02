@@ -329,7 +329,7 @@ export default function ThreeBackpackInspector() {
 
       {/* Info panel */}
       {activeHotspot && (
-        <div className="absolute top-4 left-4 right-4 md:right-auto md:w-80 bg-surface/95 border-2 border-primary p-6 shadow-2xl z-20 backdrop-blur-md transition-all duration-300">
+        <div className="absolute top-4 left-4 right-4 md:right-auto md:w-80 bg-surface/95 border-2 border-high-vis-orange p-6 shadow-2xl z-20 backdrop-blur-md transition-all duration-300">
           <div className="flex justify-between items-start mb-2">
             <h4 className="font-headline-md text-base text-primary font-bold">{activeHotspot.label}</h4>
             <button 
