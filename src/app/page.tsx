@@ -549,7 +549,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-[95%] h-[95%] border-4 border-high-vis-orange -z-10 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8" />
             <div className="w-full h-full relative overflow-hidden">
               <video 
-                src="/images/video.mp4" 
+                src="/images/gongchang.mp4" 
                 autoPlay 
                 muted 
                 loop 

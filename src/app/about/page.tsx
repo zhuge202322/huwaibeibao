@@ -155,7 +155,7 @@ export default function AboutPage() {
             {/* Left large box - Interactive Video Tour */}
             <div className="col-span-12 lg:col-span-8 group relative overflow-hidden border border-outline-variant h-[350px] lg:h-auto bg-black flex items-center justify-center">
               <video 
-                src="/images/video.mp4" 
+                src="/images/gongchang.mp4" 
                 autoPlay 
                 muted 
                 loop 
