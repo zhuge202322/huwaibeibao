@@ -31,9 +31,7 @@ const HERO_SLIDES = [
     title: "INNOVATIVE MOTORCYCLE & CYCLING LUGGAGE",
     desc: "Equipped with quick-release locks, anti-abrasion back panels, and heavy-duty load bearing. Ready for heavy adventure touring.",
   }
-];
-
-const HOMEPAGE_CATEGORIES = [
+];const HOMEPAGE_CATEGORIES = [
   {
     name: "Running Vest",
     slug: "running_vest",
@@ -43,11 +41,6 @@ const HOMEPAGE_CATEGORIES = [
     name: "Bicycle Bag",
     slug: "bicycle_bag",
     image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600",
-  },
-  {
-    name: "Backpack",
-    slug: "backpack",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600",
   },
   {
     name: "Motorcycle Bag",
@@ -64,31 +57,6 @@ const HOMEPAGE_CATEGORIES = [
     slug: "waterproof_bag",
     image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
   },
-  {
-    name: "Baby Diaper Bag",
-    slug: "baby_diaper_bag",
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600",
-  },
-  {
-    name: "Travel Bag",
-    slug: "travel_bag",
-    image: "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-  },
-  {
-    name: "Pet Carrier Bag",
-    slug: "pet_carrier_bag",
-    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=600",
-  },
-  {
-    name: "Other Accessories",
-    slug: "other",
-    image: "https://images.unsplash.com/photo-1608541737042-87a12275d313?q=80&w=600",
-  },
-  {
-    name: "Ungrouped Samples",
-    slug: "ungrouped",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600",
-  }
 ];
 
 import productsData from "./products/productsData.json";

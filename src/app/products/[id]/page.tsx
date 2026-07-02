@@ -76,39 +76,6 @@ const getCategorySpecs = (category: string): TechnicalSpecs => {
         carton: "60 x 50 x 45 cm (15 pcs/ctn)",
         extra: "Submersible airtight seam welding"
       };
-    case "baby_diaper_bag":
-      return {
-        shell: "Waterproof Premium Oxford Fabric",
-        base: "Laminated PE moisture-resistant base sheet",
-        frame: "Dual-padded shoulder straps & stroller hook hangers",
-        waterproof: "Water-repellent surface finish",
-        weight: "0.95 kg / 2.09 lbs",
-        load: "10 - 15 kg capacity",
-        carton: "55 x 40 x 45 cm (20 pcs/ctn)",
-        extra: "Insulated bottle pockets & build-in USB charging interface"
-      };
-    case "travel_bag":
-      return {
-        shell: "900D Laminated Polyurethane Coated Polyester",
-        base: "Scratch-resistant synthetic leather base plate",
-        frame: "Anti-theft zipper locks & hidden back panel strap",
-        waterproof: "Water-resistant PU coating layer",
-        weight: "1.15 kg / 2.53 lbs",
-        load: "15 - 20 kg safe load limit",
-        carton: "60 x 40 x 50 cm (12 pcs/ctn)",
-        extra: "Clamshell full open design & separate shoe wet/dry pocket"
-      };
-    case "pet_carrier_bag":
-      return {
-        shell: "900D Scratch-Resistant Polyester with PVC mesh panels",
-        base: "Removable cozy fleece liner base bed",
-        frame: "Flexible steel-loop reinforced outer structural ring",
-        waterproof: "Water-resistant treated shell",
-        weight: "1.25 kg / 2.75 lbs",
-        load: "Fits pets up to 8 kg / 18 lbs",
-        carton: "65 x 48 x 52 cm (10 pcs/ctn)",
-        extra: "Self-locking zippers & interior safety collar leash clip"
-      };
     default:
       return {
         shell: "600D Laminated DWR Polyester fabric",
@@ -252,78 +219,6 @@ const getCategoryHotspots = (category: string): Hotspot[] => {
           code: "DRY-BASE-03",
           title: "Anti-Friction Base",
           desc: "Reinforced heavy-gauge bottom designed for drag and drop resistance on rocky beaches and boat decks."
-        }
-      ];
-    case "baby_diaper_bag":
-      return [
-        {
-          top: "15%",
-          left: "50%",
-          code: "BABY-TOTE-01",
-          title: "Comfort Grab Handle",
-          desc: "Reinforced double wrap handle for fast pick-up, paired with heavy-duty clip rings for stroller mounting."
-        },
-        {
-          top: "45%",
-          left: "25%",
-          code: "BABY-THERM-02",
-          title: "Insulated Thermal Pocket",
-          desc: "Dedicated front pocket layered with composite tin-foil lining to keep milk bottles warm or cool for up to 4 hours."
-        },
-        {
-          top: "70%",
-          left: "50%",
-          code: "BABY-USB-03",
-          title: "Integrated USB Port",
-          desc: "External grommet and internal cable slot designed for hooking power banks, allowing easy on-the-go phone charging."
-        }
-      ];
-    case "travel_bag":
-      return [
-        {
-          top: "22%",
-          left: "50%",
-          code: "TRVL-OPEN-01",
-          title: "Clamshell Opening",
-          desc: "Fully opening layout mimicking luggage, equipped with elastic compression bands for simple packing."
-        },
-        {
-          top: "50%",
-          left: "20%",
-          code: "TRVL-RFID-02",
-          title: "Anti-Theft RFID Shield",
-          desc: "Fleece-lined hidden back compartment with RFID-blocking fabric to protect passport and cards from scanning."
-        },
-        {
-          top: "80%",
-          left: "70%",
-          code: "TRVL-SHOE-03",
-          title: "Ventilated Shoe Pocket",
-          desc: "Dedicated moisture-resistant pocket with metal ventilation grommets to store dirty shoes away from clothing."
-        }
-      ];
-    case "pet_carrier_bag":
-      return [
-        {
-          top: "20%",
-          left: "50%",
-          code: "PET-MESH-01",
-          title: "Claw-Proof Mesh",
-          desc: "Dual-layer reinforced vinyl-coated nylon mesh panels ensuring constant ventilation and scratch defense."
-        },
-        {
-          top: "55%",
-          left: "30%",
-          code: "PET-LOCK-02",
-          title: "Locking Escapement",
-          desc: "Secure zippers that can only be unlocked from outside, preventing smart pets from clawing open slots."
-        },
-        {
-          top: "80%",
-          left: "50%",
-          code: "PET-BED-03",
-          title: "Removable Fleece Bed",
-          desc: "Washable thermal fleece mat supported by rigid fiberboard, offering pets a soft and sturdy carrier bed."
         }
       ];
     default:

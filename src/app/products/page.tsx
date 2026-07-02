@@ -13,15 +13,9 @@ export interface Product {
   category: 
     | "running_vest" 
     | "bicycle_bag" 
-    | "backpack" 
     | "motorcycle_bag" 
     | "hiking_outdoor_bag" 
-    | "waterproof_bag" 
-    | "baby_diaper_bag" 
-    | "travel_bag" 
-    | "pet_carrier_bag" 
-    | "other" 
-    | "ungrouped";
+    | "waterproof_bag";
   capacity: number; // in liters
   material: string;
   moq: number;
@@ -34,15 +28,9 @@ export interface Product {
 const PRODUCT_CATEGORIES = [
   { value: "running_vest", label: "Running Vest" },
   { value: "bicycle_bag", label: "Bicycle Bag" },
-  { value: "backpack", label: "Backpack" },
   { value: "motorcycle_bag", label: "Motorcycle Bag" },
   { value: "hiking_outdoor_bag", label: "Hiking Outdoor Bag" },
-  { value: "waterproof_bag", label: "Waterproof Bag" },
-  { value: "baby_diaper_bag", label: "Baby Diaper Bag" },
-  { value: "travel_bag", label: "Travel Bag" },
-  { value: "pet_carrier_bag", label: "Pet Carrier Bag" },
-  { value: "other", label: "Other" },
-  { value: "ungrouped", label: "Ungrouped" }
+  { value: "waterproof_bag", label: "Waterproof Bag" }
 ];
 
 import productsData from "./productsData.json";
