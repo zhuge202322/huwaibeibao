@@ -19,6 +19,52 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Public Feedback Board State
+  const [messages, setMessages] = useState([
+    {
+      id: 1,
+      name: "Marcus Weber",
+      info: "Alpine Logistics, Germany",
+      text: "The sample cycle was incredibly fast. We received our 5 hiking backpack test models in just 6 days. Fabric resistance testing passed with high marks.",
+      date: "2026-06-25"
+    },
+    {
+      id: 2,
+      name: "Yuki Tanaka",
+      info: "Outdoors Japan Corp",
+      text: "Excellent communication and perfect HF seamless welding quality. The motorcycle dry bags easily handled IPX6 testing in our labs. Excited for our partnership.",
+      date: "2026-06-18"
+    },
+    {
+      id: 3,
+      name: "Sarah Jenkins",
+      info: "Summit Trail gear, USA",
+      text: "Ideas Cool's GRS recycled fabric certificate is fully verified and clean. Perfect partner for our brand's sustainability initiatives.",
+      date: "2026-06-02"
+    }
+  ]);
+
+  const [newMessage, setNewMessage] = useState({ name: "", info: "", text: "" });
+  const [messageSubmitted, setMessageSubmitted] = useState(false);
+
+  const handleMessageSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newMessage.name || !newMessage.text) return;
+    
+    const newMsg = {
+      id: Date.now(),
+      name: newMessage.name,
+      info: newMessage.info || "Independent Partner",
+      text: newMessage.text,
+      date: new Date().toISOString().split('T')[0]
+    };
+    
+    setMessages([newMsg, ...messages]);
+    setNewMessage({ name: "", info: "", text: "" });
+    setMessageSubmitted(true);
+    setTimeout(() => setMessageSubmitted(false), 4000);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -313,6 +359,106 @@ export default function ContactPage() {
               <p className="text-secondary text-sm leading-relaxed">
                 For established partnerships matching bulk requirements, we provide rapid prototype sampling to verify tensile, abrasion, and field performance.
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tech Divider */}
+        <div className="w-full h-[1px] bg-primary/30 relative z-10 my-16">
+          <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+            <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+            <span>IDEAS_COOL // PUBLIC_FEEDBACK_BOARD</span>
+            <span className="text-[10px] font-bold text-primary">+</span>
+          </div>
+        </div>
+
+        {/* Message Board Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-12">
+          {/* Left: Leave a message form (5 cols) */}
+          <div className="col-span-12 lg:col-span-5 bg-white border border-high-vis-orange p-8 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <div className="absolute inset-0 engineering-dots opacity-30 pointer-events-none" />
+            <div className="relative z-10 space-y-6">
+              <div>
+                <span className="font-label-sm text-[10px] text-high-vis-orange uppercase tracking-widest block mb-1 font-mono">B2B SHARING</span>
+                <h3 className="font-headline-lg text-lg text-primary font-bold uppercase">Leave a Feedback</h3>
+                <p className="text-secondary text-xs mt-1">Your message will be displayed publicly on this feedback board for quality verification.</p>
+              </div>
+
+              {messageSubmitted && (
+                <div className="p-3 bg-green-50 border border-green-300 text-green-800 text-xs flex items-center gap-2">
+                  <CheckCircle2 size={14} className="text-green-600" />
+                  <span>Your feedback has been posted successfully!</span>
+                </div>
+              )}
+
+              <form onSubmit={handleMessageSubmit} className="space-y-4">
+                <div className="space-y-1">
+                  <label className="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider font-mono">Your Name</label>
+                  <input 
+                    type="text" 
+                    required 
+                    value={newMessage.name}
+                    onChange={(e) => setNewMessage({ ...newMessage, name: e.target.value })}
+                    className="w-full border-b border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-1.5 font-body outline-none text-xs" 
+                    placeholder="e.g. David Miller" 
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider font-mono">Company / Country</label>
+                  <input 
+                    type="text" 
+                    value={newMessage.info}
+                    onChange={(e) => setNewMessage({ ...newMessage, info: e.target.value })}
+                    className="w-full border-b border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-1.5 font-body outline-none text-xs" 
+                    placeholder="e.g. Outdoor Supplies Ltd, UK" 
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider font-mono">Feedback Message</label>
+                  <textarea 
+                    required 
+                    rows={3}
+                    value={newMessage.text}
+                    onChange={(e) => setNewMessage({ ...newMessage, text: e.target.value })}
+                    className="w-full border-b border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-1.5 font-body outline-none resize-none text-xs" 
+                    placeholder="Describe your cooperation experience, sampling speed, quality inspection results..." 
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  className="w-full py-3 bg-primary hover:bg-black text-white font-headline-md text-xs font-bold uppercase tracking-widest transition-transform active:scale-[0.98] cursor-pointer"
+                >
+                  POST PUBLIC FEEDBACK
+                </button>
+              </form>
+            </div>
+          </div>
+
+          {/* Right: Message Feed (7 cols) */}
+          <div className="col-span-12 lg:col-span-7 bg-surface-container-low border border-outline-variant p-8 relative overflow-hidden">
+            <div className="absolute inset-0 engineering-grid opacity-[0.04] pointer-events-none" />
+            <div className="relative z-10 space-y-6 max-h-[420px] overflow-y-auto pr-2 no-scrollbar">
+              <div className="flex justify-between items-center border-b border-outline-variant/60 pb-3">
+                <h4 className="font-label-sm text-xs text-primary font-mono uppercase tracking-widest flex items-center gap-1.5">
+                  <MessageSquare size={14} /> LIVE FEEDBACK BOARD
+                </h4>
+                <span className="text-[9px] font-mono text-secondary bg-white px-2 py-0.5 border border-outline-variant">{messages.length} Posts</span>
+              </div>
+
+              <div className="space-y-4">
+                {messages.map((msg) => (
+                  <div key={msg.id} className="bg-white border border-outline-variant/60 p-4 transition-all hover:border-primary relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <span className="text-xs font-bold text-on-surface font-mono">{msg.name}</span>
+                        <span className="text-[9px] text-outline font-mono block uppercase">{msg.info}</span>
+                      </div>
+                      <span className="text-[9px] text-outline font-mono">{msg.date}</span>
+                    </div>
+                    <p className="text-[11px] leading-relaxed text-secondary italic">"{msg.text}"</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
