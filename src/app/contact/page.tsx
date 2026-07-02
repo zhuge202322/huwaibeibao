@@ -70,10 +70,10 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 text-sm text-secondary">
                   <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
                   <p className="leading-relaxed">
-                    No. 102 Pingshan Industrial Avenue, Pingshan District,<br />
-                    Shenzhen, Guangdong Province, China<br />
+                    No.11-19, Shuangfu Road, Tongan District,<br />
+                    Xiamen City, Fujian Province, China<br />
                     Blink Dreams Industrial Park, Bldg East, R&D Center<br />
-                    ZIP Code: 518118
+                    ZIP Code: 361110
                   </p>
                 </div>
               </div>
@@ -119,14 +119,17 @@ export default function ContactPage() {
 
             {/* Simulated Satellite Map */}
             <div className="relative overflow-hidden aspect-video border border-outline-variant bg-surface-container group">
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
-              <Image 
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=600" 
-                alt="Plant Map Grid" 
-                fill 
-                className="object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105" 
+              <iframe 
+                src="https://maps.google.com/maps?q=中国福建省厦门市同安区双富路11号&t=m&z=16&output=embed&iwloc=near" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, filter: "grayscale(0.8) contrast(1.2)" }} 
+                allowFullScreen={false} 
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
               />
-              <div className="absolute bottom-4 left-4 z-20 bg-primary text-white p-4 font-mono text-[10px] tracking-wider">
+              <div className="absolute bottom-4 left-4 z-20 bg-primary text-white p-4 font-mono text-[10px] tracking-wider pointer-events-none">
                 PLANT 01: ASSEMBLY & INTERNATIONAL LOGISTICS HUB
               </div>
             </div>
