@@ -467,7 +467,7 @@ function ProductsCatalogContent() {
                 {paginatedProducts.map((prod) => (
                   <div 
                     key={prod.id}
-                    className="bg-white border border-outline-variant group hover:border-high-vis-orange hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
+                    className="bg-white border border-high-vis-orange group hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                   >
                     <div className="aspect-[4/5] relative overflow-hidden bg-surface-container-low">
                       <Image 

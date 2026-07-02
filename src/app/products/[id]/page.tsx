@@ -643,7 +643,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             {recommended.map((item) => (
               <div 
                 key={item.id} 
-                className="group border border-outline-variant hover:border-high-vis-orange hover:shadow-md transition-all bg-white flex flex-col justify-between"
+                className="group border border-high-vis-orange hover:border-primary hover:shadow-md transition-all bg-white flex flex-col justify-between"
               >
                 <div>
                   <div className="aspect-[4/5] bg-surface-container-low overflow-hidden relative border-b border-outline-variant">
