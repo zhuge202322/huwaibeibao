@@ -128,8 +128,9 @@ function ProductsCatalogContent() {
         <div className="flex flex-col lg:flex-row gap-gutter">
           
           {/* Sidebar Filter (Hidden on Mobile) */}
-          <aside className="hidden lg:block w-full lg:w-64 flex-shrink-0 bg-white border border-outline-variant p-8 sticky top-28 self-start shadow-sm">
-            <div className="space-y-10">
+          <aside className="hidden lg:block w-full lg:w-64 flex-shrink-0 bg-surface-container-low border border-outline-variant p-8 sticky top-28 self-start relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <div className="absolute inset-0 engineering-dots opacity-30 pointer-events-none" />
+            <div className="space-y-10 relative z-10">
               
               {/* Categories */}
               <div>
@@ -466,14 +467,14 @@ function ProductsCatalogContent() {
                 {paginatedProducts.map((prod) => (
                   <div 
                     key={prod.id}
-                    className="bg-white border border-outline-variant group hover:border-primary transition-all duration-300 flex flex-col"
+                    className="bg-white border border-outline-variant group hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                   >
-                    <div className="aspect-[4/5] relative overflow-hidden bg-surface-container">
+                    <div className="aspect-[4/5] relative overflow-hidden bg-surface-container-low">
                       <Image 
                         src={prod.image}
                         alt={prod.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       {prod.isNew && (
                         <div className="absolute top-4 left-4 bg-high-vis-orange text-white px-3 py-1 font-label-sm text-[10px] tracking-widest uppercase">

@@ -318,17 +318,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </div>
 
           {/* Media Viewport with hotspots */}
-          <div className="relative aspect-[4/3] bg-surface-container-low border border-outline-variant overflow-hidden shadow-sm flex items-center justify-center">
+          <div className="relative aspect-[4/3] bg-surface-container-low border border-outline-variant shadow-sm flex items-center justify-center relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br overflow-hidden">
+            <div className="absolute inset-0 engineering-grid opacity-10 pointer-events-none" />
             <div className="relative w-full h-full">
               <Image 
                 src={images[selectedImage]} 
                 alt={product.name}
                 fill
-                className="object-contain p-4 transition-all duration-300 cursor-zoom-in"
+                className="object-contain p-4 transition-all duration-300 cursor-zoom-in z-10"
                 priority
                 onClick={() => setActiveLightboxImage(images[selectedImage])}
               />
-              <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-[9px] px-2.5 py-1 tracking-widest font-mono uppercase shadow-sm">
+              <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-[9px] px-2.5 py-1 tracking-widest font-mono uppercase shadow-sm border border-white/10 z-20">
                 QC Passed
               </div>
               <button 
@@ -437,32 +438,35 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="h-[1px] bg-outline-variant my-6" />
 
             {/* Premium Unified B2B Specs Card */}
-            <div className="border border-outline-variant bg-slate-50 p-6 space-y-4 mb-6 shadow-sm">
-              <h3 className="font-label-sm text-[11px] text-primary font-bold uppercase tracking-wider border-b border-outline-variant/60 pb-2">
-                B2B Bulk Specifications
-              </h3>
-              
-              <div className="space-y-3 text-xs">
-                <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
-                  <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">Minimum Order (MOQ)</span>
-                  <span className="font-bold text-primary font-mono">{product.moq} Pieces</span>
-                </div>
-                <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
-                  <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">FOB Lead Time</span>
-                  <span className="font-bold text-primary font-mono">{product.leadTime} Days</span>
-                </div>
-                <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
-                  <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">Core Material</span>
-                  <span className="font-semibold text-on-surface text-right truncate max-w-[200px]" title={product.material}>
-                    {product.material}
-                  </span>
-                </div>
-                <div className="flex justify-between items-start py-1">
-                  <span className="text-secondary font-mono uppercase tracking-wider text-[10px] pt-0.5">Certificates</span>
-                  <div className="flex flex-col items-end gap-0.5 text-[10px] text-right font-mono text-secondary">
-                    <span>ISO 9001 Approved</span>
-                    <span>GRS Recycled nylon</span>
-                    <span>BSCI Social Audited</span>
+            <div className="border border-outline-variant bg-surface-container-low p-6 space-y-4 mb-6 shadow-sm relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br overflow-hidden">
+              <div className="absolute inset-0 engineering-dots opacity-40 pointer-events-none" />
+              <div className="relative z-10 space-y-4">
+                <h3 className="font-label-sm text-[11px] text-primary font-bold uppercase tracking-wider border-b border-outline-variant/60 pb-2">
+                  B2B Bulk Specifications
+                </h3>
+                
+                <div className="space-y-3 text-xs">
+                  <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
+                    <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">Minimum Order (MOQ)</span>
+                    <span className="font-bold text-primary font-mono">{product.moq} Pieces</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
+                    <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">FOB Lead Time</span>
+                    <span className="font-bold text-primary font-mono">{product.leadTime} Days</span>
+                  </div>
+                  <div className="flex justify-between items-center py-1 border-b border-outline-variant/40">
+                    <span className="text-secondary font-mono uppercase tracking-wider text-[10px]">Core Material</span>
+                    <span className="font-semibold text-on-surface text-right truncate max-w-[200px]" title={product.material}>
+                      {product.material}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-start py-1">
+                    <span className="text-secondary font-mono uppercase tracking-wider text-[10px] pt-0.5">Certificates</span>
+                    <div className="flex flex-col items-end gap-0.5 text-[10px] text-right font-mono text-secondary">
+                      <span>ISO 9001 Approved</span>
+                      <span>GRS Recycled nylon</span>
+                      <span>BSCI Social Audited</span>
+                    </div>
                   </div>
                 </div>
               </div>

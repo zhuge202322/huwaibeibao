@@ -59,17 +59,19 @@ export default function AboutPage() {
     <div className="w-full">
       
       {/* About Hero Section */}
-      <section className="relative h-[55vh] min-h-[400px] flex items-center overflow-hidden bg-primary">
+      <section className="relative h-[55vh] min-h-[400px] flex items-center overflow-hidden bg-[#0f172a]">
         <div className="absolute inset-0 z-0 bg-cover bg-center opacity-30 mix-blend-overlay" style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920')`
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent z-10" />
+        <div className="absolute inset-0 z-5 engineering-grid opacity-10 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 glow-teal opacity-65 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 to-[#0f172a]/30 z-10" />
         <div className="relative z-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full text-white">
           <div className="max-w-2xl">
-            <span className="font-label-sm text-xs text-primary-fixed-dim bg-primary px-3 py-1 mb-6 inline-block font-mono tracking-widest uppercase">
+            <span className="font-label-sm text-xs text-high-vis-orange bg-white/5 border border-white/10 px-3 py-1 mb-6 inline-block font-mono tracking-widest uppercase">
               SINCE 1998
             </span>
-            <h1 className="font-display-xl text-display-xl text-white mb-6 uppercase leading-none">
+            <h1 className="font-display-xl text-3xl sm:text-4xl md:text-display-xl text-white mb-6 uppercase leading-tight md:leading-none">
               ENGINEERED FOR EXTREME PERFORMANCE & RELIABILITY
             </h1>
             <p className="font-body-lg text-sm text-surface-variant/90 max-w-lg">
@@ -80,19 +82,24 @@ export default function AboutPage() {
       </section>
 
       {/* History Timeline */}
-      <section ref={timelineRef} className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto topographic-bg">
-        <div className="text-center mb-16">
-          <h2 className="font-headline-lg text-headline-lg text-primary uppercase font-bold">Our Milestones</h2>
+      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative overflow-hidden bg-white">
+        <div className="absolute inset-0 engineering-dots opacity-40 pointer-events-none" />
+        
+        <div className="text-center mb-16 relative z-10">
+          <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">OUR MILESTONES</span>
+          <h2 className="font-headline-lg text-headline-lg text-primary uppercase font-bold">The Journey of Craftsmanship</h2>
           <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
-          {/* Horizontal Line on Desktop */}
-          <div className="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-outline-variant z-0" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter relative z-10">
+          {/* Horizontal connecting dotted line on desktop */}
+          <div className="hidden md:block absolute top-[48px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-outline-variant -z-10" />
           
           {/* 1998 */}
-          <div className="relative z-10 pt-16 timeline-node opacity-0">
-            <div className="w-4 h-4 bg-primary border-4 border-surface absolute top-10 left-0" />
+          <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
+            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+              <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
+            </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">1998</div>
             <h3 className="font-headline-md text-sm mb-3 text-primary uppercase font-bold">Humble Beginnings</h3>
             <p className="font-body-md text-xs text-secondary leading-relaxed">
@@ -101,8 +108,10 @@ export default function AboutPage() {
           </div>
 
           {/* 2008 */}
-          <div className="relative z-10 pt-16 timeline-node opacity-0">
-            <div className="w-4 h-4 bg-primary border-4 border-surface absolute top-10 left-0" />
+          <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
+            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+              <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
+            </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2008</div>
             <h3 className="font-headline-md text-sm mb-3 text-primary uppercase font-bold">Outdoor Transition & Expansion</h3>
             <p className="font-body-md text-xs text-secondary leading-relaxed">
@@ -111,8 +120,10 @@ export default function AboutPage() {
           </div>
 
           {/* 2018 */}
-          <div className="relative z-10 pt-16 timeline-node opacity-0">
-            <div className="w-4 h-4 bg-primary border-4 border-surface absolute top-10 left-0" />
+          <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
+            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+              <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
+            </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2018</div>
             <h3 className="font-headline-md text-sm mb-3 text-primary uppercase font-bold">Waterproof & QC Testing Center</h3>
             <p className="font-body-md text-xs text-secondary leading-relaxed">
@@ -121,8 +132,10 @@ export default function AboutPage() {
           </div>
 
           {/* 2026 */}
-          <div className="relative z-10 pt-16 timeline-node opacity-0">
-            <div className="w-4 h-4 bg-primary border-4 border-surface absolute top-10 left-0" />
+          <div className="relative z-10 pt-16 timeline-node opacity-0 bg-white border border-outline-variant/60 p-6 tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl transition-all duration-300">
+            <div className="w-5 h-5 bg-white border-2 border-primary rounded-full absolute top-[38px] left-6 flex items-center justify-center hover:border-high-vis-orange transition-colors duration-300 z-20">
+              <span className="w-2 h-2 bg-high-vis-orange rounded-full animate-pulse" />
+            </div>
             <div className="font-headline-md text-headline-md text-high-vis-orange mb-2 font-mono">2026</div>
             <h3 className="font-headline-md text-sm mb-3 text-primary uppercase font-bold">Smart & Sustainable Era</h3>
             <p className="font-body-md text-xs text-secondary leading-relaxed">

@@ -221,12 +221,29 @@ export default function Home() {
 
   return (
     <div className="w-full relative overflow-x-hidden bg-white text-on-surface">
-      
-      {/* 1. Hero Section (Autoplay Slideshow) */}
+           {/* 1. Hero Section (Autoplay Slideshow) */}
       <section 
         ref={heroRef}
-        className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-primary"
+        className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden bg-[#0f172a]"
       >
+        {/* Tech HUD overlay grid */}
+        <div className="absolute inset-0 engineering-grid opacity-10 pointer-events-none z-15" />
+        <div className="absolute inset-x-6 top-6 bottom-6 border border-white/5 pointer-events-none z-15 hidden md:block">
+          {/* Corner crosshairs and stats */}
+          <div className="absolute top-4 left-4 text-white/30 font-mono text-[9px] tracking-widest">SYS: ACTIVE [LOC: XM_CN]</div>
+          <div className="absolute top-4 right-4 text-white/30 font-mono text-[9px] tracking-widest">IDEAS_COOL // R&D_CORE</div>
+          <div className="absolute bottom-4 left-4 text-white/30 font-mono text-[9px] tracking-widest">[ LAT 24.7069 / LON 118.1413 ]</div>
+          <div className="absolute bottom-4 right-4 text-white/30 font-mono text-[9px] tracking-widest">REF: 361110_STATION</div>
+          <div className="absolute top-0 left-0 w-4 h-[1px] bg-white/20" />
+          <div className="absolute top-0 left-0 w-[1px] h-4 bg-white/20" />
+          <div className="absolute top-0 right-0 w-4 h-[1px] bg-white/20" />
+          <div className="absolute top-0 right-0 w-[1px] h-4 bg-white/20" />
+          <div className="absolute bottom-0 left-0 w-4 h-[1px] bg-white/20" />
+          <div className="absolute bottom-0 left-0 w-[1px] h-4 bg-white/20" />
+          <div className="absolute bottom-0 right-0 w-4 h-[1px] bg-white/20" />
+          <div className="absolute bottom-0 right-0 w-[1px] h-4 bg-white/20" />
+        </div>
+
         {HERO_SLIDES.map((slide, idx) => (
           <div
             key={idx}
@@ -239,7 +256,7 @@ export default function Home() {
               backgroundImage: `url('${slide.image}')`
             }} />
             {/* Gradient Overlay for contrast */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#0f172a]/70 to-[#0f172a]/20 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/95 via-[#0f172a]/80 to-[#0f172a]/30 z-10" />
 
             {/* Slide Content */}
             <div className="relative z-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full h-full flex items-center text-white">
@@ -255,13 +272,13 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <Link href="/products">
-                    <button className="bg-high-vis-orange text-white px-6 py-3.5 sm:px-10 sm:py-5 font-headline-md text-xs sm:text-base uppercase font-bold hover:brightness-110 transition-all cursor-pointer">
+                    <button className="bg-high-vis-orange text-white px-6 py-3.5 sm:px-10 sm:py-5 font-headline-md text-xs sm:text-base uppercase font-bold hover:bg-high-vis-orange/90 transition-all cursor-pointer rounded-none">
                       View Catalog
                     </button>
                   </Link>
                   <Link href="/contact">
-                    <button className="border-2 border-white text-white px-6 py-3.5 sm:px-10 sm:py-5 font-headline-md text-xs sm:text-base uppercase font-bold hover:bg-white hover:text-[#0f172a] transition-all cursor-pointer">
-                      Inquire Now
+                    <button className="border border-white/30 text-white hover:bg-white/10 px-6 py-3.5 sm:px-10 sm:py-5 font-headline-md text-xs sm:text-base uppercase font-bold transition-all cursor-pointer rounded-none">
+                      Request a Quote
                     </button>
                   </Link>
                 </div>
@@ -270,14 +287,14 @@ export default function Home() {
           </div>
         ))}
 
-        {/* Slide Dots Pagination */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+        {/* Slideshow Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-35 flex gap-2">
           {HERO_SLIDES.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveSlide(idx)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                activeSlide === idx ? "bg-high-vis-orange w-6" : "bg-white/50 hover:bg-white"
+              className={`h-1.5 transition-all duration-300 cursor-pointer ${
+                activeSlide === idx ? "bg-high-vis-orange w-6" : "bg-white/50 hover:bg-white w-2"
               }`}
             />
           ))}
@@ -285,30 +302,33 @@ export default function Home() {
       </section>
 
       {/* 2. Value Proposition */}
-      <section ref={valPropRef} className="py-16 md:py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative">
-        <div className="absolute inset-0 topographic-bg pointer-events-none opacity-20" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter relative z-10">
+      <section ref={valPropRef} className="py-20 bg-surface-container-low border-b border-outline-variant relative overflow-hidden">
+        <div className="absolute inset-0 engineering-dots pointer-events-none opacity-40" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 glow-teal pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 glow-orange pointer-events-none" />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-lg transition-all group val-card opacity-0">
-            <Factory className="text-primary mb-4 group-hover:scale-110 transition-transform" size={40} />
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <Factory className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">Direct Factory Price</h3>
             <p className="text-secondary text-sm">Direct connection to factory quotes. No middleman markups, ensuring healthy margins and price transparency.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-lg transition-all group val-card opacity-0">
-            <Award className="text-primary mb-4 group-hover:scale-110 transition-transform" size={40} />
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <Award className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">15+ Years Expertise</h3>
             <p className="text-secondary text-sm">Decades of research in technical fabrics and structural weight distribution, engineered to withstand extreme climates.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-lg transition-all group val-card opacity-0">
-            <Globe className="text-primary mb-4 group-hover:scale-110 transition-transform" size={40} />
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <Globe className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">Global Logistics</h3>
             <p className="text-secondary text-sm">Experienced in international freight, supporting multi-port LCL container consolidations and smooth customs clearance.</p>
           </div>
           
-          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-lg transition-all group val-card opacity-0">
-            <Leaf className="text-primary mb-4 group-hover:scale-110 transition-transform" size={40} />
+          <div className="px-5 py-8 md:px-6 border border-outline-variant bg-white hover:border-primary hover:shadow-xl transition-all group val-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <Leaf className="text-primary mb-4 group-hover:scale-110 transition-transform duration-300" size={40} />
             <h3 className="font-headline-md text-sm sm:text-base lg:text-[13px] xl:text-base whitespace-nowrap mb-2 text-on-surface">GRS Recycled Tech</h3>
             <p className="text-secondary text-sm">Supplying certified recycled nylon fabrics and PFC-free water-resistant coating to meet international ecological compliance.</p>
           </div>
@@ -317,15 +337,19 @@ export default function Home() {
       </section>
 
       {/* 3. Product Categories Grid */}
-      <section ref={scenarioRef} className="py-16 md:py-24 bg-surface-container-low border-y border-outline-variant w-full">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <section ref={scenarioRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+        {/* Tech decorative patterns */}
+        <div className="absolute inset-0 engineering-grid opacity-10 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal pointer-events-none" />
+
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16 animate-fade-trigger">
             <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">WHOLESALE CATALOG</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Explore All Product Categories</h2>
             <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {HOMEPAGE_CATEGORIES.map((cat) => {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
@@ -336,9 +360,9 @@ export default function Home() {
                 <Link 
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-lg transition-all group flex flex-col scenario-card opacity-0 overflow-hidden"
+                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                 >
-                  {/* Image Area */}
+                  {/* Image Area (with overflow-hidden so corner icons don't clip) */}
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
                     <Image 
                       src={categoryImage} 
@@ -348,12 +372,12 @@ export default function Home() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105" 
                     />
                     {/* Item Count Overlay Badge */}
-                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm text-on-surface text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 shadow-sm rounded-none border border-outline-variant">
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm text-on-surface text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 shadow-sm border border-outline-variant">
                       {count} Items
                     </div>
                   </div>
                   {/* Text Area */}
-                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center">
+                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center bg-white">
                     <h3 className="font-headline-md text-xs sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
                       {cat.name}
                     </h3>
@@ -369,78 +393,86 @@ export default function Home() {
       </section>
 
       {/* 4. Material & Technology Bento Grid */}
-      <section ref={bentoRef} className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-        <div className="text-center mb-16">
-          <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">CRAFT & MATERIALS</span>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Advanced Materials & Technology</h2>
-          <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
-        </div>
+      <section ref={bentoRef} className="py-section-gap w-full relative overflow-hidden bg-white">
+        <div className="absolute inset-0 engineering-dots opacity-40 pointer-events-none" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 glow-teal pointer-events-none" />
 
-        {/* Bento Layout Grid */}
-        <div className="grid grid-cols-12 gap-gutter">
-          
-          {/* Big Box 1: Cordura */}
-          <div className="col-span-12 md:col-span-8 bg-surface-container-low border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px]">
-            <div className="flex justify-between items-start">
-              <Layers className="text-primary group-hover:rotate-6 transition-transform" size={40} />
-              <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Tensile Core</span>
-            </div>
-            <div className="mt-8">
-              <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">High-Density Ripstop Fabric</h3>
-              <p className="text-secondary text-sm max-w-xl">
-                We utilize high-density Cordura® & 420D double-line ripstop nylon with premium polyurethane DWR coatings. Tested to withstand extreme tearing forces and direct friction.
-              </p>
-            </div>
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+          <div className="text-center mb-16">
+            <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">CRAFT & MATERIALS</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Advanced Materials & Technology</h2>
+            <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
           </div>
 
-          {/* Box 2: High frequency welding */}
-          <div className="col-span-12 md:col-span-4 bg-surface-container-low border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px]">
-            <div className="flex justify-between items-start">
-              <Zap className="text-primary group-hover:scale-110 transition-transform" size={40} />
-              <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
+          {/* Bento Layout Grid */}
+          <div className="grid grid-cols-12 gap-gutter">
+            
+            {/* Big Box 1: Cordura */}
+            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+              <div className="flex justify-between items-start">
+                <Layers className="text-primary group-hover:rotate-6 transition-transform duration-300" size={40} />
+                <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Tensile Core</span>
+              </div>
+              <div className="mt-8">
+                <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">High-Density Ripstop Fabric</h3>
+                <p className="text-secondary text-sm max-w-xl">
+                  We utilize high-density Cordura® & 420D double-line ripstop nylon with premium polyurethane DWR coatings. Tested to withstand extreme tearing forces and direct friction.
+                </p>
+              </div>
             </div>
-            <div className="mt-8">
-              <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">High-Frequency Seamless Welding</h3>
-              <p className="text-secondary text-xs">
-                Perfect for waterproof lines. Using electro-magnetic energy to fuse PVC/TPU layers, forming seamless water-tight bonds that easily handle IPX6 submersions.
-              </p>
-            </div>
-          </div>
 
-          {/* Box 3: Ergo Mesh */}
-          <div className="col-span-12 md:col-span-4 bg-surface-container-low border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px]">
-            <div className="flex justify-between items-start">
-              <ThermometerSun className="text-primary group-hover:-translate-y-1 transition-transform" size={40} />
-              <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">Air Flow</span>
+            {/* Box 2: High frequency welding */}
+            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+              <div className="flex justify-between items-start">
+                <Zap className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
+                <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
+              </div>
+              <div className="mt-8">
+                <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">High-Frequency Seamless Welding</h3>
+                <p className="text-secondary text-xs">
+                  Perfect for waterproof lines. Using electro-magnetic energy to fuse PVC/TPU layers, forming seamless water-tight bonds that easily handle IPX6 submersions.
+                </p>
+              </div>
             </div>
-            <div className="mt-8">
-              <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">Ergo-Vent Back Systems</h3>
-              <p className="text-secondary text-xs">
-                Suspended structural mesh panels combined with dual-density foam shoulder straps decrease contact back temperatures by up to 3°C for long-duration carry comfort.
-              </p>
-            </div>
-          </div>
 
-          {/* Big Box 4: Impact Hardshell */}
-          <div className="col-span-12 md:col-span-8 bg-surface-container-low border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px]">
-            <div className="flex justify-between items-start">
-              <ShieldAlert className="text-primary group-hover:scale-110 transition-transform" size={40} />
-              <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Rider Protect</span>
+            {/* Box 3: Ergo Mesh */}
+            <div className="col-span-12 md:col-span-4 bg-white border border-outline-variant p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+              <div className="flex justify-between items-start">
+                <ThermometerSun className="text-primary group-hover:-translate-y-1 transition-transform duration-300" size={40} />
+                <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">Air Flow</span>
+              </div>
+              <div className="mt-8">
+                <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">Ergo-Vent Back Systems</h3>
+                <p className="text-secondary text-xs">
+                  Suspended structural mesh panels combined with dual-density foam shoulder straps decrease contact back temperatures by up to 3°C for long-duration carry comfort.
+                </p>
+              </div>
             </div>
-            <div className="mt-8">
-              <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">Impact Hardshell & Polycarbonate Armor</h3>
-              <p className="text-secondary text-sm max-w-xl">
-                Specially designed for cycling and motorcycle luggage lines. Molded rigid composite shields resist dynamic impact forces, protecting sensitive inner items.
-              </p>
-            </div>
-          </div>
 
+            {/* Big Box 4: Impact Hardshell */}
+            <div className="col-span-12 md:col-span-8 bg-white border border-outline-variant p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+              <div className="flex justify-between items-start">
+                <ShieldAlert className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
+                <span className="font-label-sm text-[10px] text-primary border border-primary px-3 py-1 font-mono uppercase">Rider Protect</span>
+              </div>
+              <div className="mt-8">
+                <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">Impact Hardshell & Polycarbonate Armor</h3>
+                <p className="text-secondary text-sm max-w-xl">
+                  Specially designed for cycling and motorcycle luggage lines. Molded rigid composite shields resist dynamic impact forces, protecting sensitive inner items.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
       {/* 5. Product Showcase */}
-      <section ref={showcaseRef} className="py-section-gap bg-surface-container-low border-y border-outline-variant w-full">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+      <section ref={showcaseRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+        <div className="absolute inset-0 engineering-grid opacity-[0.05] pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 glow-teal pointer-events-none" />
+
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
           <div className="text-center mb-16">
             <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">BEST SELLERS</span>
             <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Featured Wholesale Products</h2>
@@ -452,21 +484,21 @@ export default function Home() {
             {FEATURED_PRODUCTS.map((prod) => (
               <div 
                 key={prod.id}
-                className="border border-outline-variant bg-white flex flex-col group prod-card opacity-0"
+                className="border border-outline-variant bg-white flex flex-col group prod-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-surface-container-low">
                   <Image 
-                    src={prod.image}
+                    src={prod.image} 
                     alt={prod.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute top-4 left-4 bg-primary text-white font-label-sm px-3 py-1 uppercase tracking-tight text-[10px] font-mono">
+                  <span className="absolute top-4 left-4 bg-primary text-white font-label-sm px-3 py-1 uppercase tracking-tight text-[10px] font-mono border border-white/10">
                     MOQ {prod.moq}
                   </span>
                 </div>
-                <div className="p-6 border-t border-outline-variant bg-surface-container-low flex-grow flex flex-col justify-between">
+                <div className="p-6 border-t border-outline-variant bg-white flex-grow flex flex-col justify-between">
                   <div>
                     <p className="font-label-sm text-outline mb-1 font-mono text-[10px]">SKU: {prod.sku}</p>
                     <h4 className="font-headline-md text-sm mb-4 text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-2">
@@ -487,7 +519,7 @@ export default function Home() {
           {/* More Button */}
           <div className="flex justify-center mt-16">
             <Link href="/products">
-              <button className="bg-primary text-white px-10 py-5 font-headline-md text-sm uppercase font-bold hover:bg-high-vis-orange transition-all cursor-pointer">
+              <button className="bg-primary text-white px-10 py-5 font-headline-md text-sm uppercase font-bold hover:bg-high-vis-orange transition-all cursor-pointer rounded-none">
                 View More Products
               </button>
             </Link>
@@ -496,18 +528,20 @@ export default function Home() {
       </section>
 
       {/* 6. Manufacturing Strength */}
-      <section ref={strengthRef} className="py-section-gap bg-primary text-white relative overflow-hidden w-full">
+      <section ref={strengthRef} className="py-20 bg-primary text-white relative overflow-hidden w-full">
         <div className="absolute inset-0 topographic-bg opacity-10" />
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center relative z-10 animate-fade-trigger">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] glow-teal opacity-30 pointer-events-none" />
+        
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center relative z-10">
           
           <div className="space-y-8">
-            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block">FACTORY CAPABILITY</span>
+            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block font-mono">FACTORY CAPABILITY</span>
             <h2 className="font-headline-lg text-headline-lg text-white">Industrial Scale & R&D Excellence</h2>
             
             <div className="space-y-8">
               
               <div className="flex items-start strength-item opacity-0">
-                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6">
+                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6 border border-white/10">
                   <Users className="text-white" size={24} />
                 </div>
                 <div>
@@ -517,7 +551,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-start strength-item opacity-0">
-                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6">
+                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6 border border-white/10">
                   <Cpu className="text-white" size={24} />
                 </div>
                 <div>
@@ -527,7 +561,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-start strength-item opacity-0">
-                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6">
+                <div className="w-12 h-12 flex-shrink-0 bg-primary-container flex items-center justify-center mr-6 border border-white/10">
                   <Barcode className="text-white" size={24} />
                 </div>
                 <div>
@@ -539,15 +573,21 @@ export default function Home() {
             </div>
 
             <Link href="/contact" className="inline-block mt-4">
-              <button className="border-2 border-high-vis-orange text-high-vis-orange px-8 py-4 font-label-sm uppercase font-bold hover:bg-high-vis-orange hover:text-white transition-colors cursor-pointer">
+              <button className="border border-high-vis-orange text-high-vis-orange px-8 py-4 font-label-sm uppercase font-bold hover:bg-high-vis-orange hover:text-white transition-colors cursor-pointer rounded-none">
                 Schedule Factory Video Tour
               </button>
             </Link>
           </div>
 
-          <div className="relative h-[480px] md:h-[600px] w-full bg-black">
-            <div className="absolute top-0 right-0 w-[95%] h-[95%] border-4 border-high-vis-orange -z-10 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8" />
-            <div className="w-full h-full relative overflow-hidden">
+          {/* Styled Tech frame for Video */}
+          <div className="relative h-[480px] md:h-[600px] w-full border border-white/20 p-3 bg-white/5 backdrop-blur-sm relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br shadow-2xl">
+            {/* Live indicator badge */}
+            <div className="absolute top-6 left-6 z-20 bg-red-600/90 text-white font-mono text-[9px] font-bold px-2 py-0.5 tracking-wider uppercase animate-pulse flex items-center gap-1.5 shadow-md border border-white/10 pointer-events-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-white inline-block animate-ping" />
+              LIVE STREAM // CAM_01
+            </div>
+            
+            <div className="w-full h-full relative overflow-hidden bg-black">
               <video 
                 src="/images/gongchang.mp4" 
                 autoPlay 
@@ -563,20 +603,22 @@ export default function Home() {
       </section>
 
       {/* 7. OEM/ODM B2B custom process interactive timeline */}
-      <section ref={timelineRef} className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
-        <div className="text-center mb-16">
+      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden">
+        <div className="absolute inset-0 engineering-dots opacity-30 pointer-events-none" />
+        
+        <div className="text-center mb-16 relative z-10">
           <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">PARTNERSHIP PROCESS</span>
           <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">OEM/ODM Customization Timeline</h2>
           <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
-          {/* Horizontal connecting line on desktop */}
-          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-outline-variant -z-10" />
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
+          {/* Horizontal connecting dotted line on desktop */}
+          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-outline-variant -z-10" />
 
           {/* Step 1 */}
-          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               01
             </div>
             <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Inquiry & RFQ</h4>
@@ -584,8 +626,8 @@ export default function Home() {
           </div>
 
           {/* Step 2 */}
-          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               02
             </div>
             <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Design & CAD</h4>
@@ -593,8 +635,8 @@ export default function Home() {
           </div>
 
           {/* Step 3 */}
-          <div className="bg-surface-container-low border border-outline-variant p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
+            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               03
             </div>
             <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Prototyping</h4>
