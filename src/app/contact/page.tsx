@@ -85,7 +85,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-4 text-sm text-secondary">
                     <Phone size={18} className="text-primary" />
-                    <p className="font-bold font-mono">+86 (755) 5550-1234</p>
+                    <p className="font-bold font-mono">+86-15160088966</p>
                   </div>
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-4 text-sm text-secondary">
                     <Mail size={18} className="text-primary" />
-                    <p className="font-bold font-mono text-xs">operation@ideascool.net</p>
+                    <p className="font-bold font-mono text-xs">info@ideascool.net</p>
                   </div>
                 </div>
               </div>
@@ -106,11 +106,11 @@ export default function ContactPage() {
                 <div className="flex flex-wrap gap-4 text-xs font-mono font-bold">
                   <div className="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
-                    <span>WhatsApp: +86 138 0000 1234</span>
+                    <span>WhatsApp: +86-15160088966</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2">
                     <MessageSquare size={14} className="text-primary" />
-                    <span>WeChat: EX_GEAR_B2B</span>
+                    <span>WeChat: BlinkDreams_B2B</span>
                   </div>
                 </div>
               </div>

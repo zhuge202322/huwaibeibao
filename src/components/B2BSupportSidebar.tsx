@@ -30,7 +30,7 @@ export default function B2BSupportSidebar() {
 
         {/* WhatsApp */}
         <a 
-          href="https://wa.me/8613800001234"
+          href="https://wa.me/8615160088966"
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all duration-300 hover:translate-x-[-4px]"
@@ -42,7 +42,7 @@ export default function B2BSupportSidebar() {
         
         {/* Email */}
         <a 
-          href="mailto:operation@ideascool.net"
+          href="mailto:info@ideascool.net"
           className="w-12 h-12 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all duration-300 hover:translate-x-[-4px]"
           title="Send Email"
         >

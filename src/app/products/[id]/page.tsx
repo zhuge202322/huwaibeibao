@@ -582,7 +582,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </button>
             </Link>
             <a 
-              href="https://wa.me/" 
+              href="https://wa.me/8615160088966" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="block w-full"
