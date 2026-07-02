@@ -176,13 +176,13 @@ export default function AboutPage() {
             >
               <Image 
                 src="/images/about.png" 
-                alt="Blink Dreams Factory Showcase"
+                alt="Ideas Cool Factory Showcase"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-6 z-20 w-full pointer-events-none">
-                <h4 className="font-headline-md text-base text-white font-bold">Blink Dreams Showroom & Intelligent Facility</h4>
+                <h4 className="font-headline-md text-base text-white font-bold">Ideas Cool Showroom & Intelligent Facility</h4>
               </div>
             </div>
 
@@ -272,7 +272,7 @@ export default function AboutPage() {
           {/* Header */}
           <div>
             <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">COMPANY PROFILE</span>
-            <h2 className="font-headline-lg text-headline-lg uppercase font-bold text-white">Blink Dreams (Xiamen) Trading Co., Limited</h2>
+            <h2 className="font-headline-lg text-headline-lg uppercase font-bold text-white">Ideas Cool Co., Limited</h2>
             <div className="h-1 w-20 bg-high-vis-orange mt-4" />
           </div>
 
@@ -280,8 +280,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 font-body-lg text-sm leading-relaxed text-surface-variant/90">
             {/* Column 1: History & Core Products */}
             <div className="space-y-6">
-              <p>
-                <strong>Blink Dreams</strong> is a professional bags manufacturer located in Quanzhou City, Fujian Province, China. We specially deal with all kinds of bags, including school bags, sports bags, cosmetic bags, bicycle bags, ice bags, backpacks, trolley bags, wallets, cooler bags, travel bags, gift bags, and more.
+               <p>
+                <strong>Ideas Cool</strong> is a professional bags manufacturer located in Quanzhou City, Fujian Province, China. We specially deal with all kinds of bags, including school bags, sports bags, cosmetic bags, bicycle bags, ice bags, backpacks, trolley bags, wallets, cooler bags, travel bags, gift bags, and more.
               </p>
               <p>
                 At the same time, most of our high-quality carrying products are exported to American, European countries, and other international markets, earning high trust from B2B partners worldwide.

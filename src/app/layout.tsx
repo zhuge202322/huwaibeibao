@@ -24,8 +24,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Blink Dreams (Xiamen) Trading Co., Limited",
-  description: "全球领先的专业技术背包与各类箱包 OEM/ODM 制造商。提供端到端的产品开发、高耐用性材料规格与大规模量产服务，年产能达120万件。",
+  title: "Ideas Cool Co., Limited",
+  description: "Ideas Cool Co., Limited - 全球领先的专业技术背包与各类箱包 OEM/ODM 制造商。提供端到端的产品开发、高耐用性材料规格与大规模量产服务，年产能达120万件。",
 };
 
 export default function RootLayout({

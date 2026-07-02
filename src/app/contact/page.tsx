@@ -72,7 +72,7 @@ export default function ContactPage() {
                   <p className="leading-relaxed">
                     No.11-19, Shuangfu Road, Tongan District,<br />
                     Xiamen City, Fujian Province, China<br />
-                    Blink Dreams Industrial Park, Bldg East, R&D Center<br />
+                    Ideas Cool Industrial Park, Bldg East, R&D Center<br />
                     ZIP Code: 361110
                   </p>
                 </div>
