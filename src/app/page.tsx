@@ -337,9 +337,9 @@ export default function Home() {
       </section>
 
       {/* Tech Divider 01 */}
-      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
-          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+      <div className="w-full h-[1px] bg-primary/30 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
           <span>IDEAS_COOL // CAPABILITY_MODULE</span>
           <span className="text-[10px] font-bold text-primary">+</span>
         </div>
@@ -390,7 +390,7 @@ export default function Home() {
                     <h3 className="font-headline-md text-xs sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
                       {cat.name}
                     </h3>
-                    <span className="text-[9px] sm:text-[10px] text-outline group-hover:text-high-vis-orange transition-colors font-mono tracking-wider uppercase">
+                    <span className="text-[9px] sm:text-[10px] text-primary/80 group-hover:text-high-vis-orange transition-colors font-mono tracking-wider uppercase">
                       Explore Collection
                     </span>
                   </div>
@@ -402,9 +402,9 @@ export default function Home() {
       </section>
 
       {/* Tech Divider 02 */}
-      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
-          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+      <div className="w-full h-[1px] bg-primary/30 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
           <span>IDEAS_COOL // PRODUCT_CATALOG</span>
           <span className="text-[10px] font-bold text-primary">+</span>
         </div>
@@ -443,7 +443,7 @@ export default function Home() {
             <div className="col-span-12 md:col-span-4 bg-white border border-high-vis-orange p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
               <div className="flex justify-between items-start">
                 <Zap className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
+                <span className="font-label-sm text-[10px] text-primary/80 border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
               </div>
               <div className="mt-8">
                 <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">High-Frequency Seamless Welding</h3>
@@ -486,9 +486,9 @@ export default function Home() {
       </section>
 
       {/* Tech Divider 03 */}
-      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
-          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+      <div className="w-full h-[1px] bg-primary/30 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
           <span>IDEAS_COOL // MATERIAL_SCIENCE</span>
           <span className="text-[10px] font-bold text-primary">+</span>
         </div>
@@ -527,7 +527,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 border-t border-outline-variant bg-white flex-grow flex flex-col justify-between">
                   <div>
-                    <p className="font-label-sm text-outline mb-1 font-mono text-[10px]">SKU: {prod.sku}</p>
+                    <p className="font-label-sm text-primary/80 mb-1 font-mono text-[10px]">SKU: {prod.sku}</p>
                     <h4 className="font-headline-md text-sm mb-4 text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-2">
                       <Link href={`/products/${prod.id}`}>
                         {prod.name}
@@ -555,9 +555,9 @@ export default function Home() {
       </section>
 
       {/* Tech Divider 04 */}
-      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
-          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+      <div className="w-full h-[1px] bg-primary/30 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
           <span>IDEAS_COOL // BEST_SELLERS</span>
           <span className="text-[10px] font-bold text-primary">+</span>
         </div>
@@ -639,9 +639,9 @@ export default function Home() {
       </section>
 
       {/* Tech Divider 05 */}
-      <div className="w-full h-[1px] bg-outline-variant/60 relative z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-outline tracking-[0.2em] border border-outline-variant/40 flex items-center gap-1.5 pointer-events-none uppercase">
-          <span className="w-1.5 h-1.5 bg-high-vis-orange rounded-full animate-pulse" />
+      <div className="w-full h-[1px] bg-primary/30 relative z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-1 text-[8px] font-mono text-primary/80 tracking-[0.2em] border border-primary/20 flex items-center gap-1.5 pointer-events-none uppercase">
+          <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
           <span>IDEAS_COOL // FACTORY_OVERVIEW</span>
           <span className="text-[10px] font-bold text-primary">+</span>
         </div>
