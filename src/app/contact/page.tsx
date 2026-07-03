@@ -154,10 +154,6 @@ export default function ContactPage() {
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
                     <span>WhatsApp: +86-15160088966</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2">
-                    <MessageSquare size={14} className="text-primary" />
-                    <span>WeChat: BlinkDreams_B2B</span>
-                  </div>
                 </div>
               </div>
 
