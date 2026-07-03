@@ -346,15 +346,20 @@ export default function Home() {
       </div>
 
       {/* 3. Product Categories Grid */}
-      <section ref={scenarioRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+      <section ref={scenarioRef} className="py-20 bg-[#0b0f19] border-y border-white/5 w-full relative overflow-hidden text-white">
         {/* Tech decorative patterns */}
-        <div className="absolute inset-0 engineering-grid opacity-10 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal pointer-events-none" />
+        <div className="absolute inset-0 engineering-grid opacity-[0.06] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-30 pointer-events-none" />
+
+        {/* Huge technical watermark text */}
+        <div className="absolute -top-6 -left-10 text-[90px] md:text-[160px] font-black text-white/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+          CATALOG
+        </div>
 
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16 animate-fade-trigger">
-            <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">WHOLESALE CATALOG</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Explore All Product Categories</h2>
+            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">WHOLESALE CATALOG</span>
+            <h2 className="font-headline-lg text-headline-lg text-white font-bold uppercase">Explore All Product Categories</h2>
             <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
           </div>
 
@@ -369,10 +374,10 @@ export default function Home() {
                 <Link 
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="bg-white border border-high-vis-orange hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
+                  className="bg-[#111827] border border-high-vis-orange hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
                 >
                   {/* Image Area (with overflow-hidden so corner icons don't clip) */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container-low">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1f2937]">
                     <Image 
                       src={categoryImage} 
                       alt={cat.name} 
@@ -381,16 +386,16 @@ export default function Home() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105" 
                     />
                     {/* Item Count Overlay Badge */}
-                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm text-on-surface text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 shadow-sm border border-outline-variant">
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-slate-900/90 text-high-vis-orange text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 border border-white/10">
                       {count} Items
                     </div>
                   </div>
                   {/* Text Area */}
-                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center bg-white">
-                    <h3 className="font-headline-md text-xs sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
+                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center bg-[#111827]">
+                    <h3 className="font-headline-md text-xs sm:text-base text-white font-bold mb-1 group-hover:text-high-vis-orange transition-colors">
                       {cat.name}
                     </h3>
-                    <span className="text-[9px] sm:text-[10px] text-primary/80 group-hover:text-high-vis-orange transition-colors font-mono tracking-wider uppercase">
+                    <span className="text-[9px] sm:text-[10px] text-white/50 group-hover:text-white transition-colors font-mono tracking-wider uppercase">
                       Explore Collection
                     </span>
                   </div>
@@ -498,6 +503,11 @@ export default function Home() {
       <section ref={showcaseRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
         <div className="absolute inset-0 engineering-grid opacity-[0.05] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 glow-teal pointer-events-none" />
+
+        {/* Huge technical watermark text */}
+        <div className="absolute -top-6 -right-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+          BEST_SELL
+        </div>
 
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
           <div className="text-center mb-16">
@@ -648,62 +658,68 @@ export default function Home() {
       </div>
 
       {/* 7. OEM/ODM B2B custom process interactive timeline */}
-      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden">
-        <div className="absolute inset-0 engineering-dots opacity-30 pointer-events-none" />
+      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden bg-[#0b0f19] text-white border-y border-white/5">
+        <div className="absolute inset-0 engineering-dots opacity-20 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-orange opacity-40 pointer-events-none" />
+
+        {/* Huge technical watermark text */}
+        <div className="absolute -bottom-10 -right-10 text-[90px] md:text-[160px] font-black text-white/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+          PROCESS
+        </div>
         
         <div className="text-center mb-16 relative z-10">
-          <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">PARTNERSHIP PROCESS</span>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">OEM/ODM Customization Timeline</h2>
+          <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">PARTNERSHIP PROCESS</span>
+          <h2 className="font-headline-lg text-headline-lg text-white font-bold uppercase">OEM/ODM Customization Timeline</h2>
           <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
           {/* Horizontal connecting dotted line on desktop */}
-          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-outline-variant -z-10" />
+          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-white/10 -z-10" />
 
           {/* Step 1 */}
-          <div className="bg-white border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
+            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               01
             </div>
-            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Inquiry & RFQ</h4>
-            <p className="text-secondary text-xs">Send specifications, drawings or sketches. 24h fast feedback.</p>
+            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Inquiry & RFQ</h4>
+            <p className="text-white/60 text-xs">Send specifications, drawings or sketches. 24h fast feedback.</p>
           </div>
 
           {/* Step 2 */}
-          <div className="bg-white border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
+            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               02
             </div>
-            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Design & CAD</h4>
-            <p className="text-secondary text-xs">CAD modeling, material verification, and quote options within 3 Days.</p>
+            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Design & CAD</h4>
+            <p className="text-white/60 text-xs">CAD modeling, material verification, and quote options within 3 Days.</p>
           </div>
 
           {/* Step 3 */}
-          <div className="bg-white border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
+            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               03
             </div>
-            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Prototyping</h4>
-            <p className="text-secondary text-xs">Fast sample room cutting and stitch preparation in 5 Days.</p>
+            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Prototyping</h4>
+            <p className="text-white/60 text-xs">Fast sample room cutting and stitch preparation in 5 Days.</p>
           </div>
 
           {/* Step 4 */}
-          <div className="bg-surface-container-low border border-high-vis-orange p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
+          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
+            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               04
             </div>
-            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Bulk Manufacture</h4>
-            <p className="text-secondary text-xs">24 modular lean assembly sewing lines complete bulk orders in 20-30 Days.</p>
+            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Bulk Manufacture</h4>
+            <p className="text-white/60 text-xs">24 modular lean assembly sewing lines complete bulk orders in 20-30 Days.</p>
           </div>
 
           {/* Step 5 */}
-          <div className="bg-surface-container-low border border-high-vis-orange p-6 hover:shadow-md hover:border-primary transition-all text-center group timeline-step opacity-0">
-            <div className="w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform">
+          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
+            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
               05
             </div>
-            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">QC & Delivery</h4>
-            <p className="text-secondary text-xs">Materials test chamber certificate, final shipping and customs consolidation.</p>
+            <h4 className="font-headline-md text-sm text-white font-bold mb-2">QC & Delivery</h4>
+            <p className="text-white/60 text-xs">Materials test chamber certificate, final shipping and customs consolidation.</p>
           </div>
         </div>
       </section>

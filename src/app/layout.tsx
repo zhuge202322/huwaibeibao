@@ -38,10 +38,14 @@ export default function RootLayout({
       lang="zh"
       className={`${montserrat.variable} ${workSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface text-on-surface font-body-md">
+      <body className="min-h-full flex flex-col bg-surface text-on-surface font-body-md relative">
+        {/* Global technical blueprint grid alignment lines */}
+        <div className="absolute inset-y-0 left-6 w-[1px] border-l border-dashed border-outline-variant/10 pointer-events-none z-0 hidden xl:block" />
+        <div className="absolute inset-y-0 right-6 w-[1px] border-l border-dashed border-outline-variant/10 pointer-events-none z-0 hidden xl:block" />
+        
         <Navbar />
         <B2BSupportSidebar />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow pt-20 relative z-10">
           {children}
         </main>
         <Footer />
