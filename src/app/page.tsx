@@ -352,13 +352,13 @@ export default function Home() {
       </div>
 
       {/* 3. Product Categories Grid */}
-      <section ref={scenarioRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+      <section ref={scenarioRef} className="py-20 bg-[#f4f5f0] border-y border-outline-variant w-full relative overflow-hidden">
         {/* Subtle grid and glows */}
-        <div className="absolute inset-0 engineering-grid opacity-[0.03] pointer-events-none" />
+        <div className="absolute inset-0 engineering-grid opacity-[0.04] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-20 pointer-events-none" />
 
         {/* Huge technical watermark text */}
-        <div className="absolute -top-6 -left-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.02] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+        <div className="absolute -top-6 -left-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.03] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
           CATALOG
         </div>
 
@@ -506,19 +506,19 @@ export default function Home() {
       </div>
 
       {/* 5. Product Showcase */}
-      <section ref={showcaseRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+      <section ref={showcaseRef} className="py-20 bg-primary text-white w-full relative overflow-hidden">
         <div className="absolute inset-0 engineering-grid opacity-[0.05] pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 glow-teal pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 glow-teal opacity-50 pointer-events-none" />
 
         {/* Huge technical watermark text */}
-        <div className="absolute -top-6 -right-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+        <div className="absolute -top-6 -right-10 text-[90px] md:text-[160px] font-black text-white/[0.03] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
           BEST_SELL
         </div>
 
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
           <div className="text-center mb-16">
-            <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">BEST SELLERS</span>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Featured Wholesale Products</h2>
+            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">BEST SELLERS</span>
+            <h2 className="font-headline-lg text-headline-lg text-white font-bold uppercase">Featured Wholesale Products</h2>
             <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
           </div>
 
@@ -664,12 +664,12 @@ export default function Home() {
       </div>
 
       {/* 7. OEM/ODM B2B custom process interactive timeline */}
-      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden bg-surface-container-low border-y border-outline-variant">
+      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden bg-[#f4f5f0] border-y border-outline-variant">
         <div className="absolute inset-0 engineering-dots opacity-20 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-20 pointer-events-none" />
 
         {/* Huge technical watermark text */}
-        <div className="absolute -bottom-10 -right-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.02] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+        <div className="absolute -bottom-10 -right-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.03] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
           PROCESS
         </div>
         
