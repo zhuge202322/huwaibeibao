@@ -391,13 +391,13 @@ export default function Home() {
                   className={`bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-500 group flex flex-col scenario-card opacity-0 relative overflow-hidden ${spanClass}`}
                 >
                   {/* Image Area - flex-grow to fill the staggered grid cell */}
-                  <div className="relative flex-grow w-full overflow-hidden bg-surface-container">
+                  <div className="relative flex-grow w-full overflow-hidden bg-white">
                     <Image 
                       src={categoryImage} 
                       alt={cat.name} 
                       fill 
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                      className="object-contain p-6 md:p-10 transition-transform duration-700 group-hover:scale-110" 
                     />
                     {/* Item Count Overlay Badge */}
                     <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-md text-primary text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 border border-outline-variant shadow-sm rounded-sm">
