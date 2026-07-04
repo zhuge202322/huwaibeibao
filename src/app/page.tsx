@@ -369,26 +369,34 @@ export default function Home() {
             <div className="h-1 w-20 bg-primary mx-auto mt-4" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {HOMEPAGE_CATEGORIES.map((cat) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[350px]">
+            {HOMEPAGE_CATEGORIES.map((cat, index) => {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
               const firstProduct = catProducts[0];
               const categoryImage = firstProduct && firstProduct.image ? firstProduct.image : cat.image;
 
+              // Create an irregular bento grid layout for exactly 5 items
+              let spanClass = "col-span-1 row-span-1";
+              if (index === 0) spanClass = "md:col-span-2 lg:col-span-2 md:row-span-2 lg:row-span-2";
+              else if (index === 1) spanClass = "md:col-span-1 lg:col-span-1 md:row-span-1 lg:row-span-1";
+              else if (index === 2) spanClass = "md:col-span-1 lg:col-span-1 md:row-span-1 lg:row-span-1";
+              else if (index === 3) spanClass = "md:col-span-1 lg:col-span-1 md:row-span-1 lg:row-span-1";
+              else if (index === 4) spanClass = "md:col-span-1 lg:col-span-2 md:row-span-1 lg:row-span-1";
+
               return (
                 <Link 
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-500 group flex flex-col scenario-card opacity-0 relative overflow-hidden"
+                  className={`bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-500 group flex flex-col scenario-card opacity-0 relative overflow-hidden ${spanClass}`}
                 >
-                  {/* Image Area */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container">
+                  {/* Image Area - flex-grow to fill the staggered grid cell */}
+                  <div className="relative flex-grow w-full overflow-hidden bg-surface-container">
                     <Image 
                       src={categoryImage} 
                       alt={cat.name} 
                       fill 
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110" 
                     />
                     {/* Item Count Overlay Badge */}
@@ -397,8 +405,8 @@ export default function Home() {
                     </div>
                   </div>
                   {/* Text Area */}
-                  <div className="p-4 sm:p-6 text-center flex-grow flex flex-col justify-center bg-white border-t border-outline-variant/30">
-                    <h3 className="font-headline-md text-sm sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
+                  <div className="p-4 sm:p-6 text-center bg-white border-t border-outline-variant/30 flex-shrink-0">
+                    <h3 className={`font-headline-md font-bold mb-1 group-hover:text-primary transition-colors ${index === 0 ? 'text-lg sm:text-2xl text-primary' : 'text-sm sm:text-base text-on-surface'}`}>
                       {cat.name}
                     </h3>
                     <span className="text-[9px] sm:text-[10px] text-secondary group-hover:text-primary transition-colors font-mono tracking-wider uppercase flex items-center justify-center gap-1">
