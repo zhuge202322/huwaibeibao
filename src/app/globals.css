@@ -229,3 +229,38 @@ body {
   z-index: 10;
 }
 
+/* GSAP Reveal Utilities for Outdoor/Premium Aesthetic */
+.clip-reveal {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.clip-reveal-active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.img-parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-parallax {
+  height: 120%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-outline-premium {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(15, 118, 110, 0.15);
+}

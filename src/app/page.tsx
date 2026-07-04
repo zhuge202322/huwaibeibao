@@ -103,17 +103,18 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // 1. Value Proposition Animations
+    // 1. Value Proposition Animations - Slow organic fade-up
     const valCards = valPropRef.current?.querySelectorAll(".val-card");
     if (valCards) {
       gsap.fromTo(
         valCards,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 60 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 1.2,
+          ease: "power3.out",
+          stagger: 0.2,
           scrollTrigger: {
             trigger: valPropRef.current,
             start: "top 85%",
@@ -122,16 +123,17 @@ export default function Home() {
       );
     }
 
-    // 2. Scenario trigger animation
+    // 2. Scenario Category trigger animation - Elegant reveal
     const scenarioCards = scenarioRef.current?.querySelectorAll(".scenario-card");
     if (scenarioCards) {
       gsap.fromTo(
         scenarioCards,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 1.2,
+          ease: "power2.out",
           stagger: 0.15,
           scrollTrigger: {
             trigger: scenarioRef.current,
@@ -141,18 +143,19 @@ export default function Home() {
       );
     }
 
-    // 3. Material Bento Grid Animations
+    // 3. Material Bento Grid Animations - Subtle scale and blur
     const bentoCards = bentoRef.current?.querySelectorAll(".bento-card");
     if (bentoCards) {
       gsap.fromTo(
         bentoCards,
-        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 0, scale: 0.98, y: 40 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 1.2,
+          ease: "power3.out",
+          stagger: 0.15,
           scrollTrigger: {
             trigger: bentoRef.current,
             start: "top 75%",
@@ -161,17 +164,18 @@ export default function Home() {
       );
     }
 
-    // 4. Product Showcase Animations
+    // 4. Product Showcase Animations - Waterfall staggered reveal
     const prodCards = showcaseRef.current?.querySelectorAll(".prod-card");
     if (prodCards) {
       gsap.fromTo(
         prodCards,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 60 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.05,
+          duration: 1.2,
+          ease: "power2.out",
+          stagger: 0.1,
           scrollTrigger: {
             trigger: showcaseRef.current,
             start: "top 75%",
@@ -180,16 +184,17 @@ export default function Home() {
       );
     }
 
-    // 5. Strength Section Animations
+    // 5. Strength Section Animations - Smooth horizontal slide
     const strengthItems = strengthRef.current?.querySelectorAll(".strength-item");
     if (strengthItems) {
       gsap.fromTo(
         strengthItems,
-        { opacity: 0, x: -30 },
+        { opacity: 0, x: -40 },
         {
           opacity: 1,
           x: 0,
-          duration: 0.8,
+          duration: 1.2,
+          ease: "power3.out",
           stagger: 0.2,
           scrollTrigger: {
             trigger: strengthRef.current,
@@ -199,17 +204,18 @@ export default function Home() {
       );
     }
 
-    // 6. OEM Customization Timeline Animation
+    // 6. OEM Customization Timeline Animation - Soft float in
     const timelineItems = timelineRef.current?.querySelectorAll(".timeline-step");
     if (timelineItems) {
       gsap.fromTo(
         timelineItems,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 1.2,
+          ease: "power2.out",
+          stagger: 0.2,
           scrollTrigger: {
             trigger: timelineRef.current,
             start: "top 80%",
@@ -346,21 +352,21 @@ export default function Home() {
       </div>
 
       {/* 3. Product Categories Grid */}
-      <section ref={scenarioRef} className="py-20 bg-[#0b0f19] border-y border-white/5 w-full relative overflow-hidden text-white">
-        {/* Tech decorative patterns */}
-        <div className="absolute inset-0 engineering-grid opacity-[0.06] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-30 pointer-events-none" />
+      <section ref={scenarioRef} className="py-20 bg-surface-container-low border-y border-outline-variant w-full relative overflow-hidden">
+        {/* Subtle grid and glows */}
+        <div className="absolute inset-0 engineering-grid opacity-[0.03] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-20 pointer-events-none" />
 
         {/* Huge technical watermark text */}
-        <div className="absolute -top-6 -left-10 text-[90px] md:text-[160px] font-black text-white/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+        <div className="absolute -top-6 -left-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.02] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
           CATALOG
         </div>
 
         <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16 animate-fade-trigger">
-            <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">WHOLESALE CATALOG</span>
-            <h2 className="font-headline-lg text-headline-lg text-white font-bold uppercase">Explore All Product Categories</h2>
-            <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
+            <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">WHOLESALE CATALOG</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">Explore All Product Categories</h2>
+            <div className="h-1 w-20 bg-primary mx-auto mt-4" />
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -374,29 +380,29 @@ export default function Home() {
                 <Link 
                   key={cat.slug}
                   href={`/products?category=${cat.slug}`}
-                  className="bg-[#111827] border border-high-vis-orange hover:border-primary hover:shadow-xl transition-all duration-300 group flex flex-col scenario-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
+                  className="bg-white border border-outline-variant hover:border-primary hover:shadow-xl transition-all duration-500 group flex flex-col scenario-card opacity-0 relative overflow-hidden"
                 >
-                  {/* Image Area (with overflow-hidden so corner icons don't clip) */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1f2937]">
+                  {/* Image Area */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-container">
                     <Image 
                       src={categoryImage} 
                       alt={cat.name} 
                       fill 
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
                     />
                     {/* Item Count Overlay Badge */}
-                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-slate-900/90 text-high-vis-orange text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 border border-white/10">
+                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-md text-primary text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 sm:px-3 sm:py-1 border border-outline-variant shadow-sm rounded-sm">
                       {count} Items
                     </div>
                   </div>
                   {/* Text Area */}
-                  <div className="p-3 sm:p-5 text-center flex-grow flex flex-col justify-center bg-[#111827]">
-                    <h3 className="font-headline-md text-xs sm:text-base text-white font-bold mb-1 group-hover:text-high-vis-orange transition-colors">
+                  <div className="p-4 sm:p-6 text-center flex-grow flex flex-col justify-center bg-white border-t border-outline-variant/30">
+                    <h3 className="font-headline-md text-sm sm:text-base text-on-surface font-bold mb-1 group-hover:text-primary transition-colors">
                       {cat.name}
                     </h3>
-                    <span className="text-[9px] sm:text-[10px] text-white/50 group-hover:text-white transition-colors font-mono tracking-wider uppercase">
-                      Explore Collection
+                    <span className="text-[9px] sm:text-[10px] text-secondary group-hover:text-primary transition-colors font-mono tracking-wider uppercase flex items-center justify-center gap-1">
+                      Explore Collection <ArrowRight size={10} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     </span>
                   </div>
                 </Link>
@@ -658,68 +664,68 @@ export default function Home() {
       </div>
 
       {/* 7. OEM/ODM B2B custom process interactive timeline */}
-      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden bg-[#0b0f19] text-white border-y border-white/5">
+      <section ref={timelineRef} className="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative overflow-hidden bg-surface-container-low border-y border-outline-variant">
         <div className="absolute inset-0 engineering-dots opacity-20 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-orange opacity-40 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] glow-teal opacity-20 pointer-events-none" />
 
         {/* Huge technical watermark text */}
-        <div className="absolute -bottom-10 -right-10 text-[90px] md:text-[160px] font-black text-white/[0.01] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
+        <div className="absolute -bottom-10 -right-10 text-[90px] md:text-[160px] font-black text-on-surface/[0.02] uppercase tracking-[0.2em] font-mono pointer-events-none select-none">
           PROCESS
         </div>
         
         <div className="text-center mb-16 relative z-10">
-          <span className="font-label-sm text-high-vis-orange uppercase tracking-widest block mb-2 font-mono">PARTNERSHIP PROCESS</span>
-          <h2 className="font-headline-lg text-headline-lg text-white font-bold uppercase">OEM/ODM Customization Timeline</h2>
-          <div className="h-1 w-20 bg-high-vis-orange mx-auto mt-4" />
+          <span className="font-label-sm text-primary uppercase tracking-widest block mb-2 font-mono">PARTNERSHIP PROCESS</span>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface font-bold uppercase">OEM/ODM Customization Timeline</h2>
+          <div className="h-1 w-20 bg-primary mx-auto mt-4" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
           {/* Horizontal connecting dotted line on desktop */}
-          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-white/10 -z-10" />
+          <div className="hidden md:block absolute top-[68px] left-[10%] right-[10%] h-[2px] bg-transparent border-t-2 border-dashed border-outline-variant -z-10" />
 
           {/* Step 1 */}
-          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
-            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative overflow-hidden">
+            <div className="w-12 h-12 bg-surface-container border border-outline-variant text-primary flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500">
               01
             </div>
-            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Inquiry & RFQ</h4>
-            <p className="text-white/60 text-xs">Send specifications, drawings or sketches. 24h fast feedback.</p>
+            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Inquiry & RFQ</h4>
+            <p className="text-secondary text-xs">Send specifications, drawings or sketches. 24h fast feedback.</p>
           </div>
 
           {/* Step 2 */}
-          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
-            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative overflow-hidden">
+            <div className="w-12 h-12 bg-surface-container border border-outline-variant text-primary flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500">
               02
             </div>
-            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Design & CAD</h4>
-            <p className="text-white/60 text-xs">CAD modeling, material verification, and quote options within 3 Days.</p>
+            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Design & CAD</h4>
+            <p className="text-secondary text-xs">CAD modeling, material verification, and quote options within 3 Days.</p>
           </div>
 
           {/* Step 3 */}
-          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
-            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative overflow-hidden">
+            <div className="w-12 h-12 bg-surface-container border border-outline-variant text-primary flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500">
               03
             </div>
-            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Prototyping</h4>
-            <p className="text-white/60 text-xs">Fast sample room cutting and stitch preparation in 5 Days.</p>
+            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Prototyping</h4>
+            <p className="text-secondary text-xs">Fast sample room cutting and stitch preparation in 5 Days.</p>
           </div>
 
           {/* Step 4 */}
-          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
-            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative overflow-hidden">
+            <div className="w-12 h-12 bg-surface-container border border-outline-variant text-primary flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500">
               04
             </div>
-            <h4 className="font-headline-md text-sm text-white font-bold mb-2">Bulk Manufacture</h4>
-            <p className="text-white/60 text-xs">24 modular lean assembly sewing lines complete bulk orders in 20-30 Days.</p>
+            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">Bulk Manufacture</h4>
+            <p className="text-secondary text-xs">24 modular lean assembly sewing lines complete bulk orders in 20-30 Days.</p>
           </div>
 
           {/* Step 5 */}
-          <div className="bg-[#111827] border border-high-vis-orange p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br duration-300">
-            <div className="w-12 h-12 bg-high-vis-orange text-white flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-white border border-outline-variant p-6 hover:shadow-xl hover:border-primary transition-all text-center group timeline-step opacity-0 relative overflow-hidden">
+            <div className="w-12 h-12 bg-surface-container border border-outline-variant text-primary flex items-center justify-center rounded-full mx-auto mb-4 font-mono font-bold group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-500">
               05
             </div>
-            <h4 className="font-headline-md text-sm text-white font-bold mb-2">QC & Delivery</h4>
-            <p className="text-white/60 text-xs">Materials test chamber certificate, final shipping and customs consolidation.</p>
+            <h4 className="font-headline-md text-sm text-on-surface font-bold mb-2">QC & Delivery</h4>
+            <p className="text-secondary text-xs">Materials test chamber certificate, final shipping and customs consolidation.</p>
           </div>
         </div>
       </section>
