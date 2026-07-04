@@ -442,60 +442,60 @@ export default function Home() {
           </div>
 
           {/* Bento Layout Grid */}
-          <div className="grid grid-cols-12 gap-gutter">
+          <div className="grid grid-cols-12 gap-6">
             
-            {/* Big Box 1: Cordura */}
-            <div className="col-span-12 md:col-span-8 bg-white border border-high-vis-orange p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            {/* Big Box 1: Cordura (Solid Primary Green) */}
+            <div className="col-span-12 md:col-span-8 bg-primary text-white rounded-3xl p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex justify-between items-start">
-                <Layers className="text-primary group-hover:rotate-6 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-primary border border-high-vis-orange px-3 py-1 font-mono uppercase">Tensile Core</span>
+                <Layers className="text-white group-hover:rotate-12 transition-transform duration-500" size={40} />
+                <span className="font-label-sm text-[10px] text-white border border-white/30 px-4 py-1.5 rounded-full font-mono uppercase bg-white/5 backdrop-blur-sm">Tensile Core</span>
               </div>
               <div className="mt-8">
-                <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">High-Density Ripstop Fabric</h3>
-                <p className="text-secondary text-sm max-w-xl">
+                <h3 className="font-headline-lg text-2xl md:text-3xl text-white font-bold mb-3">High-Density Ripstop Fabric</h3>
+                <p className="text-white/80 text-sm md:text-base max-w-xl leading-relaxed">
                   We utilize high-density Cordura® & 420D double-line ripstop nylon with premium polyurethane DWR coatings. Tested to withstand extreme tearing forces and direct friction.
                 </p>
               </div>
             </div>
 
-            {/* Box 2: High frequency welding */}
-            <div className="col-span-12 md:col-span-4 bg-white border border-high-vis-orange p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            {/* Box 2: High frequency welding (Light Gray) */}
+            <div className="col-span-12 md:col-span-4 bg-surface-container rounded-3xl p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex justify-between items-start">
-                <Zap className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-primary/80 border border-outline px-3 py-1 font-mono uppercase">100% Sealed</span>
+                <Zap className="text-primary group-hover:scale-110 transition-transform duration-500" size={40} />
+                <span className="font-label-sm text-[10px] text-primary border border-primary/30 px-3 py-1 rounded-full font-mono uppercase bg-white/50">100% Sealed</span>
               </div>
               <div className="mt-8">
-                <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">High-Frequency Seamless Welding</h3>
-                <p className="text-secondary text-xs">
-                  Perfect for waterproof lines. Using electro-magnetic energy to fuse PVC/TPU layers, forming seamless water-tight bonds that easily handle IPX6 submersions.
+                <h3 className="font-headline-lg text-lg text-on-surface font-bold mb-3">Seamless Welding</h3>
+                <p className="text-secondary text-sm leading-relaxed">
+                  Using electro-magnetic energy to fuse layers, forming seamless water-tight bonds that easily handle IPX6 submersions.
                 </p>
               </div>
             </div>
 
-            {/* Box 3: Ergo Mesh */}
-            <div className="col-span-12 md:col-span-4 bg-white border border-high-vis-orange p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            {/* Box 3: Ergo Mesh (Warm Stone) */}
+            <div className="col-span-12 md:col-span-4 bg-[#f4f5f0] rounded-3xl p-8 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex justify-between items-start">
-                <ThermometerSun className="text-primary group-hover:-translate-y-1 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-outline border border-outline px-3 py-1 font-mono uppercase">Air Flow</span>
+                <ThermometerSun className="text-primary group-hover:-translate-y-2 transition-transform duration-500" size={40} />
+                <span className="font-label-sm text-[10px] text-primary border border-primary/30 px-3 py-1 rounded-full font-mono uppercase bg-white/50">Air Flow</span>
               </div>
               <div className="mt-8">
-                <h3 className="font-headline-lg text-base text-on-surface font-bold mb-2">Ergo-Vent Back Systems</h3>
-                <p className="text-secondary text-xs">
-                  Suspended structural mesh panels combined with dual-density foam shoulder straps decrease contact back temperatures by up to 3°C for long-duration carry comfort.
+                <h3 className="font-headline-lg text-lg text-on-surface font-bold mb-3">Ergo-Vent Systems</h3>
+                <p className="text-secondary text-sm leading-relaxed">
+                  Suspended mesh panels combined with dual-density foam decrease contact back temperatures by up to 3°C.
                 </p>
               </div>
             </div>
 
-            {/* Big Box 4: Impact Hardshell */}
-            <div className="col-span-12 md:col-span-8 bg-white border border-high-vis-orange p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300">
+            {/* Big Box 4: Impact Hardshell (Deep Slate Blue) */}
+            <div className="col-span-12 md:col-span-8 bg-[#0f172a] text-white rounded-3xl p-8 md:p-12 flex flex-col justify-between group bento-card opacity-0 min-h-[300px] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
               <div className="flex justify-between items-start">
-                <ShieldAlert className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
-                <span className="font-label-sm text-[10px] text-primary border border-high-vis-orange px-3 py-1 font-mono uppercase">Rider Protect</span>
+                <ShieldAlert className="text-high-vis-orange group-hover:scale-110 transition-transform duration-500" size={40} />
+                <span className="font-label-sm text-[10px] text-white border border-white/30 px-4 py-1.5 rounded-full font-mono uppercase bg-white/5 backdrop-blur-sm">Rider Protect</span>
               </div>
               <div className="mt-8">
-                <h3 className="font-headline-lg text-xl text-on-surface font-bold mb-2">Impact Hardshell & Polycarbonate Armor</h3>
-                <p className="text-secondary text-sm max-w-xl">
-                  Specially designed for cycling and motorcycle luggage lines. Molded rigid composite shields resist dynamic impact forces, protecting sensitive inner items.
+                <h3 className="font-headline-lg text-2xl md:text-3xl text-white font-bold mb-3">Impact Hardshell & Polycarbonate Armor</h3>
+                <p className="text-white/70 text-sm md:text-base max-w-xl leading-relaxed">
+                  Specially designed for cycling and motorcycle luggage lines. Molded rigid composite shields resist dynamic impact forces, protecting sensitive inner items in extreme environments.
                 </p>
               </div>
             </div>
