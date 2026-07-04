@@ -100,21 +100,25 @@ export default function Home() {
       setActiveSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6000);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, []);  useEffect(() => {
+    // Shared high-performance animation config
+    const animConfig = {
+      duration: 0.8,
+      ease: "power2.out",
+      force3D: true, // Force hardware acceleration
+    };
 
-  useEffect(() => {
     // 1. Value Proposition Animations - Slow organic fade-up
     const valCards = valPropRef.current?.querySelectorAll(".val-card");
     if (valCards) {
       gsap.fromTo(
         valCards,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: 40 },
         {
+          ...animConfig,
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          stagger: 0.2,
+          stagger: 0.1,
           scrollTrigger: {
             trigger: valPropRef.current,
             start: "top 85%",
@@ -128,37 +132,35 @@ export default function Home() {
     if (scenarioCards) {
       gsap.fromTo(
         scenarioCards,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 40 },
         {
+          ...animConfig,
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          stagger: 0.15,
+          stagger: 0.1,
           scrollTrigger: {
             trigger: scenarioRef.current,
-            start: "top 80%",
+            start: "top 85%",
           }
         }
       );
     }
 
-    // 3. Material Bento Grid Animations - Subtle scale and blur
+    // 3. Material Bento Grid Animations - Subtle scale
     const bentoCards = bentoRef.current?.querySelectorAll(".bento-card");
     if (bentoCards) {
       gsap.fromTo(
         bentoCards,
-        { opacity: 0, scale: 0.98, y: 40 },
+        { opacity: 0, scale: 0.98, y: 30 },
         {
+          ...animConfig,
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          stagger: 0.15,
+          stagger: 0.1,
           scrollTrigger: {
             trigger: bentoRef.current,
-            start: "top 75%",
+            start: "top 80%",
           },
         }
       );
@@ -169,16 +171,15 @@ export default function Home() {
     if (prodCards) {
       gsap.fromTo(
         prodCards,
-        { opacity: 0, y: 60 },
+        { opacity: 0, y: 40 },
         {
+          ...animConfig,
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          stagger: 0.1,
+          stagger: 0.08,
           scrollTrigger: {
             trigger: showcaseRef.current,
-            start: "top 75%",
+            start: "top 80%",
           },
         }
       );
@@ -189,16 +190,15 @@ export default function Home() {
     if (strengthItems) {
       gsap.fromTo(
         strengthItems,
-        { opacity: 0, x: -40 },
+        { opacity: 0, x: -30 },
         {
+          ...animConfig,
           opacity: 1,
           x: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          stagger: 0.2,
+          stagger: 0.1,
           scrollTrigger: {
             trigger: strengthRef.current,
-            start: "top 70%",
+            start: "top 75%",
           },
         }
       );
@@ -209,20 +209,24 @@ export default function Home() {
     if (timelineItems) {
       gsap.fromTo(
         timelineItems,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
+          ...animConfig,
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          stagger: 0.2,
+          stagger: 0.1,
           scrollTrigger: {
             trigger: timelineRef.current,
-            start: "top 80%",
+            start: "top 85%",
           }
         }
       );
     }
+    
+    // Refresh ScrollTrigger to recalculate positions after initial render layout shifts
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
   }, []);
 
   return (
