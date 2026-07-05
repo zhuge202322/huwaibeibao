@@ -32,7 +32,7 @@ export default function Footer() {
               height={40} 
               className="object-contain h-10 w-auto"
             />
-            <span className="font-headline-md text-base font-bold text-primary uppercase">
+            <span className="font-body text-lg font-semibold text-primary normal-case">
               Ideas Cool Co., Limited
             </span>
           </div>
@@ -51,8 +51,8 @@ export default function Footer() {
 
         {/* Quick Links 1 */}
         <div className="col-span-6 md:col-span-2 space-y-4">
-          <h4 className="font-label-sm text-label-sm font-bold text-primary uppercase">Manufacturing</h4>
-          <ul className="space-y-3 font-body-md text-body-md text-on-surface-variant">
+          <h4 className="font-body text-base font-semibold text-primary">Manufacturing</h4>
+          <ul className="space-y-3 font-body text-base text-on-surface-variant">
             <li>
               <Link href="/products" className="hover:text-primary transition-colors">
                 Product Catalog
@@ -73,8 +73,8 @@ export default function Footer() {
 
         {/* Quick Links 2 */}
         <div className="col-span-6 md:col-span-2 space-y-4">
-          <h4 className="font-label-sm text-label-sm font-bold text-primary uppercase">Company</h4>
-          <ul className="space-y-3 font-body-md text-body-md text-on-surface-variant">
+          <h4 className="font-body text-base font-semibold text-primary">Company</h4>
+          <ul className="space-y-3 font-body text-base text-on-surface-variant">
             <li>
               <Link href="/about" className="hover:text-primary transition-colors">
                 About Us
@@ -95,13 +95,13 @@ export default function Footer() {
 
         {/* Newsletter Subscription */}
         <div className="col-span-12 md:col-span-4 bg-surface p-8 border border-outline-variant">
-          <h4 className="font-headline-md text-headline-md text-primary mb-4">Manufacturing Bulletin</h4>
+          <h4 className="font-body text-xl font-semibold text-primary mb-4">Manufacturing Bulletin</h4>
           <p className="font-body-md text-body-md text-on-surface-variant mb-6">
             Stay updated on our latest B2B manufacturing updates, fabric innovations, and factory price catalogs.
           </p>
           <form className="flex gap-2" onSubmit={handleSubscribe}>
             <input 
-              className="flex-grow bg-white border border-outline-variant px-4 font-label-sm focus:ring-2 focus:ring-primary focus:outline-none rounded-none text-sm"
+              className="flex-grow bg-white border border-outline-variant px-4 font-body focus:ring-2 focus:ring-primary focus:outline-none rounded-none text-sm"
               placeholder="Business Email" 
               type="email"
               value={email}
@@ -118,21 +118,21 @@ export default function Footer() {
 
       {/* Certifications and Copyright */}
       <div className="max-w-container-max mx-auto mt-20 pt-10 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="font-label-sm text-label-sm text-on-surface-variant opacity-70">
+        <p className="font-body text-sm text-on-surface-variant opacity-70">
           © 2026 Ideas Cool Co., Limited. All rights reserved. Professional B2B bags provider.
         </p>
         <div className="flex gap-8">
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
             <Award size={18} className="text-primary" />
-            <span className="font-label-sm text-[10px] font-bold">ISO 9001 Certified</span>
+            <span className="font-body text-xs font-semibold">ISO 9001 Certified</span>
           </div>
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
             <ShieldCheck size={18} className="text-primary" />
-            <span className="font-label-sm text-[10px] font-bold">CE Standard</span>
+            <span className="font-body text-xs font-semibold">CE Standard</span>
           </div>
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
             <HelpCircle size={18} className="text-primary" />
-            <span className="font-label-sm text-[10px] font-bold">SGS Verified Factory</span>
+            <span className="font-body text-xs font-semibold">SGS Verified Factory</span>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export default function Navbar() {
               height={40} 
               className="object-contain h-10 w-auto"
             />
-            <span className="font-body text-lg md:text-xl font-semibold text-primary tracking-normal normal-case group-hover:text-high-vis-orange transition-colors">
+            <span className="font-body text-xl md:text-2xl font-semibold text-primary tracking-normal normal-case group-hover:text-high-vis-orange transition-colors">
               Ideas Cool Co., Limited
             </span>
           </Link>

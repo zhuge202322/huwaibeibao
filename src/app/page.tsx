@@ -35,7 +35,7 @@ const HERO_SLIDES = [
   {
     name: "Running Vest",
     slug: "running_vest",
-    image: "https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=600",
+    image: "/images/products/prod_1601053928392.jpg",
   },
   {
     name: "Bicycle Bag",
@@ -377,8 +377,7 @@ export default function Home() {
             {HOMEPAGE_CATEGORIES.map((cat, index) => {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
-              const firstProduct = catProducts[0];
-              const categoryImage = firstProduct && firstProduct.image ? firstProduct.image : cat.image;
+              const categoryImage = cat.image;
 
               // Create an irregular bento grid layout for exactly 5 items
               let spanClass = "col-span-1 row-span-1";
