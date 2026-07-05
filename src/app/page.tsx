@@ -377,7 +377,8 @@ export default function Home() {
             {HOMEPAGE_CATEGORIES.map((cat, index) => {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
-              const categoryImage = cat.image;
+              const firstProduct = catProducts[0];
+              const categoryImage = cat.slug === "running_vest" ? cat.image : firstProduct?.image || cat.image;
 
               // Create an irregular bento grid layout for exactly 5 items
               let spanClass = "col-span-1 row-span-1";
