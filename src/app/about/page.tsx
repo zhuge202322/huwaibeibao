@@ -294,7 +294,7 @@ export default function AboutPage() {
             {/* Column 1: History & Core Products */}
             <div className="space-y-6">
                <p>
-                <strong>Ideas Cool</strong> is a professional bags manufacturer located in Quanzhou City, Fujian Province, China. We specially deal with all kinds of bags, including school bags, sports bags, cosmetic bags, bicycle bags, ice bags, backpacks, trolley bags, wallets, cooler bags, travel bags, gift bags, and more.
+                <strong>Ideas Cool</strong> is a professional bags manufacturer located in Fujian Province, China. We specially deal with all kinds of bags, including school bags, sports bags, cosmetic bags, bicycle bags, ice bags, backpacks, trolley bags, wallets, cooler bags, travel bags, gift bags, and more.
               </p>
               <p>
                 At the same time, most of our high-quality carrying products are exported to American, European countries, and other international markets, earning high trust from B2B partners worldwide.
