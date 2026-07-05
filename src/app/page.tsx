@@ -40,7 +40,7 @@ const HERO_SLIDES = [
   {
     name: "Bicycle Bag",
     slug: "bicycle_bag",
-    image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=600",
+    image: "/images/products/prod_1600163590335.jpg",
   },
   {
     name: "Motorcycle Bag",
@@ -50,7 +50,7 @@ const HERO_SLIDES = [
   {
     name: "Hiking Outdoor Bag",
     slug: "hiking_outdoor_bag",
-    image: "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
+    image: "/images/products/prod_1600627082207.jpg",
   },
   {
     name: "Waterproof Bag",
@@ -378,7 +378,8 @@ export default function Home() {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
               const firstProduct = catProducts[0];
-              const categoryImage = cat.slug === "running_vest" ? cat.image : firstProduct?.image || cat.image;
+              const usesConfiguredImage = ["running_vest", "bicycle_bag", "hiking_outdoor_bag"].includes(cat.slug);
+              const categoryImage = usesConfiguredImage ? cat.image : firstProduct?.image || cat.image;
 
               // Create an irregular bento grid layout for exactly 5 items
               let spanClass = "col-span-1 row-span-1";
