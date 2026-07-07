@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import B2BSupportSidebar from "@/components/B2BSupportSidebar";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -43,12 +44,14 @@ export default function RootLayout({
         <div className="absolute inset-y-0 left-6 w-[1px] border-l border-dashed border-outline-variant/10 pointer-events-none z-0 hidden xl:block" />
         <div className="absolute inset-y-0 right-6 w-[1px] border-l border-dashed border-outline-variant/10 pointer-events-none z-0 hidden xl:block" />
         
-        <Navbar />
-        <B2BSupportSidebar />
-        <main className="flex-grow pt-20 relative z-10">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <B2BSupportSidebar />
+          <main className="flex-grow pt-20 relative z-10">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

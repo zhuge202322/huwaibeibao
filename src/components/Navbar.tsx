@@ -3,10 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Globe, ShieldCheck, PhoneCall, Award } from "lucide-react";
+import { ChevronDown, Globe, Menu, X, ShieldCheck, PhoneCall, Award } from "lucide-react";
+import { SUPPORTED_LANGUAGES } from "@/i18n/translations";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const { language: selectedLanguage, setLanguage } = useLanguage();
+
+  const handleLanguageSelect = (languageCode: typeof SUPPORTED_LANGUAGES[number]["code"]) => {
+    setLanguage(languageCode);
+    setLanguageMenuOpen(false);
+  };
 
   return (
     <>
@@ -42,9 +51,55 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <span className="text-on-surface-variant font-label-sm uppercase tracking-wider text-xs font-mono">
-              EN
-            </span>
+            <div
+              className="relative"
+              onBlur={(event) => {
+                const nextFocus = event.relatedTarget;
+                if (!(nextFocus instanceof Node) || !event.currentTarget.contains(nextFocus)) {
+                  setLanguageMenuOpen(false);
+                }
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => setLanguageMenuOpen((open) => !open)}
+                className="h-11 min-w-16 px-3 flex items-center justify-center gap-1.5 text-on-surface-variant hover:text-primary border border-transparent hover:border-outline-variant hover:bg-surface-container-low transition-all cursor-pointer"
+                aria-haspopup="menu"
+                aria-expanded={languageMenuOpen}
+                aria-label="Select language"
+              >
+                <Globe size={15} />
+                <span className="font-body text-sm font-semibold">{selectedLanguage}</span>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${languageMenuOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {languageMenuOpen && (
+                <div
+                  className="absolute right-0 top-full mt-2 w-36 bg-white border border-outline-variant shadow-xl py-1 z-[150]"
+                  role="menu"
+                >
+                  {SUPPORTED_LANGUAGES.map((language) => (
+                    <button
+                      key={language.code}
+                      type="button"
+                      onClick={() => handleLanguageSelect(language.code)}
+                      className={`w-full px-3 py-2.5 flex items-center justify-between text-left text-sm transition-colors cursor-pointer ${
+                        selectedLanguage === language.code
+                          ? "bg-surface-container-low text-primary font-semibold"
+                          : "text-secondary hover:bg-surface-container-low hover:text-primary"
+                      }`}
+                      role="menuitem"
+                    >
+                      <span className="font-body">{language.label}</span>
+                      <span className="font-mono text-[10px]">{language.code}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link href="/contact" className="hidden sm:inline-block">
               <button className="bg-high-vis-orange text-white px-5 py-2.5 font-headline-md text-[13px] uppercase tracking-widest font-bold hover:bg-primary transition-all duration-200 cursor-pointer">
                 Get Quote

@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Factory, Award, Globe, Leaf, ArrowRight, Star, Users, Cpu, Barcode, Layers, ShieldAlert, Zap, ThermometerSun, Activity, Bike, Backpack, Heart, Compass, X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { localizeCategoryLabel, localizeProduct } from "@/i18n/productLocalization";
 
 // Register ScrollTrigger on client side
 if (typeof window !== "undefined") {
@@ -65,6 +67,8 @@ interface FeaturedProduct {
   id: string;
   name: string;
   sku: string;
+  category: string;
+  material: string;
   moq: number;
   leadTime: number;
   image: string;
@@ -77,12 +81,15 @@ const FEATURED_PRODUCTS: FeaturedProduct[] = (productsData as any[])
     id: p.id,
     name: p.name,
     sku: p.sku,
+    category: p.category,
+    material: p.material,
     moq: p.moq,
     leadTime: p.leadTime,
     image: p.image
   }));
 
 export default function Home() {
+  const { language } = useLanguage();
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
   
@@ -389,6 +396,8 @@ export default function Home() {
               else if (index === 3) spanClass = "md:col-span-1 lg:col-span-1 md:row-span-1 lg:row-span-1";
               else if (index === 4) spanClass = "md:col-span-1 lg:col-span-2 md:row-span-1 lg:row-span-1";
 
+              const localizedCategoryName = localizeCategoryLabel(cat.slug, language);
+
               return (
                 <Link 
                   key={cat.slug}
@@ -399,7 +408,7 @@ export default function Home() {
                   <div className="relative flex-grow w-full overflow-hidden bg-white">
                     <Image 
                       src={categoryImage} 
-                      alt={cat.name} 
+                      alt={localizedCategoryName}
                       fill 
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-contain p-6 md:p-10 transition-transform duration-700 group-hover:scale-110" 
@@ -412,7 +421,7 @@ export default function Home() {
                   {/* Text Area */}
                   <div className="p-4 sm:p-6 text-center bg-white border-t border-outline-variant/30 flex-shrink-0">
                     <h3 className={`font-headline-md font-bold mb-1 group-hover:text-primary transition-colors ${index === 0 ? 'text-lg sm:text-2xl text-primary' : 'text-sm sm:text-base text-on-surface'}`}>
-                      {cat.name}
+                      {localizedCategoryName}
                     </h3>
                     <span className="text-[9px] sm:text-[10px] text-secondary group-hover:text-primary transition-colors font-mono tracking-wider uppercase flex items-center justify-center gap-1">
                       Explore Collection <ArrowRight size={10} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
@@ -537,7 +546,10 @@ export default function Home() {
 
           {/* 4x4 Grid (16 Product Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            {FEATURED_PRODUCTS.map((prod) => (
+            {FEATURED_PRODUCTS.map((prod) => {
+              const localizedProduct = localizeProduct(prod, language);
+
+              return (
               <div 
                 key={prod.id}
                 className="border border-high-vis-orange bg-white flex flex-col group prod-card opacity-0 relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br hover:shadow-xl hover:border-primary transition-all duration-300"
@@ -545,7 +557,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] overflow-hidden bg-surface-container-low">
                   <Image 
                     src={prod.image} 
-                    alt={prod.name}
+                    alt={localizedProduct.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -559,7 +571,7 @@ export default function Home() {
                     <p className="font-label-sm text-primary/80 mb-1 font-mono text-[10px]">SKU: {prod.sku}</p>
                     <h4 className="font-headline-md text-sm mb-4 text-on-surface font-bold group-hover:text-primary transition-colors line-clamp-2">
                       <Link href={`/products/${prod.id}`}>
-                        {prod.name}
+                        {localizedProduct.name}
                       </Link>
                     </h4>
                   </div>
@@ -569,7 +581,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
 
           {/* More Button */}

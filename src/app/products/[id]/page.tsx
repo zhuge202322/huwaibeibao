@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, Box, Truck, Layers, Compass, ArrowLeft, ThermometerSun, Zap, Activity, Info, Barcode, ClipboardCheck, X, Maximize2, MessageCircle } from "lucide-react";
 import { ALL_PRODUCTS, Product } from "../page";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { localizeProduct } from "@/i18n/productLocalization";
 
 // Category specs mapper
 interface TechnicalSpecs {
@@ -251,11 +253,13 @@ const getCategoryHotspots = (category: string): Hotspot[] => {
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = React.use(params);
   const id = resolvedParams.id;
+  const { language } = useLanguage();
 
   // Active product matching
-  const product = ALL_PRODUCTS.find((p) => p.id === id) || ALL_PRODUCTS[0];
-  const specs = getCategorySpecs(product.category);
-  const hotspots = getCategoryHotspots(product.category);
+  const productBase = ALL_PRODUCTS.find((p) => p.id === id) || ALL_PRODUCTS[0];
+  const product = localizeProduct(productBase, language);
+  const specs = getCategorySpecs(productBase.category);
+  const hotspots = getCategoryHotspots(productBase.category);
 
   const [activeTab, setActiveTab] = useState<"tech" | "custom">("tech");
   const [selectedImage, setSelectedImage] = useState(0);
@@ -274,12 +278,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   // Dynamic accessories recommendations
   const [recommended, setRecommended] = useState<Product[]>([]);
   useEffect(() => {
-    const list = ALL_PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
+    const list = ALL_PRODUCTS.filter((p) => p.id !== productBase.id).slice(0, 4);
     setRecommended(list);
     // Reset selected image & active hotspot when ID changes
     setSelectedImage(0);
     setActiveHotspot(null);
-  }, [product]);
+  }, [productBase]);
 
   return (
     <div className="topographic-bg min-h-screen pb-20 font-body text-on-surface bg-white">
@@ -640,7 +644,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            {recommended.map((item) => (
+            {recommended.map((item) => {
+              const localizedItem = localizeProduct(item, language);
+
+              return (
               <div 
                 key={item.id} 
                 className="group border border-high-vis-orange hover:border-primary hover:shadow-md transition-all bg-white flex flex-col justify-between"
@@ -649,7 +656,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <div className="aspect-[4/5] bg-surface-container-low overflow-hidden relative border-b border-outline-variant">
                     <Image 
                       src={item.image} 
-                      alt={item.name} 
+                      alt={localizedItem.name}
                       fill 
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105" 
@@ -659,7 +666,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     <span className="font-label-sm text-[10px] text-outline uppercase font-mono block">SKU: {item.sku}</span>
                     <h3 className="font-headline-md text-xs text-on-surface mt-2 mb-4 font-bold group-hover:text-primary transition-colors line-clamp-2">
                       <Link href={`/products/${item.id}`}>
-                        {item.name}
+                        {localizedItem.name}
                       </Link>
                     </h3>
                   </div>
@@ -671,7 +678,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </Link>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </section>
       )}

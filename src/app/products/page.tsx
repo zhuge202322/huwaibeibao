@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { ChevronRight, Filter, Grid, List, RefreshCw, ShoppingCart, ShieldCheck, Award, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { localizeCategoryLabel, localizeProduct } from "@/i18n/productLocalization";
 
 export interface Product {
   id: string;
@@ -39,6 +41,7 @@ export const ALL_PRODUCTS: Product[] = productsData as Product[];
 function ProductsCatalogContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
+  const { language } = useLanguage();
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [capacityRange, setCapacityRange] = useState<string>("all");
@@ -147,7 +150,7 @@ function ProductsCatalogContent() {
                         className="w-4 h-4 border-2 border-outline-variant text-primary focus:ring-primary rounded-none" 
                       />
                       <span className={`group-hover:text-primary ${selectedCategories.includes(cat.value) ? "text-primary font-bold" : "text-secondary"}`}>
-                        {cat.label}
+                        {localizeCategoryLabel(cat.value, language)}
                       </span>
                     </label>
                   ))}
@@ -291,7 +294,7 @@ function ProductsCatalogContent() {
                               className="w-4 h-4 border-2 border-outline-variant text-primary focus:ring-primary rounded-none" 
                             />
                             <span className={`group-hover:text-primary ${selectedCategories.includes(cat.value) ? "text-primary font-bold" : "text-secondary"}`}>
-                              {cat.label}
+                              {localizeCategoryLabel(cat.value, language)}
                             </span>
                           </label>
                         ))}
@@ -464,7 +467,10 @@ function ProductsCatalogContent() {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
-                {paginatedProducts.map((prod) => (
+                {paginatedProducts.map((prod) => {
+                  const localizedProduct = localizeProduct(prod, language);
+
+                  return (
                   <div 
                     key={prod.id}
                     className="bg-white border border-high-vis-orange group hover:border-primary hover:shadow-xl transition-all duration-300 flex flex-col relative tech-corner-tl tech-corner-tr tech-corner-bl tech-corner-br"
@@ -472,7 +478,7 @@ function ProductsCatalogContent() {
                     <div className="aspect-[4/5] relative overflow-hidden bg-surface-container-low">
                       <Image 
                         src={prod.image}
-                        alt={prod.name}
+                        alt={localizedProduct.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
@@ -491,9 +497,9 @@ function ProductsCatalogContent() {
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex justify-between items-start mb-4">
                         <div>
-                          <h3 className="font-headline-md text-xs sm:text-sm text-primary mb-1.5 font-bold group-hover:text-high-vis-orange transition-colors line-clamp-3 min-h-[45px] sm:min-h-[60px]" title={prod.name}>
+                          <h3 className="font-headline-md text-xs sm:text-sm text-primary mb-1.5 font-bold group-hover:text-high-vis-orange transition-colors line-clamp-3 min-h-[45px] sm:min-h-[60px]" title={localizedProduct.name}>
                             <Link href={`/products/${prod.id}`}>
-                              {prod.name}
+                              {localizedProduct.name}
                             </Link>
                           </h3>
                           <p className="font-label-sm text-label-sm text-on-surface-variant font-mono">
@@ -505,7 +511,7 @@ function ProductsCatalogContent() {
                       <div className="bg-surface-container p-3 space-y-2 mb-6 text-xs flex-grow">
                         <div className="flex justify-between uppercase">
                           <span className="text-on-surface-variant">Shell Material</span>
-                          <span className="font-bold text-primary text-right pl-2 truncate">{prod.material}</span>
+                          <span className="font-bold text-primary text-right pl-2 truncate">{localizedProduct.material}</span>
                         </div>
                         <div className="flex justify-between uppercase">
                           <span className="text-on-surface-variant">Capacity</span>
@@ -529,7 +535,7 @@ function ProductsCatalogContent() {
                       </div>
                     </div>
                   </div>
-                ))}
+                )})}
               </div>
             )}
 
