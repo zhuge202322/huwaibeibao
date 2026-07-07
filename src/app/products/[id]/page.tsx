@@ -266,14 +266,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
   const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
 
-  // Gallery images list (using product primary image plus fallbacks)
-  const images = [
-    product.image,
-    "https://sc02.alicdn.com/kf/H1f9620073a9a4393b3398d61c7849221s.png",
-    "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-    "https://sc02.alicdn.com/kf/H543d932d058e40f3b0328997cbcbcc169.png",
-    "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png"
-  ];
+  const images = productBase.galleryImages?.length ? productBase.galleryImages : [productBase.image];
+  const selectedGalleryImage = images[selectedImage] || images[0];
 
   // Dynamic accessories recommendations
   const [recommended, setRecommended] = useState<Product[]>([]);
@@ -326,18 +320,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="absolute inset-0 engineering-grid opacity-10 pointer-events-none" />
             <div className="relative w-full h-full">
               <Image 
-                src={images[selectedImage]} 
+                src={selectedGalleryImage}
                 alt={product.name}
                 fill
                 className="object-contain p-4 transition-all duration-300 cursor-zoom-in z-10"
                 priority
-                onClick={() => setActiveLightboxImage(images[selectedImage])}
+                onClick={() => setActiveLightboxImage(selectedGalleryImage)}
               />
               <div className="absolute top-4 left-4 bg-primary text-white font-label-sm text-[9px] px-2.5 py-1 tracking-widest font-mono uppercase shadow-sm border border-white/10 z-20">
                 QC Passed
               </div>
               <button 
-                onClick={() => setActiveLightboxImage(images[selectedImage])}
+                onClick={() => setActiveLightboxImage(selectedGalleryImage)}
                 className="absolute top-4 right-4 bg-white hover:bg-primary hover:text-white transition-colors text-primary p-2 border border-outline-variant shadow-sm z-10 cursor-pointer rounded-sm"
                 title="Zoom Image"
               >

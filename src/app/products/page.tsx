@@ -22,6 +22,7 @@ export interface Product {
   material: string;
   moq: number;
   image: string;
+  galleryImages?: string[];
   leadTime: number; // in days
   isNew?: boolean;
   isBest?: boolean;
