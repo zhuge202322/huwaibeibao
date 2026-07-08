@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import B2BSupportSidebar from "@/components/B2BSupportSidebar";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
+import siteSettings from "@/data/siteSettings.json";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -25,8 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ideas Cool Co., Limited",
-  description: "Ideas Cool Co., Limited - 全球领先的专业技术背包与各类箱包 OEM/ODM 制造商。提供端到端的产品开发、高耐用性材料规格与大规模量产服务，年产能达120万件。",
+  title: siteSettings.siteName,
+  description:
+    "Professional B2B outdoor gear manufacturing, OEM/ODM product development, high-durability materials and bulk production services.",
+  icons: {
+    icon: siteSettings.faviconUrl || siteSettings.logoUrl || "/logo.png",
+    shortcut: siteSettings.faviconUrl || siteSettings.logoUrl || "/logo.png",
+    apple: siteSettings.faviconUrl || siteSettings.logoUrl || "/logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Globe, Award, ShieldCheck, HelpCircle, Send } from "lucide-react";
+import siteSettings from "@/data/siteSettings.json";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const settings = siteSettings;
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,14 +28,14 @@ export default function Footer() {
         <div className="col-span-12 md:col-span-4 space-y-6">
           <div className="flex items-center gap-2.5">
             <Image 
-              src="/logo.png" 
-              alt="Ideas Cool Logo" 
+              src={settings.logoUrl || "/logo.png"}
+              alt={`${settings.siteName} Logo`}
               width={120} 
               height={40} 
               className="object-contain h-10 w-auto"
             />
             <span className="font-body text-lg font-semibold text-primary normal-case">
-              Ideas Cool Co., Limited
+              {settings.siteName}
             </span>
           </div>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-sm">
@@ -119,7 +121,7 @@ export default function Footer() {
       {/* Certifications and Copyright */}
       <div className="max-w-container-max mx-auto mt-20 pt-10 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="font-body text-sm text-on-surface-variant opacity-70">
-          © 2026 Ideas Cool Co., Limited. All rights reserved. Professional B2B bags provider.
+          © 2026 {settings.siteName}. All rights reserved. Professional B2B bags provider.
         </p>
         <div className="flex gap-8">
           <div className="flex items-center gap-2 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">

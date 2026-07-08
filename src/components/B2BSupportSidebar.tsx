@@ -1,15 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MessageCircle, Store, ClipboardList } from "lucide-react";
+import { Mail, MessageCircle, ClipboardList } from "lucide-react";
+import siteSettings from "@/data/siteSettings.json";
 
 export default function B2BSupportSidebar() {
+  const contact = siteSettings.contact;
+  const whatsappNumber = contact.whatsapp.replace(/[^\d]/g, "");
+
   return (
     <aside className="fixed right-0 top-1/2 -translate-y-1/2 w-16 z-50 flex flex-col items-center py-4 bg-white border-l border-y border-outline-variant shadow-lg rounded-l-xl">
       <div className="flex flex-col gap-2 w-full px-2">
         {/* WhatsApp */}
         <a 
-          href="https://wa.me/8615160088966"
+          href={`https://wa.me/${whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all duration-300 hover:translate-x-[-4px]"
@@ -21,7 +25,7 @@ export default function B2BSupportSidebar() {
         
         {/* Email */}
         <a 
-          href="mailto:info@ideascool.net"
+          href={`mailto:${contact.email}`}
           className="w-12 h-12 flex flex-col items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all duration-300 hover:translate-x-[-4px]"
           title="Send Email"
         >

@@ -522,7 +522,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             
             {/* Tech Specs Tab */}
             {activeTab === "tech" && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              product.description ? (
+                <div className="border-l-2 border-high-vis-orange bg-white p-8 shadow-sm">
+                  <h4 className="font-headline-md text-base text-primary font-bold">
+                    Product Details
+                  </h4>
+                  <div className="mt-4 whitespace-pre-line text-sm leading-7 text-secondary">
+                    {product.description}
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 {/* Left Table: Materials */}
                 <div className="space-y-4">
@@ -590,7 +600,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </div>
                 </div>
 
-              </div>
+                </div>
+              )
             )}
 
             {/* Customization Tab */}

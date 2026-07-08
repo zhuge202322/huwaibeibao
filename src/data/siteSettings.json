@@ -1,0 +1,18 @@
+{
+  "siteName": "Ideas Cool Co., Limited",
+  "logoUrl": "/logo.png",
+  "faviconUrl": "/logo.png",
+  "contact": {
+    "phone": "+86-15160088966",
+    "whatsapp": "+86-15160088966",
+    "email": "info@ideascool.net",
+    "addressLines": [
+      "No.11-19, Shuangfu Road, Tongan District",
+      "Xiamen City, Fujian Province, China",
+      "Ideas Cool Industrial Park, Bldg East, R&D Center",
+      "ZIP Code: 361110"
+    ],
+    "mapEmbedUrl": "https://maps.google.com/maps?q=No.11-19%20Shuangfu%20Road%20Tongan%20District%20Xiamen%20Fujian%20China&t=m&z=16&output=embed&iwloc=near",
+    "plantLabel": "PLANT 01: ASSEMBLY & INTERNATIONAL LOGISTICS HUB"
+  }
+}

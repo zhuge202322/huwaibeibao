@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { localizeCategoryLabel, localizeProduct } from "@/i18n/productLocalization";
+import categoriesData from "@/data/categories.json";
 
 // Register ScrollTrigger on client side
 if (typeof window !== "undefined") {
@@ -33,33 +34,17 @@ const HERO_SLIDES = [
     title: "INNOVATIVE MOTORCYCLE & CYCLING LUGGAGE",
     desc: "Equipped with quick-release locks, anti-abrasion back panels, and heavy-duty load bearing. Ready for heavy adventure touring.",
   }
-];const HOMEPAGE_CATEGORIES = [
-  {
-    name: "Running Vest",
-    slug: "running_vest",
-    image: "/images/products/prod_1601053928392.jpg",
-  },
-  {
-    name: "Bicycle Bag",
-    slug: "bicycle_bag",
-    image: "/images/products/prod_1600163590335.jpg",
-  },
-  {
-    name: "Motorcycle Bag",
-    slug: "motorcycle_bag",
-    image: "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
-  },
-  {
-    name: "Hiking Outdoor Bag",
-    slug: "hiking_outdoor_bag",
-    image: "/images/products/prod_1600627082207.jpg",
-  },
-  {
-    name: "Waterproof Bag",
-    slug: "waterproof_bag",
-    image: "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
-  },
 ];
+
+const HOMEPAGE_CATEGORIES = (categoriesData as Array<{
+  slug: string;
+  name: string;
+  image: string;
+  visible: boolean;
+  sortOrder: number;
+}>)
+  .filter((category) => category.visible)
+  .sort((a, b) => a.sortOrder - b.sortOrder);
 
 import productsData from "./products/productsData.json";
 
@@ -385,8 +370,7 @@ export default function Home() {
               const catProducts = (productsData as any[]).filter((p) => p.category === cat.slug);
               const count = catProducts.length;
               const firstProduct = catProducts[0];
-              const usesConfiguredImage = ["running_vest", "bicycle_bag", "hiking_outdoor_bag"].includes(cat.slug);
-              const categoryImage = usesConfiguredImage ? cat.image : firstProduct?.image || cat.image;
+              const categoryImage = cat.image || firstProduct?.image || "/logo.png";
 
               // Create an irregular bento grid layout for exactly 5 items
               let spanClass = "col-span-1 row-span-1";

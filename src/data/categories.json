@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "running_vest",
+    "name": "Running Vest",
+    "image": "/images/products/prod_1601053928392.jpg",
+    "description": "Trail running hydration vests and lightweight race packs.",
+    "visible": true,
+    "sortOrder": 10
+  },
+  {
+    "slug": "bicycle_bag",
+    "name": "Bicycle Bag",
+    "image": "/images/products/prod_1600163590335.jpg",
+    "description": "Bicycle panniers, handlebar bags, rack bags and cycling storage.",
+    "visible": true,
+    "sortOrder": 20
+  },
+  {
+    "slug": "motorcycle_bag",
+    "name": "Motorcycle Bag",
+    "image": "https://sc02.alicdn.com/kf/Hecbb21dbc69746e9942861be3b326ab02.png",
+    "description": "Motorcycle tail bags, saddle bags, tank bags and rider backpacks.",
+    "visible": true,
+    "sortOrder": 30
+  },
+  {
+    "slug": "hiking_outdoor_bag",
+    "name": "Hiking Outdoor Bag",
+    "image": "/images/products/prod_1600627082207.jpg",
+    "description": "Hiking, camping, trekking and travel outdoor backpacks.",
+    "visible": true,
+    "sortOrder": 40
+  },
+  {
+    "slug": "waterproof_bag",
+    "name": "Waterproof Bag",
+    "image": "https://sc02.alicdn.com/kf/H623d4e0b82374152bfe93a92f3341081Q.png",
+    "description": "Waterproof dry bags, roll-top bags and outdoor marine storage.",
+    "visible": true,
+    "sortOrder": 50
+  }
+]

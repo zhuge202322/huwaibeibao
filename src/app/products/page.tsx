@@ -7,34 +7,33 @@ import { useSearchParams } from "next/navigation";
 import { ChevronRight, Filter, Grid, List, RefreshCw, ShoppingCart, ShieldCheck, Award, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { localizeCategoryLabel, localizeProduct } from "@/i18n/productLocalization";
+import categoriesData from "@/data/categories.json";
 
 export interface Product {
   id: string;
   name: string;
   sku: string;
-  category: 
-    | "running_vest" 
-    | "bicycle_bag" 
-    | "motorcycle_bag" 
-    | "hiking_outdoor_bag" 
-    | "waterproof_bag";
+  category: string;
   capacity: number; // in liters
   material: string;
   moq: number;
   image: string;
   galleryImages?: string[];
+  description?: string;
   leadTime: number; // in days
   isNew?: boolean;
   isBest?: boolean;
 }
 
-const PRODUCT_CATEGORIES = [
-  { value: "running_vest", label: "Running Vest" },
-  { value: "bicycle_bag", label: "Bicycle Bag" },
-  { value: "motorcycle_bag", label: "Motorcycle Bag" },
-  { value: "hiking_outdoor_bag", label: "Hiking Outdoor Bag" },
-  { value: "waterproof_bag", label: "Waterproof Bag" }
-];
+const PRODUCT_CATEGORIES = (categoriesData as Array<{
+  slug: string;
+  name: string;
+  visible: boolean;
+  sortOrder: number;
+}>)
+  .filter((category) => category.visible)
+  .sort((a, b) => a.sortOrder - b.sortOrder)
+  .map((category) => ({ value: category.slug, label: category.name }));
 
 import productsData from "./productsData.json";
 export const ALL_PRODUCTS: Product[] = productsData as Product[];

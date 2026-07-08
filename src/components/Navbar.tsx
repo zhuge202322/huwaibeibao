@@ -3,14 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronDown, Globe, Menu, X, ShieldCheck, PhoneCall, Award } from "lucide-react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { SUPPORTED_LANGUAGES } from "@/i18n/translations";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import siteSettings from "@/data/siteSettings.json";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   const { language: selectedLanguage, setLanguage } = useLanguage();
+  const settings = siteSettings;
 
   const handleLanguageSelect = (languageCode: typeof SUPPORTED_LANGUAGES[number]["code"]) => {
     setLanguage(languageCode);
@@ -23,14 +25,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center w-full px-6 md:px-12 max-w-full">
           <Link href="/" className="flex items-center gap-2.5 group">
             <Image 
-              src="/logo.png" 
-              alt="Ideas Cool Logo" 
+              src={settings.logoUrl || "/logo.png"}
+              alt={`${settings.siteName} Logo`}
               width={120} 
               height={40} 
               className="object-contain h-10 w-auto"
             />
             <span className="font-body text-xl md:text-2xl font-semibold text-primary tracking-normal normal-case group-hover:text-high-vis-orange transition-colors">
-              Ideas Cool Co., Limited
+              {settings.siteName}
             </span>
           </Link>
           

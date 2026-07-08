@@ -3,15 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Mail, Phone, MapPin, Send, FileText, CheckCircle2, MessageSquare } from "lucide-react";
+import siteSettings from "@/data/siteSettings.json";
+import categoriesData from "@/data/categories.json";
+
+const visibleCategories = (categoriesData as Array<{
+  slug: string;
+  name: string;
+  visible: boolean;
+  sortOrder: number;
+}>)
+  .filter((category) => category.visible)
+  .sort((a, b) => a.sortOrder - b.sortOrder);
 
 export default function ContactPage() {
+  const contact = siteSettings.contact;
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
     region: "Select Region",
     subject: "",
-    interest: "Outdoor Backpacks",
+    interest: visibleCategories[0]?.name || "Outdoor Backpacks",
     quantity: 500,
     message: ""
   });
@@ -78,7 +90,7 @@ export default function ContactPage() {
         email: "",
         region: "Select Region",
         subject: "",
-        interest: "Outdoor Backpacks",
+        interest: visibleCategories[0]?.name || "Outdoor Backpacks",
         quantity: 500,
         message: ""
       });
@@ -116,10 +128,12 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 text-sm text-secondary">
                   <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
                   <p className="leading-relaxed">
-                    No.11-19, Shuangfu Road, Tongan District,<br />
-                    Xiamen City, Fujian Province, China<br />
-                    Ideas Cool Industrial Park, Bldg East, R&D Center<br />
-                    ZIP Code: 361110
+                    {contact.addressLines.map((line, index) => (
+                      <span key={`${line}-${index}`}>
+                        {line}
+                        {index < contact.addressLines.length - 1 && <br />}
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -131,7 +145,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-4 text-sm text-secondary">
                     <Phone size={18} className="text-primary" />
-                    <p className="font-bold font-mono">+86-15160088966</p>
+                    <p className="font-bold font-mono">{contact.phone}</p>
                   </div>
                 </div>
                 <div>
@@ -140,7 +154,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-4 text-sm text-secondary">
                     <Mail size={18} className="text-primary" />
-                    <p className="font-bold font-mono text-xs">info@ideascool.net</p>
+                    <p className="font-bold font-mono text-xs">{contact.email}</p>
                   </div>
                 </div>
               </div>
@@ -152,7 +166,7 @@ export default function ContactPage() {
                 <div className="flex flex-wrap gap-4 text-xs font-mono font-bold">
                   <div className="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
-                    <span>WhatsApp: +86-15160088966</span>
+                    <span>WhatsApp: {contact.whatsapp}</span>
                   </div>
                 </div>
               </div>
@@ -162,7 +176,7 @@ export default function ContactPage() {
             {/* Simulated Satellite Map */}
             <div className="relative overflow-hidden aspect-video border border-outline-variant bg-surface-container group">
               <iframe 
-                src="https://maps.google.com/maps?q=中国福建省厦门市同安区双富路11号&t=m&z=16&output=embed&iwloc=near" 
+                src={contact.mapEmbedUrl}
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, filter: "grayscale(0.8) contrast(1.2)" }} 
@@ -172,7 +186,7 @@ export default function ContactPage() {
                 className="w-full h-full"
               />
               <div className="absolute bottom-4 left-4 z-20 bg-primary text-white p-4 font-mono text-[10px] tracking-wider pointer-events-none">
-                PLANT 01: ASSEMBLY & INTERNATIONAL LOGISTICS HUB
+                {contact.plantLabel}
               </div>
             </div>
 
@@ -275,10 +289,11 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                     className="w-full border-b-2 border-outline-variant focus:border-high-vis-orange focus:ring-0 transition-colors bg-transparent py-2 font-body outline-none text-sm appearance-none focus:outline-none"
                   >
-                    <option value="Outdoor Backpacks">Outdoor Backpacks Series</option>
-                    <option value="Bicycle Bags">Bicycle & Motorcycle Bags</option>
-                    <option value="Laptop Bags">Business Laptop Backpacks</option>
-                    <option value="Waterproof Bags">Seamless Waterproof Bags (OEM)</option>
+                    {visibleCategories.map((category) => (
+                      <option key={category.slug} value={category.name}>
+                        {category.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="space-y-2">
