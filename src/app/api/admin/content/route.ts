@@ -1,13 +1,9 @@
 import { readAdminContent, writeAdminContent } from "@/lib/adminContent";
+import { isAdminRequestAuthorized } from "@/lib/adminAuth";
 import type { AdminContent } from "@/types/content";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function isAuthorized(request: Request) {
-  const password = process.env.ADMIN_PASSWORD || "huwaibeibao-admin";
-  return request.headers.get("x-admin-password") === password;
-}
 
 function unauthorized() {
   return Response.json(
@@ -17,13 +13,13 @@ function unauthorized() {
 }
 
 export async function GET(request: Request) {
-  if (!isAuthorized(request)) return unauthorized();
+  if (!(await isAdminRequestAuthorized(request))) return unauthorized();
   const content = await readAdminContent();
   return Response.json(content);
 }
 
 export async function PUT(request: Request) {
-  if (!isAuthorized(request)) return unauthorized();
+  if (!(await isAdminRequestAuthorized(request))) return unauthorized();
 
   try {
     const body = (await request.json()) as AdminContent;

@@ -43,3 +43,6 @@ next-env.d.ts
 # raw import data and temp scripts
 /导出数据-*
 /dump_products.json
+
+# local admin password hash
+/src/data/adminAuth.json

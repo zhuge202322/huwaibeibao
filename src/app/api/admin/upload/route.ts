@@ -1,16 +1,12 @@
 import { randomUUID } from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
+import { isAdminRequestAuthorized } from "@/lib/adminAuth";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const allowedExtensions = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".ico"]);
-
-function isAuthorized(request: Request) {
-  const password = process.env.ADMIN_PASSWORD || "huwaibeibao-admin";
-  return request.headers.get("x-admin-password") === password;
-}
 
 function unauthorized() {
   return Response.json(
@@ -25,7 +21,7 @@ function safeSegment(value: FormDataEntryValue | null) {
 }
 
 export async function POST(request: Request) {
-  if (!isAuthorized(request)) return unauthorized();
+  if (!(await isAdminRequestAuthorized(request))) return unauthorized();
 
   const formData = await request.formData();
   const file = formData.get("file");

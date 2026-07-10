@@ -8,6 +8,7 @@ import { ChevronRight, Star, CheckCircle, Download, Award, Shield, ShoppingBag, 
 import { ALL_PRODUCTS, Product } from "../page";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { localizeProduct } from "@/i18n/productLocalization";
+import { getCategoryHotspots } from "@/data/productHotspots";
 
 // Category specs mapper
 interface TechnicalSpecs {
@@ -92,164 +93,6 @@ const getCategorySpecs = (category: string): TechnicalSpecs => {
   }
 };
 
-// Interactive Hotspot config type
-interface Hotspot {
-  top: string;
-  left: string;
-  code: string;
-  title: string;
-  desc: string;
-}
-
-const getCategoryHotspots = (category: string): Hotspot[] => {
-  switch (category) {
-    case "running_vest":
-      return [
-        {
-          top: "22%",
-          left: "30%",
-          code: "VEST-FLASK-01",
-          title: "Speed-Flask Pocket",
-          desc: "Dual front hydration pockets tailored with elastic security loops to fit 500ml soft flasks securely during intense runs."
-        },
-        {
-          top: "45%",
-          left: "50%",
-          code: "VEST-MESH-02",
-          title: "3D Air-Mesh Panel",
-          desc: "Highly breathable structural mesh back panel that transfers heat and wicks moisture away, preventing chaffing."
-        },
-        {
-          top: "70%",
-          left: "25%",
-          code: "VEST-POUCH-03",
-          title: "Kangaroo Stash Sleeve",
-          desc: "Lower back horizontal elastic pocket designed for rapid rain shell retrieval without removing the pack."
-        }
-      ];
-    case "bicycle_bag":
-      return [
-        {
-          top: "20%",
-          left: "50%",
-          code: "BIKE-SEAL-01",
-          title: "IPX6 Airtight Seal",
-          desc: "Heat-welded fold-over seal locking out moisture and dirt. Fits handlebars and stays stable under vibration."
-        },
-        {
-          top: "55%",
-          left: "35%",
-          code: "BIKE-MOUNT-02",
-          title: "Quick-Release Mount",
-          desc: "Abrasion-resistant straps paired with heavy-duty metal tension hooks for secure attachment to frame tubes."
-        },
-        {
-          top: "75%",
-          left: "65%",
-          code: "BIKE-SHELL-03",
-          title: "Rigid PE Board Base",
-          desc: "Inner structural poly-board shield that preserves the aerodynamic bag shape even under max capacity loads."
-        }
-      ];
-    case "motorcycle_bag":
-      return [
-        {
-          top: "18%",
-          left: "50%",
-          code: "MOTO-SEAL-01",
-          title: "Waterproof Roll-Top",
-          desc: "Sealed roll-down closure with durable release buckles. Provides complete watertight and dustproof protection."
-        },
-        {
-          top: "48%",
-          left: "25%",
-          code: "MOTO-ABS-02",
-          title: "Molded ABS Side Shield",
-          desc: "Shock-absorbing rigid outer panels engineered to protect gear against crashes, impact, and heavy highway drag."
-        },
-        {
-          top: "75%",
-          left: "65%",
-          code: "MOTO-MOUNT-03",
-          title: "Alloy Quick-Latch system",
-          desc: "Secure 4-point latch harness for instant tail rack docking. Tested at high speeds to ensure zero wobbling."
-        }
-      ];
-    case "hiking_outdoor_bag":
-      return [
-        {
-          top: "15%",
-          left: "50%",
-          code: "HIKE-LID-01",
-          title: "Floating Storm Lid",
-          desc: "Extendable lid with a dual-zipper compartment and taped weather seams to prevent rain seepage from top openings."
-        },
-        {
-          top: "50%",
-          left: "28%",
-          code: "HIKE-SUSP-02",
-          title: "Suspended Mesh back",
-          desc: "Ergonomic mesh back-panel supported by lightweight dual aluminum stays, leaving a cooling ventilation gap."
-        },
-        {
-          top: "85%",
-          left: "50%",
-          code: "HIKE-RAIN-03",
-          title: "Rain Cover Compartment",
-          desc: "Dedicated base pocket housing an integrated high-visibility orange polyurethane rain cover for sudden monsoons."
-        }
-      ];
-    case "waterproof_bag":
-      return [
-        {
-          top: "18%",
-          left: "50%",
-          code: "DRY-ROLL-01",
-          title: "Watertight Roll-Down",
-          desc: "3-fold roll closure lined with reinforcing bands to create a reliable hermetic seal against submersions."
-        },
-        {
-          top: "50%",
-          left: "48%",
-          code: "DRY-WELD-02",
-          title: "HF Sealed Seams",
-          desc: "Electro-magnetic heat welds that fuse the double TPU sheets, outlasting stitched seams under high hydrostatic pressure."
-        },
-        {
-          top: "85%",
-          left: "50%",
-          code: "DRY-BASE-03",
-          title: "Anti-Friction Base",
-          desc: "Reinforced heavy-gauge bottom designed for drag and drop resistance on rocky beaches and boat decks."
-        }
-      ];
-    default:
-      return [
-        {
-          top: "15%",
-          left: "50%",
-          code: "GEN-HD-01",
-          title: "Reinforced Padded Grip",
-          desc: "Neoprene-padded wrap handle designed for heavy hand loads and rapid luggage trolley handle sleeves."
-        },
-        {
-          top: "50%",
-          left: "30%",
-          code: "GEN-ZIP-02",
-          title: "YKK Reverse Zippers",
-          desc: "Inverted coil zippers with water-shedding PU lips for superior weather protection and smooth operation."
-        },
-        {
-          top: "80%",
-          left: "50%",
-          code: "GEN-BASE-03",
-          title: "Anti-Abrasion Base",
-          desc: "Double-reinforced bottom panel with wear-resistant backing, preventing punctures on rough grounds."
-        }
-      ];
-  }
-};
-
 export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = React.use(params);
   const id = resolvedParams.id;
@@ -259,12 +102,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const productBase = ALL_PRODUCTS.find((p) => p.id === id) || ALL_PRODUCTS[0];
   const product = localizeProduct(productBase, language);
   const specs = getCategorySpecs(productBase.category);
-  const hotspots = getCategoryHotspots(productBase.category);
+  const hotspots = (productBase.hotspots?.length ? productBase.hotspots : getCategoryHotspots(productBase.category))
+    .filter((hotspot) => hotspot.active !== false);
 
   const [activeTab, setActiveTab] = useState<"tech" | "custom">("tech");
   const [selectedImage, setSelectedImage] = useState(0);
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
   const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
+  const activeHotspotData = activeHotspot !== null ? hotspots[activeHotspot] : null;
 
   const images = productBase.galleryImages?.length ? productBase.galleryImages : [productBase.image];
   const selectedGalleryImage = images[selectedImage] || images[0];
@@ -361,7 +206,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               ))}
 
               {/* Hotspot Highlight Info Card */}
-              {selectedImage === 0 && activeHotspot !== null && (
+              {selectedImage === 0 && activeHotspotData && (
                 <div className="absolute bottom-4 right-4 bg-white/95 border border-high-vis-orange p-4 shadow-xl max-w-[280px] z-20 animate-fade-in">
                   {/* Close btn */}
                   <button
@@ -372,14 +217,14 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   </button>
                   {/* Detail */}
                   <h4 className="font-headline-md text-xs text-primary font-bold uppercase tracking-wider mb-2 font-mono">
-                    {hotspots[activeHotspot].title}
+                    {activeHotspotData.title}
                   </h4>
                   <p className="text-secondary text-[11px] leading-relaxed mb-3">
-                    {hotspots[activeHotspot].desc}
+                    {activeHotspotData.desc}
                   </p>
                   <div className="h-[1px] bg-outline-variant/60 my-2" />
                   <div className="flex justify-between items-center text-[9px] font-mono text-outline">
-                    <span>POS: {hotspots[activeHotspot].code}</span>
+                    <span>POS: {activeHotspotData.code}</span>
                     <span className="text-high-vis-orange font-bold">ACTIVE</span>
                   </div>
                 </div>

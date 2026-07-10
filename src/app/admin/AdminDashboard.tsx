@@ -6,6 +6,7 @@ import {
   BadgeCheck,
   Boxes,
   ImagePlus,
+  KeyRound,
   Layers3,
   Loader2,
   MapPin,
@@ -15,9 +16,10 @@ import {
   Trash2,
   Upload,
 } from "lucide-react";
-import type { AdminContent, ProductCategory, ProductRecord, SiteSettings } from "@/types/content";
+import { getCategoryHotspots } from "@/data/productHotspots";
+import type { AdminContent, ProductCategory, ProductHotspot, ProductRecord, SiteSettings } from "@/types/content";
 
-type AdminTab = "products" | "categories" | "contact" | "branding";
+type AdminTab = "products" | "categories" | "contact" | "branding" | "password";
 
 const emptySettings: SiteSettings = {
   siteName: "",
@@ -52,6 +54,17 @@ function makeSlug(value: string) {
     .replace(/^_+|_+$/g, "");
 }
 
+function createProductHotspot(index: number): ProductHotspot {
+  return {
+    top: "50%",
+    left: "50%",
+    code: `FEATURE-${String(index + 1).padStart(2, "0")}`,
+    title: "New Feature",
+    desc: "Describe this product highlight.",
+    active: true,
+  };
+}
+
 export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [content, setContent] = useState<AdminContent | null>(null);
@@ -62,6 +75,10 @@ export default function AdminDashboard() {
   const [status, setStatus] = useState("请输入后台密码载入数据。");
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [currentAdminPassword, setCurrentAdminPassword] = useState("");
+  const [newAdminPassword, setNewAdminPassword] = useState("");
+  const [confirmAdminPassword, setConfirmAdminPassword] = useState("");
+  const [changingPassword, setChangingPassword] = useState(false);
 
   const products = content?.products || [];
   const categories = content?.categories || [];
@@ -177,6 +194,46 @@ export default function AdminDashboard() {
     });
   }
 
+  function updateProductHotspots(
+    id: string,
+    updater: (hotspots: ProductHotspot[], product: ProductRecord) => ProductHotspot[]
+  ) {
+    setContent((current) => {
+      if (!current) return current;
+
+      return {
+        ...current,
+        products: current.products.map((product) =>
+          product.id === id
+            ? { ...product, hotspots: updater(product.hotspots || [], product) }
+            : product
+        ),
+      };
+    });
+  }
+
+  function addProductHotspot(id: string) {
+    updateProductHotspots(id, (hotspots) => [...hotspots, createProductHotspot(hotspots.length)]);
+  }
+
+  function applyCategoryHotspots(id: string) {
+    updateProductHotspots(id, (_hotspots, product) =>
+      getCategoryHotspots(product.category).map((hotspot) => ({ ...hotspot, active: true }))
+    );
+  }
+
+  function updateProductHotspot(id: string, index: number, patch: Partial<ProductHotspot>) {
+    updateProductHotspots(id, (hotspots) =>
+      hotspots.map((hotspot, currentIndex) =>
+        currentIndex === index ? { ...hotspot, ...patch } : hotspot
+      )
+    );
+  }
+
+  function deleteProductHotspot(id: string, index: number) {
+    updateProductHotspots(id, (hotspots) => hotspots.filter((_, currentIndex) => currentIndex !== index));
+  }
+
   function addProduct() {
     const baseCategory = categories[0]?.slug || "custom_category";
     const id = `prod_${Date.now()}`;
@@ -191,6 +248,7 @@ export default function AdminDashboard() {
       image: "/logo.png",
       galleryImages: ["/logo.png"],
       description: "",
+      hotspots: [],
       leadTime: 30,
       isNew: true,
       isBest: false,
@@ -278,11 +336,58 @@ export default function AdminDashboard() {
     await loadContent(password);
   }
 
+  async function handlePasswordChange(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!currentAdminPassword) {
+      setStatus("请输入当前后台密码。");
+      return;
+    }
+    if (newAdminPassword.length < 8) {
+      setStatus("新密码至少需要 8 个字符。");
+      return;
+    }
+    if (newAdminPassword !== confirmAdminPassword) {
+      setStatus("两次输入的新密码不一致。");
+      return;
+    }
+
+    setChangingPassword(true);
+    setStatus("正在修改管理员密码...");
+    try {
+      const response = await fetch("/api/admin/password", {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          "x-admin-password": currentAdminPassword,
+        },
+        body: JSON.stringify({
+          currentPassword: currentAdminPassword,
+          newPassword: newAdminPassword,
+        }),
+      });
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
+      if (!response.ok) throw new Error(data.message || "密码修改失败。");
+
+      setPassword(newAdminPassword);
+      window.localStorage.setItem("huwaibeibao-admin-password", newAdminPassword);
+      setCurrentAdminPassword("");
+      setNewAdminPassword("");
+      setConfirmAdminPassword("");
+      setStatus(data.message || "管理员密码已更新。");
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "密码修改失败。");
+    } finally {
+      setChangingPassword(false);
+    }
+  }
+
   const tabs = [
     { id: "products" as const, label: "产品管理", icon: Boxes },
     { id: "categories" as const, label: "分类管理", icon: Layers3 },
     { id: "contact" as const, label: "联系方式", icon: MapPin },
     { id: "branding" as const, label: "Logo 设置", icon: Settings },
+    { id: "password" as const, label: "密码设置", icon: KeyRound },
   ];
 
   if (!content) {
@@ -373,7 +478,7 @@ export default function AdminDashboard() {
           <div className="mt-6 border-t border-outline-variant pt-5 text-xs leading-relaxed text-secondary">
             <p>产品：{products.length}</p>
             <p>分类：{categories.length}</p>
-            <p className="mt-3">上线后建议在 Vercel 环境变量里设置 ADMIN_PASSWORD。</p>
+            <p className="mt-3">首次密码可使用 ADMIN_PASSWORD；后台修改后请使用新密码。</p>
           </div>
         </aside>
 
@@ -559,6 +664,142 @@ export default function AdminDashboard() {
                     placeholder="填写后会显示在产品详情页下方的 Technical Parameters 区域。留空时显示系统默认参数表。"
                   />
                 </Field>
+
+                <div className="mt-6 border-t border-outline-variant pt-5">
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <h3 className="text-sm font-bold text-primary">主图特色标签</h3>
+                      <p className="mt-1 text-xs leading-relaxed text-secondary">
+                        控制产品详情页第一张主图上的橙色热点标签。Top / Left 使用百分比，例如 50%。
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => applyCategoryHotspots(selectedProduct.id)}
+                        className="border border-outline-variant px-3 py-2 text-xs font-bold text-primary hover:border-high-vis-orange"
+                      >
+                        使用分类默认
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => addProductHotspot(selectedProduct.id)}
+                        className="flex items-center gap-1 bg-primary px-3 py-2 text-xs font-bold text-white hover:bg-high-vis-orange"
+                      >
+                        <PackagePlus size={14} />
+                        添加标签
+                      </button>
+                    </div>
+                  </div>
+
+                  {(selectedProduct.hotspots || []).length === 0 ? (
+                    <div className="mt-4 border border-dashed border-outline-variant bg-surface-container-low px-4 py-5 text-sm text-secondary">
+                      当前产品未设置单独特色标签，前台会使用所属分类的默认标签。点击“使用分类默认”可复制后再编辑。
+                    </div>
+                  ) : (
+                    <div className="mt-4 space-y-4">
+                      {(selectedProduct.hotspots || []).map((hotspot, index) => (
+                        <div
+                          key={`${selectedProduct.id}-hotspot-${index}`}
+                          className="border border-outline-variant bg-surface-container-low p-4"
+                        >
+                          <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-high-vis-orange">
+                              Hotspot {index + 1}
+                            </span>
+                            <div className="flex flex-wrap items-center gap-3">
+                              <label className="flex min-h-10 items-center gap-2 text-xs font-bold text-secondary">
+                                <input
+                                  type="checkbox"
+                                  checked={hotspot.active !== false}
+                                  onChange={(event) =>
+                                    updateProductHotspot(selectedProduct.id, index, { active: event.target.checked })
+                                  }
+                                />
+                                启用
+                              </label>
+                              <button
+                                type="button"
+                                onClick={() => deleteProductHotspot(selectedProduct.id, index)}
+                                className="flex min-h-10 items-center gap-1 border border-red-300 px-3 text-xs font-bold text-red-600 hover:bg-red-50"
+                              >
+                                <Trash2 size={13} />
+                                删除
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="grid gap-4 md:grid-cols-2">
+                            <label className="block">
+                              <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-secondary">
+                                标题
+                              </span>
+                              <input
+                                value={hotspot.title}
+                                onChange={(event) =>
+                                  updateProductHotspot(selectedProduct.id, index, { title: event.target.value })
+                                }
+                                className="admin-input"
+                              />
+                            </label>
+                            <label className="block">
+                              <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-secondary">
+                                编号 / POS
+                              </span>
+                              <input
+                                value={hotspot.code}
+                                onChange={(event) =>
+                                  updateProductHotspot(selectedProduct.id, index, { code: event.target.value })
+                                }
+                                className="admin-input font-mono text-xs"
+                              />
+                            </label>
+                            <label className="block">
+                              <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-secondary">
+                                Top 位置
+                              </span>
+                              <input
+                                value={hotspot.top}
+                                onChange={(event) =>
+                                  updateProductHotspot(selectedProduct.id, index, { top: event.target.value })
+                                }
+                                className="admin-input font-mono text-xs"
+                                placeholder="50%"
+                              />
+                            </label>
+                            <label className="block">
+                              <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-secondary">
+                                Left 位置
+                              </span>
+                              <input
+                                value={hotspot.left}
+                                onChange={(event) =>
+                                  updateProductHotspot(selectedProduct.id, index, { left: event.target.value })
+                                }
+                                className="admin-input font-mono text-xs"
+                                placeholder="50%"
+                              />
+                            </label>
+                          </div>
+
+                          <label className="mt-4 block">
+                            <span className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-widest text-secondary">
+                              描述内容
+                            </span>
+                            <textarea
+                              rows={3}
+                              value={hotspot.desc}
+                              onChange={(event) =>
+                                updateProductHotspot(selectedProduct.id, index, { desc: event.target.value })
+                              }
+                              className="admin-input"
+                            />
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
 
                 <Field label="产品图库 URL（一行一张，第一行建议为主图）">
                   <textarea
@@ -783,6 +1024,55 @@ export default function AdminDashboard() {
                 </Field>
                 <PreviewImage src={siteSettings.logoUrl} alt={siteSettings.siteName} />
               </div>
+            </section>
+          )}
+
+          {activeTab === "password" && (
+            <section className="border border-outline-variant bg-white p-5">
+              <h2 className="mb-6 border-b border-outline-variant pb-5 text-lg font-bold text-primary">
+                管理员密码设置
+              </h2>
+              <form onSubmit={handlePasswordChange} className="max-w-xl">
+                <Field label="当前后台密码">
+                  <input
+                    type="password"
+                    value={currentAdminPassword}
+                    onChange={(event) => setCurrentAdminPassword(event.target.value)}
+                    className="admin-input"
+                    autoComplete="current-password"
+                  />
+                </Field>
+                <Field label="新后台密码">
+                  <input
+                    type="password"
+                    value={newAdminPassword}
+                    onChange={(event) => setNewAdminPassword(event.target.value)}
+                    className="admin-input"
+                    autoComplete="new-password"
+                    placeholder="至少 8 个字符"
+                  />
+                </Field>
+                <Field label="确认新密码">
+                  <input
+                    type="password"
+                    value={confirmAdminPassword}
+                    onChange={(event) => setConfirmAdminPassword(event.target.value)}
+                    className="admin-input"
+                    autoComplete="new-password"
+                  />
+                </Field>
+                <p className="mt-4 text-xs leading-relaxed text-secondary">
+                  修改成功后，当前浏览器会自动切换为新密码；其他设备需要用新密码重新登录后台。
+                </p>
+                <button
+                  type="submit"
+                  disabled={changingPassword}
+                  className="mt-5 flex min-h-11 items-center justify-center gap-2 bg-primary px-5 py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-high-vis-orange disabled:opacity-60"
+                >
+                  {changingPassword ? <Loader2 size={15} className="animate-spin" /> : <KeyRound size={15} />}
+                  修改密码
+                </button>
+              </form>
             </section>
           )}
         </main>

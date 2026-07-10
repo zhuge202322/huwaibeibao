@@ -3,7 +3,7 @@ import path from "path";
 import productsData from "@/app/products/productsData.json";
 import categoriesData from "@/data/categories.json";
 import siteSettingsData from "@/data/siteSettings.json";
-import type { AdminContent, ProductCategory, ProductRecord, SiteSettings } from "@/types/content";
+import type { AdminContent, ProductCategory, ProductHotspot, ProductRecord, SiteSettings } from "@/types/content";
 
 const rootDir = process.cwd();
 const productsPath = path.join(rootDir, "src", "app", "products", "productsData.json");
@@ -38,6 +38,21 @@ function normalizeCategories(categories: ProductCategory[]): ProductCategory[] {
     .sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name));
 }
 
+function normalizeHotspots(hotspots: ProductHotspot[] | undefined): ProductHotspot[] {
+  if (!Array.isArray(hotspots)) return [];
+
+  return hotspots
+    .map((hotspot) => ({
+      top: String(hotspot.top || "50%").trim() || "50%",
+      left: String(hotspot.left || "50%").trim() || "50%",
+      code: String(hotspot.code || "").trim(),
+      title: String(hotspot.title || "").trim(),
+      desc: String(hotspot.desc || "").trim(),
+      active: hotspot.active !== false,
+    }))
+    .filter((hotspot) => hotspot.title || hotspot.desc || hotspot.code);
+}
+
 function normalizeProducts(products: ProductRecord[]): ProductRecord[] {
   return products
     .map((product) => {
@@ -57,6 +72,7 @@ function normalizeProducts(products: ProductRecord[]): ProductRecord[] {
         image,
         galleryImages: image ? [image, ...gallery.filter((galleryImage) => galleryImage !== image)] : gallery,
         description: String(product.description || "").trim(),
+        hotspots: normalizeHotspots(product.hotspots),
         leadTime: Number(product.leadTime) || 0,
         isNew: Boolean(product.isNew),
         isBest: Boolean(product.isBest),

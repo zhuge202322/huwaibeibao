@@ -7,6 +7,15 @@ export type ProductCategory = {
   sortOrder: number;
 };
 
+export type ProductHotspot = {
+  top: string;
+  left: string;
+  code: string;
+  title: string;
+  desc: string;
+  active?: boolean;
+};
+
 export type ProductRecord = {
   id: string;
   name: string;
@@ -18,6 +27,7 @@ export type ProductRecord = {
   image: string;
   galleryImages?: string[];
   description?: string;
+  hotspots?: ProductHotspot[];
   leadTime: number;
   isNew?: boolean;
   isBest?: boolean;

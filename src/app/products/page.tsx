@@ -8,6 +8,7 @@ import { ChevronRight, Filter, Grid, List, RefreshCw, ShoppingCart, ShieldCheck,
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { localizeCategoryLabel, localizeProduct } from "@/i18n/productLocalization";
 import categoriesData from "@/data/categories.json";
+import type { ProductHotspot } from "@/types/content";
 
 export interface Product {
   id: string;
@@ -20,6 +21,7 @@ export interface Product {
   image: string;
   galleryImages?: string[];
   description?: string;
+  hotspots?: ProductHotspot[];
   leadTime: number; // in days
   isNew?: boolean;
   isBest?: boolean;
